@@ -132,9 +132,10 @@ and `deepseek-v4.1-flash` for a text reason, with a 12 s cap on the vision call 
 (`LIVE-SCAN.md:96`). The only power they have is **demotion**: the VLM can turn an ABSTAIN into a REJECT on
 "deny" and can never promote anything to ACCEPT (`LIVE-SCAN.md:104`).
 
-**Honest state:** both returned 401 for every model tried tonight, so this stage never ran
-(`LIVE-SCAN.md:23-31`). The page and the receipt say "vision check unavailable in this build" rather than
-implying it worked.
+**State on 2026-10-25:** the key was replaced and both models now answer. Measured: vision 9.4 s,
+reasoner 12.1 s, full scan 25.9 s. The models are forced into JSON mode and the reasoner gets a system rule.
+The demotion path runs in production, but a deny has not yet been validated against ground truth, so it is
+treated as a soft demotion only.
 
 ## 6. Placement, the 0.7 rule
 
@@ -158,7 +159,8 @@ where the second of two scans posted 0.3 s apart waited 4.98 s and finished at 1
 1. Detector A and B can agree on a wrong label; the hallway run agreed on "electric box" for a chair
    (`LIVE-SCAN.md:101`).
 2. Heights are rare (36 of 289) because the three routes rarely agree.
-3. The VLM and reasoner have never run, so the demotion path is untested in production.
+3. The VLM and reasoner now run, but a "deny" has not been validated against ground truth, so it is a soft
+   demotion, never a hard rejection.
 4. Placement, not detection, is what stops Jaipur from showing a single barrier.
 5. Micro F1 is 0.23 on our own 100 images, with 46 dev and 54 test and a shipped policy that only changes the
    pole class (`CALIBRATION.md:53-66`).
