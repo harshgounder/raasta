@@ -127,7 +127,7 @@ def _opencode_cfg():
 # deepseek-v4.1-flash = text-only reasoner. No other providers or models by default.
 VISION_MODEL = os.environ.get("SCAN_VISION_MODEL", "mimo-v2.6-flash")
 TEXT_MODEL = os.environ.get("SCAN_TEXT_MODEL", "deepseek-v4.1-flash")
-TIMEOUT_S = float(os.environ.get("SCAN_VLM_TIMEOUT_S", 12))
+TIMEOUT_S = float(os.environ.get("SCAN_VLM_TIMEOUT_S", 45))
 RETRY_DEAD_S = 60.0        # a 401 provider is re-tried after this, so a fixed key works without a restart
 _DEAD: dict = {}           # "opencode-go" or model -> (reason, until_ts)
 _SESSION = "raasta-scan-" + uuid.uuid4().hex[:12]
@@ -149,7 +149,7 @@ def status() -> dict:
             "dead": {k: v[0] for k, v in _DEAD.items() if time.time() < v[1]}}
 
 
-def _call(model: str, messages: list, budget_s: float, max_tokens: int) -> dict:
+def _call(model: str, messages: list, budget_s: float, max_tokens: int, json_mode: bool = False) -> dict:
     """One opencode-go chat call. Returns {ok, seconds, text | error}. Never returns or logs the key."""
     url, key = _opencode_cfg()
     if not key:
@@ -159,8 +159,11 @@ def _call(model: str, messages: list, budget_s: float, max_tokens: int) -> dict:
         return {"ok": False, "seconds": 0, "error": f"skipped: {why} (retry in <= {int(RETRY_DEAD_S)} s)"}
     t = time.time()
     try:
+        body = {"model": model, "max_tokens": max_tokens, "temperature": 0.1, "messages": messages}
+        if json_mode:
+            body["response_format"] = {"type": "json_object"}
         r = requests.post(url, timeout=(4, max(2.0, min(TIMEOUT_S, budget_s))),
-                          json={"model": model, "max_tokens": max_tokens, "temperature": 0.1, "messages": messages},
+                          json=body,
                           headers={"Authorization": "Bearer " + key, "Content-Type": "application/json",
                                    "x-opencode-session": _SESSION})
         sec = round(time.time() - t, 2)
@@ -264,7 +267,7 @@ def _clean(j: dict, nboxes: int) -> dict:
             "surface": str(j.get("surface", ""))[:80]}
 
 
-def describe(img, boxes: list[dict], budget_s: float = 16.0, on_try=None) -> dict:
+def describe(img, boxes: list[dict], budget_s: float = 30.0, on_try=None) -> dict:
     """boxes: [{n, src: 'A'|'B', label, box(px)}]. Tries the chain inside the time budget."""
     t0 = time.time()
     b64, _ = marked_image(img, boxes)
@@ -275,7 +278,7 @@ def describe(img, boxes: list[dict], budget_s: float = 16.0, on_try=None) -> dic
     prompt = PROMPT.format(boxes=lines, scenes=SCENES, ids=", ".join(ELEMENTS))
     r = _call(VISION_MODEL, [{"role": "user", "content": [
         {"type": "text", "text": prompt},
-        {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + b64}}]}], budget_s, 700)
+        {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + b64}}]}], budget_s, 3000)
     base = {"provider": "opencode-go", "model": VISION_MODEL, "seconds": r["seconds"],
             "tries": [{"provider": "opencode-go", "model": VISION_MODEL, "ok": r["ok"], "seconds": r["seconds"],
                        **({"error": r["error"]} if not r["ok"] else {})}]}
@@ -297,14 +300,16 @@ Reply with ONE JSON object only:
 Rules: never call a place safe; ABSTAIN and VLM_ONLY items are 'possible', not certain; do not invent numbers; if the body table says loading, say impacts are not computed yet."""
 
 
-def reason(decisions: list, vlm_out: dict, impact: dict, budget_s: float = 8.0) -> dict:
+def reason(decisions: list, vlm_out: dict, impact: dict, budget_s: float = 25.0) -> dict:
     """Text-only step on deepseek-v4.1-flash: element list, per-body explanations, final plain answer."""
     inputs = json.dumps({
         "detections": [{k: d.get(k) for k in ("class", "class_family", "status", "why")} for d in decisions if d.get("status") != "REJECT"][:14],
         "vision": {k: vlm_out.get(k) for k in ("scene", "indoor", "summary", "elements", "measurements", "light", "weather", "surface")} if vlm_out.get("ok") else {"missing": vlm_out.get("error")},
         "impact": {"status": impact.get("status"), "rows": [{k: r.get(k) for k in ("id", "status", "bodies")} for r in impact.get("rows", [])]},
     }, default=str)[:6000]
-    r = _call(TEXT_MODEL, [{"role": "user", "content": REASON_PROMPT.format(inputs=inputs)}], budget_s, 700)
+    r = _call(TEXT_MODEL, [
+        {"role": "system", "content": "You are a JSON API. Return exactly one valid JSON object and nothing else. No reasoning, no markdown, no explanation."},
+        {"role": "user", "content": REASON_PROMPT.format(inputs=inputs)}], budget_s, 2000, json_mode=True)
     base = {"provider": "opencode-go", "model": TEXT_MODEL, "seconds": r["seconds"]}
     if not r["ok"]:
         return {"ok": False, **base, "error": r["error"]}

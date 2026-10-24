@@ -177,7 +177,7 @@ def run(data: bytes, form: dict, emit) -> dict:
     emit("vlm_start", {"chain": vlm.status()["chain"], "boxes_sent": vboxes})
 
     def _v(_t0=_t()):
-        r = vlm.describe(img, vboxes, budget_s=float(form.get("vlm_budget_s") or 12))
+        r = vlm.describe(img, vboxes, budget_s=float(form.get("vlm_budget_s") or 30))
         r["wall_s"] = round(_t() - _t0, 3)
         return r
     vfut = _POOL.submit(_v)
@@ -259,7 +259,7 @@ def run(data: bytes, form: dict, emit) -> dict:
     # ---- text reasoner (opencode-go deepseek-v4.1-flash): element list, per-body text, plain answer
     t = _t()
     emit("reasoner_start", {"model": "opencode-go/" + vlm.TEXT_MODEL})
-    rs = vlm.reason(dets, v, imp, budget_s=float(form.get("reason_budget_s") or 8))
+    rs = vlm.reason(dets, v, imp, budget_s=float(form.get("reason_budget_s") or 25))
     T["reasoner_s"] = round(_t() - t, 3)
     emit("reasoner", {**rs, "seconds": T["reasoner_s"]})
 

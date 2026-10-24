@@ -150,7 +150,7 @@ timings, thresholds, model ids and per-detection `why` strings (`RECEIPT-SCHEMA.
 append-only: fields may be added, none renamed. That constraint is why a receipt from tonight can be compared
 with one from tomorrow.
 
-**Measured end to end:** 10.56 s street, 6.61 s hallway, 4.35 s night (`LIVE-SCAN.md:84-86`), and a queue test
+**Measured end to end (detectors only, before the AI stages were enabled):** 10.56 s street, 6.61 s hallway, 4.35 s night (`LIVE-SCAN.md:84-86`). With the vision model and the reasoner enabled (2026-10-25) a full scan is about 26 s. A queue test
 where the second of two scans posted 0.3 s apart waited 4.98 s and finished at 11.26 s (`LIVE-SCAN.md:91`).
 
 ## 8. What is weakest, in one list

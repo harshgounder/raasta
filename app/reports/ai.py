@@ -26,7 +26,7 @@ VISION_MODEL = "mimo-v2.6-flash"
 TEXT_MODEL = "deepseek-v4.1-flash"
 ALLOWED = {VISION_MODEL, TEXT_MODEL}
 UA = "raasta-reports/0.1"
-TIMEOUT = float(os.environ.get("REPORTS_AI_TIMEOUT_S", "25"))
+TIMEOUT = float(os.environ.get("REPORTS_AI_TIMEOUT_S", "60"))
 SEVERITY = {1: "minor", 2: "slows people down", 3: "unsafe for some", 4: "blocks some people", 5: "dangerous, blocks most"}
 _last_error: dict = {}
 
@@ -73,7 +73,7 @@ def _chat(model: str, messages: list, session: str, max_tokens: int = 900, json_
 def _img_data_url(path: str) -> str:
     from PIL import Image, ImageOps
     im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
-    im.thumbnail((1024, 1024))
+    im.thumbnail((768, 768))
     buf = io.BytesIO()
     im.save(buf, "JPEG", quality=82)
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
@@ -102,7 +102,7 @@ def first_look(rep: dict, analyze: dict, near: list, known: list, photo: str | N
                     f"They say it is: '{ft.get('en', rep['type'])}'. In at most 60 words, plain English: what barrier "
                     "do you see, where in the frame, roughly how big (kerb height, how much width is left), and does "
                     "the photo agree with what they said (yes / no / cannot tell)? No guessing beyond the photo.")},
-                {"type": "image_url", "image_url": {"url": _img_data_url(photo)}}]}], session, max_tokens=220)
+                {"type": "image_url", "image_url": {"url": _img_data_url(photo)}}]}], session, max_tokens=2500)
             vision = txt
             out["models_used"].append(f"opencode-go/{VISION_MODEL}")
             out["timings"]["vision_s"] = round(dt, 2)

@@ -18,3 +18,4 @@ apikeys.txt
 *.pptx
 *.pdf
 .DS_Store
+api-key-*

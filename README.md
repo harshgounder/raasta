@@ -19,7 +19,7 @@ Built for **HYPNEXIS '26**, problem statement **SC-02: Accessible Walking Routes
 
 ## What it does
 
-- **Scan a street photo.** Upload any street, footpath, room or hallway. Twelve stages run in front of you: two detectors, agreement, footpath mask, depth, measurement, placement, impact, a vision model, a reasoner, and a receipt. About 6.3 s on a 4 GB laptop GPU.
+- **Scan a street photo.** Upload any street, footpath, room or hallway. Twelve stages run in front of you: two detectors, agreement, footpath mask, depth, measurement, placement, impact, a vision model, a reasoner, and a receipt. Detectors run in about 6 s; the full scan with vision and reasoner runs in about 26 s on a 4 GB laptop GPU.
 - **Pick a body, not a setting.** 74 body profiles across 7 categories, 25 subcategories. The same kerb is a different cost for a manual wheelchair, a walker, a white cane, a person carrying a load, or a person with low vision.
 - **See the route that avoids it.** Shortest route versus RAASTA route, on a 2.5D footpath map, with the barriers each route meets. On the Chandigarh demo: the shortest route is 622 m and meets 33 placed barriers. The RAASTA route is 1.04 km and meets 0.
 - **Never call a segment safe.** Every segment is `known_barrier`, `known_clear` with a date, `osm_tag`, or `unknown`. Routes report those counts. No recent image means unknown, not safe.
@@ -101,7 +101,7 @@ Honesty is part of the product, so it is part of this README.
 | 100 labelled Indian images, micro F1 0.23 | published as is, AI-assisted, 20 images still need a human pass |
 | 86% of element impact values | routing assumptions, marked in the app |
 | Jaipur barriers observed | 0. 130 detections abstained instead of being forced onto a segment |
-| scan time | 6.3 s measured on the demo laptop |
+| scan time | detectors about 6 s, full scan with both models about 26 s, measured |
 
 We would rather print a weak number and its caveat than a strong number we cannot defend.
 
