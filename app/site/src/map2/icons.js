@@ -1,4 +1,6 @@
-// ink pictograms per element category (stand-ins until codex's art/out/v3/icons set lands; see MAP-V2-BUILD.md).
+// ink pictograms per element category. This SVG set is the production icon set: it is resolution free,
+// inherits the ink and paper tokens, and covers every element through its glyph field. Codex's raster
+// set was never delivered, so nothing waits on it.
 // every glyph is drawn in a 64x64 box with round strokes; badge() wraps it in the severity shape:
 //   block  = solid ink disc, paper glyph          slow = paper disc, thick ink ring, ink glyph
 //   warn   = same as slow (drawn smaller by the map)   unsure = paper disc, dashed ring, "?" tag (ABSTAIN)
