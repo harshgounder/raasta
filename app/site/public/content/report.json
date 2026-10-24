@@ -1,0 +1,16 @@
+{
+  "placeholder": true,
+  "note": "PLACEHOLDER complaint templates; the content lane checks the law reference and the right office per city. Fields: {type} {road} {segment} {lat} {lng} {date} {height} {status} {photo} {name} {today}",
+  "types": {
+    "missing_ramp": { "en": "kerb with no ramp", "hi": "बिना रैंप का ऊँचा किनारा" },
+    "steps": { "en": "steps across the footpath", "hi": "फुटपाथ पर सीढ़ियाँ" },
+    "broken_footpath": { "en": "broken footpath", "hi": "टूटा फुटपाथ" },
+    "pole": { "en": "pole blocking the footpath", "hi": "फुटपाथ रोकता खंभा" },
+    "parked_vehicle": { "en": "vehicle parked on the footpath", "hi": "फुटपाथ पर खड़ी गाड़ी" }
+  },
+  "template": {
+    "en": "To: the ward office\nSubject: {type} on {road}\n\nDate: {today}\n\nThere is a {type} on the footpath of {road} (segment {segment}, location {lat}, {lng}). It was photographed on {date}.{height}\n\nThis stops people who use wheelchairs, walkers or prams from using the footpath, and pushes them onto the road. Please inspect and repair it, in line with the accessibility duties under the Rights of Persons with Disabilities Act, 2016.\n\nPhoto: {photo}\n\n{name}",
+    "hi": "सेवा में: वार्ड कार्यालय\nविषय: {road} पर {type}\n\nदिनांक: {today}\n\n{road} के फुटपाथ पर (खंड {segment}, स्थान {lat}, {lng}) {type} है. इसकी फ़ोटो {date} को ली गई.{height}\n\nइसकी वजह से व्हीलचेयर, वॉकर या बच्चा गाड़ी वाले लोग फुटपाथ इस्तेमाल नहीं कर पाते और सड़क पर चलने को मजबूर होते हैं. कृपया दिव्यांगजन अधिकार अधिनियम, 2016 के तहत सुलभता की ज़िम्मेदारी के अनुसार इसकी जाँच और मरम्मत करें.\n\nफ़ोटो: {photo}\n\n{name}"
+  },
+  "height_line": { "en": " Measured height: {height}.", "hi": " मापी गई ऊँचाई: {height}." }
+}

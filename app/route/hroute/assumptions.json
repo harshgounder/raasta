@@ -1,0 +1,583 @@
+{
+ "_about": "Every number in this file is an ASSUMPTION unless a source is named next to it. Edit here, not in code. Loaded by hroute/config.py.",
+ "_sources": {
+  "_about": "source_status: verified = a team member read the primary text; to_confirm = cited from research notes, primary not yet read. Numbers are unchanged until confirmed.",
+  "IRC_103_2012_kerb": {
+   "text": "IRC:103-2012 Guidelines for Pedestrian Facilities, cl. 6.2.1: maximum height of a pavement (including kerb, walking surface, top-of-paving) shall not exceed 150 mm from the road level (same 150 mm in IRC:103-2022 cl. 6.2)",
+   "source_status": "verified",
+   "checked_by": "hermes FACTCHECK-SITE.md 2026-10-24"
+  },
+  "IRC_103_2022": {
+   "text": "IRC:103-2022 (Guidelines for Pedestrian Facilities, 2nd revision), sec 6.7 'Painted Zebra Crossing', Fig. 48: kerb ramp 'should not be steeper than 1:15 and slope on flared sides should be 1:10'. Footpath/kerb height 150 mm: IRC:103-2022 cl. 6.2",
+   "source_status": "verified",
+   "checked_in": "research/claude/VERIFY-STANDARDS.md 2026-10-24"
+  },
+  "MoHUA_HG_2021": {
+   "text": "MoHUA Harmonised Guidelines and Standards for Universal Accessibility in India 2021 (March 2022 print): kerb ramp max 1:12, flares max 1:10 (cl. 3.7.2); kerb ramp min width 900 mm (cl. 3.7.3); external ramps 1:12 only up to 6 m run, longer runs flatter (Table 3.4); walkway min width 1200 mm, 1800 mm for two-way (cl. 3.5.1; other copies number it 3.4.1, cite the edition)",
+   "source_status": "verified",
+   "checked_in": "research/claude/VERIFY-STANDARDS.md 2026-10-24"
+  },
+  "IRC_older_speed": {
+   "text": "older pedestrian design speed about 0.79 m/s (IRC older guidance)",
+   "source_status": "to_confirm",
+   "note": "second-hand via research digest 2.6; treat as an assumption until the code text is read"
+  },
+  "project_sidewalk_licence": {
+   "text": "Project Sidewalk label data: 'dedicated to the public domain under CC0 1.0' (sidewalk-chandigarh.cs.washington.edu/api, Data License & Provenance; cite the Project Sidewalk CHI 2019 paper). Their OSM-derived street geometry is ODbL. Our network is built from OSM, so maps attribute OpenStreetMap contributors (ODbL)",
+   "source_status": "verified",
+   "checked_in": "research/claude/VERIFY-STANDARDS.md 2026-10-24"
+  },
+  "digest": {
+   "text": "research/claude/sc02-PARALLEL-DIGEST.md sections 2.2 and 2.6",
+   "source_status": "secondary"
+  },
+  "_rule": "stricter-for-wheelchair = 1:15 (IRC:103-2022) over 1:12 (MoHUA HG 2021); always cite year/edition"
+ },
+ "network": {
+  "_about": "road width estimates used to place generated sidewalks. offset = width/2 + kerb_to_walk_centre_m, clamped. ASSUMPTION, Indian urban defaults, overridden by OSM width or lanes tags.",
+  "road_width_m": {
+   "trunk": 14,
+   "trunk_link": 7,
+   "primary": 12,
+   "primary_link": 7,
+   "secondary": 10,
+   "secondary_link": 6,
+   "tertiary": 8,
+   "tertiary_link": 6,
+   "unclassified": 6,
+   "residential": 5,
+   "road": 6
+  },
+  "lane_width_m": 3.25,
+  "kerb_to_walk_centre_m": 1.0,
+  "offset_min_m": 2.5,
+  "offset_max_m": 9.0,
+  "generate_on": [
+   "trunk",
+   "trunk_link",
+   "primary",
+   "primary_link",
+   "secondary",
+   "secondary_link",
+   "tertiary",
+   "tertiary_link",
+   "unclassified",
+   "residential",
+   "road"
+  ],
+  "shared_street": [
+   "service",
+   "living_street",
+   "track",
+   "busway"
+  ],
+  "pedestrian_ways": [
+   "footway",
+   "path",
+   "pedestrian",
+   "steps",
+   "bridleway",
+   "corridor",
+   "cycleway"
+  ],
+  "osm_sidewalk_coverage_min": 0.5,
+  "osm_sidewalk_search_extra_m": 6.0,
+  "dual_carriageway_search_m": 16.0,
+  "max_segment_m": 150.0,
+  "dangling_snap_m": 15.0,
+  "island_stitch_m": 25.0
+ },
+ "attach": {
+  "_about": "barrier placement model. p(segment) proportional to distance x bearing x side x kind prior; a null 'off-network' candidate keeps p honest.",
+  "search_radius_m": 30.0,
+  "accept_p": 0.7,
+  "view_spread_m": 7.0,
+  "forward_range_m": 6.0,
+  "min_gps_error_m": 3.0,
+  "side_match": 0.9,
+  "side_mismatch": 0.05,
+  "null_weight": 0.02,
+  "kind_prior": {
+   "default": {
+    "sidewalk": 1.0,
+    "footway": 1.0,
+    "shared_street": 0.8,
+    "steps": 1.0,
+    "crossing": 0.25,
+    "corner": 0.25,
+    "link": 0.2,
+    "connector": 0.1,
+    "median": 0.15
+   },
+   "missing_kerb_ramp": {
+    "sidewalk": 0.7,
+    "footway": 0.7,
+    "shared_street": 0.5,
+    "steps": 0.3,
+    "crossing": 1.0,
+    "corner": 1.0,
+    "link": 0.8,
+    "connector": 0.2,
+    "median": 0.3
+   },
+   "steps": {
+    "sidewalk": 0.8,
+    "footway": 1.0,
+    "shared_street": 0.6,
+    "steps": 1.5,
+    "crossing": 0.3,
+    "corner": 0.5,
+    "link": 0.4,
+    "connector": 0.2,
+    "median": 0.15
+   }
+  }
+ },
+ "profiles": {
+  "_about": "speed_mps: ASSUMPTION for every profile. walker_elderly 0.79 m/s follows an IRC older-pedestrian design value (source_status to_confirm, see _sources.IRC_older_speed). unknown_penalty_s: expected extra seconds if an unseen barrier is met.",
+  "manual_wheelchair": {
+   "label": "Manual wheelchair",
+   "speed_mps": 1.0,
+   "unknown_penalty_s": 240,
+   "slope_block_pct": 6.67,
+   "slope_rule": "stricter of MoHUA HG 2021 cl. 3.7.2 (1:12) and IRC:103-2022 sec 6.7 (1:15) => 1:15"
+  },
+  "power_wheelchair": {
+   "label": "Power wheelchair",
+   "speed_mps": 1.3,
+   "unknown_penalty_s": 180,
+   "slope_block_pct": 6.67,
+   "slope_rule": "stricter of MoHUA HG 2021 cl. 3.7.2 (1:12) and IRC:103-2022 sec 6.7 (1:15) => 1:15 for all wheelchairs"
+  },
+  "walker_elderly": {
+   "label": "Elderly with walker",
+   "speed_mps": 0.79,
+   "unknown_penalty_s": 150,
+   "slope_cost_from_pct": 5.0
+  },
+  "pram": {
+   "label": "Pram / stroller",
+   "speed_mps": 1.15,
+   "unknown_penalty_s": 120,
+   "slope_cost_from_pct": 8.33
+  },
+  "crutches": {
+   "label": "Crutches",
+   "speed_mps": 0.8,
+   "unknown_penalty_s": 120,
+   "slope_cost_from_pct": 6.67
+  },
+  "low_vision": {
+   "label": "Low vision",
+   "speed_mps": 1.0,
+   "unknown_penalty_s": 150
+  },
+  "default_walker": {
+   "label": "Default walker",
+   "speed_mps": 1.3,
+   "unknown_penalty_s": 20
+  }
+ },
+ "unknown_prior": {
+  "_about": "ASSUMPTION: chance an unseen barrier that matters sits on a segment with no clear evidence. linear kinds: p = 1-(1-per_100m)^(length/100); short kinds: p = per_segment. cost = -ln(1-min(p,0.99)) x profile unknown_penalty_s. Only clear-type evidence (seen and fine) removes it, and only within clear_radius_m of the label.",
+  "per_100m": {
+   "sidewalk": 0.45,
+   "footway": 0.3,
+   "shared_street": 0.35,
+   "steps": 0.0,
+   "median": 1.0
+  },
+  "per_segment": {
+   "crossing": 0.6,
+   "corner": 0.3,
+   "link": 0.4,
+   "connector": 0.2,
+   "median": 0.15
+  },
+  "clear_radius_m": 25.0
+ },
+ "block_p": 0.5,
+ "_block_p_about": "a blocking barrier counts as a hard block when p_present >= block_p; below it, it adds p * soft_block_cost_s instead",
+ "soft_block_cost_s": 600,
+ "barriers": {
+  "_about": "per barrier type, per profile: block (hard) or cost_s (seconds added, times p_present). height rules: block_if_height_cm_gt; unknown_height = block|cost. ASSUMPTION except where a source is named.",
+  "missing_kerb_ramp": {
+   "manual_wheelchair": {
+    "block_if_height_cm_gt": 2,
+    "unknown_height": "block",
+    "cost_s": 45
+   },
+   "power_wheelchair": {
+    "block_if_height_cm_gt": 2,
+    "unknown_height": "block",
+    "cost_s": 30
+   },
+   "walker_elderly": {
+    "cost_s": 40,
+    "per_cm_s": 3
+   },
+   "pram": {
+    "cost_s": 40,
+    "block_if_height_cm_gt": 25
+   },
+   "crutches": {
+    "cost_s": 30,
+    "per_cm_s": 2
+   },
+   "low_vision": {
+    "cost_s": 15
+   },
+   "default_walker": {
+    "cost_s": 3
+   }
+  },
+  "steps": {
+   "manual_wheelchair": {
+    "block": true
+   },
+   "power_wheelchair": {
+    "block": true
+   },
+   "walker_elderly": {
+    "cost_s": 90
+   },
+   "pram": {
+    "cost_s": 120
+   },
+   "crutches": {
+    "cost_s": 75
+   },
+   "low_vision": {
+    "cost_s": 25
+   },
+   "default_walker": {
+    "cost_s": 6
+   }
+  },
+  "broken_footpath": {
+   "manual_wheelchair": {
+    "cost_s": 150
+   },
+   "power_wheelchair": {
+    "cost_s": 90
+   },
+   "walker_elderly": {
+    "cost_s": 120
+   },
+   "pram": {
+    "cost_s": 60
+   },
+   "crutches": {
+    "cost_s": 100
+   },
+   "low_vision": {
+    "cost_s": 90
+   },
+   "default_walker": {
+    "cost_s": 10
+   }
+  },
+  "missing_footpath": {
+   "_about": "walking in the carriageway with traffic",
+   "manual_wheelchair": {
+    "cost_s": 180
+   },
+   "power_wheelchair": {
+    "cost_s": 120
+   },
+   "walker_elderly": {
+    "cost_s": 150
+   },
+   "pram": {
+    "cost_s": 120
+   },
+   "crutches": {
+    "cost_s": 120
+   },
+   "low_vision": {
+    "cost_s": 240
+   },
+   "default_walker": {
+    "cost_s": 20
+   }
+  },
+  "pole_obstruction": {
+   "_about": "clear width unknown from a point label; a measured clear_width_cm < 90 blocks wheelchairs (MoHUA min 1200 mm path)",
+   "manual_wheelchair": {
+    "cost_s": 90,
+    "block_if_clear_width_cm_lt": 90
+   },
+   "power_wheelchair": {
+    "cost_s": 90,
+    "block_if_clear_width_cm_lt": 90
+   },
+   "walker_elderly": {
+    "cost_s": 60
+   },
+   "pram": {
+    "cost_s": 60,
+    "block_if_clear_width_cm_lt": 70
+   },
+   "crutches": {
+    "cost_s": 40
+   },
+   "low_vision": {
+    "cost_s": 120
+   },
+   "default_walker": {
+    "cost_s": 5
+   }
+  },
+  "parked_vehicle": {
+   "manual_wheelchair": {
+    "cost_s": 150,
+    "block_if_clear_width_cm_lt": 90
+   },
+   "power_wheelchair": {
+    "cost_s": 150,
+    "block_if_clear_width_cm_lt": 90
+   },
+   "walker_elderly": {
+    "cost_s": 90
+   },
+   "pram": {
+    "cost_s": 90,
+    "block_if_clear_width_cm_lt": 70
+   },
+   "crutches": {
+    "cost_s": 60
+   },
+   "low_vision": {
+    "cost_s": 120
+   },
+   "default_walker": {
+    "cost_s": 10
+   }
+  },
+  "pothole": {
+   "manual_wheelchair": {
+    "cost_s": 90
+   },
+   "power_wheelchair": {
+    "cost_s": 60
+   },
+   "walker_elderly": {
+    "cost_s": 60
+   },
+   "pram": {
+    "cost_s": 30
+   },
+   "crutches": {
+    "cost_s": 60
+   },
+   "low_vision": {
+    "cost_s": 90
+   },
+   "default_walker": {
+    "cost_s": 5
+   }
+  },
+  "open_drain": {
+   "manual_wheelchair": {
+    "block": true
+   },
+   "power_wheelchair": {
+    "block": true
+   },
+   "walker_elderly": {
+    "block": true
+   },
+   "pram": {
+    "cost_s": 120
+   },
+   "crutches": {
+    "block": true
+   },
+   "low_vision": {
+    "block": true
+   },
+   "default_walker": {
+    "cost_s": 15
+   }
+  },
+  "vendor": {
+   "manual_wheelchair": {
+    "cost_s": 120,
+    "block_if_clear_width_cm_lt": 90
+   },
+   "power_wheelchair": {
+    "cost_s": 120,
+    "block_if_clear_width_cm_lt": 90
+   },
+   "walker_elderly": {
+    "cost_s": 60
+   },
+   "pram": {
+    "cost_s": 60,
+    "block_if_clear_width_cm_lt": 70
+   },
+   "crutches": {
+    "cost_s": 45
+   },
+   "low_vision": {
+    "cost_s": 90
+   },
+   "default_walker": {
+    "cost_s": 8
+   }
+  },
+  "waterlogging": {
+   "manual_wheelchair": {
+    "block": true
+   },
+   "power_wheelchair": {
+    "block": true
+   },
+   "walker_elderly": {
+    "cost_s": 300
+   },
+   "pram": {
+    "block": true
+   },
+   "crutches": {
+    "cost_s": 300
+   },
+   "low_vision": {
+    "block": true
+   },
+   "default_walker": {
+    "cost_s": 60
+   }
+  },
+  "steep_slope": {
+   "_about": "extension type (not in the B1 label set): handled by slope rules in profiles; cost_s here is for slope above the profile's slope_cost_from_pct",
+   "manual_wheelchair": {
+    "cost_s": 120
+   },
+   "power_wheelchair": {
+    "cost_s": 60
+   },
+   "walker_elderly": {
+    "cost_s": 90
+   },
+   "pram": {
+    "cost_s": 45
+   },
+   "crutches": {
+    "cost_s": 60
+   },
+   "low_vision": {
+    "cost_s": 0
+   },
+   "default_walker": {
+    "cost_s": 0
+   }
+  }
+ },
+ "clear_types": [
+  "kerb_ramp_present",
+  "crossing_marked",
+  "clear"
+ ],
+ "_clear_types_about": "positive evidence: the segment was seen and this was fine. Counts as verified, never as 'safe'.",
+ "temporal": {
+  "_about": "temporary barriers: p_present = confidence x min(1, max(decay, recurrence) x hour_ratio). decay = 0.5^(hours since observed / half_life_h). hour_ratio = curve[leave hour] / max(curve[observed hour], 0.1). All ASSUMPTIONS: no Indian hourly survey of vendors or footpath parking was found.",
+  "default_half_life_h": {
+   "parked_vehicle": 2,
+   "vendor": 6,
+   "waterlogging": 24,
+   "pothole": 2160,
+   "broken_footpath": 4320
+  },
+  "recurrence": {
+   "parked_vehicle": 0.35,
+   "vendor": 0.6,
+   "waterlogging": 0.0
+  },
+  "hour_curve": {
+   "vendor": [
+    0.05,
+    0.02,
+    0.02,
+    0.02,
+    0.02,
+    0.05,
+    0.15,
+    0.3,
+    0.5,
+    0.7,
+    0.85,
+    0.9,
+    0.9,
+    0.8,
+    0.7,
+    0.7,
+    0.8,
+    0.95,
+    1.0,
+    1.0,
+    0.95,
+    0.8,
+    0.5,
+    0.2
+   ],
+   "parked_vehicle": [
+    0.3,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.25,
+    0.3,
+    0.4,
+    0.55,
+    0.75,
+    0.9,
+    1.0,
+    1.0,
+    0.95,
+    0.9,
+    0.9,
+    0.95,
+    1.0,
+    1.0,
+    1.0,
+    0.9,
+    0.7,
+    0.5,
+    0.4
+   ]
+  },
+  "permanent_note": "permanent barriers do not decay; their age is reported so a stale photo is visible"
+ },
+ "source_tiers": {
+  "photo": [
+   "photo",
+   "upload",
+   "mapillary",
+   "video_frame",
+   "manual_survey",
+   "test"
+  ],
+  "volunteer_label": [
+   "project_sidewalk"
+  ],
+  "osm": [
+   "osm_tag"
+  ],
+  "what_if": [
+   "what_if"
+  ],
+  "_about": "what_if records are placed by the routing lane to demonstrate profile and leave-time effects; they cost like real barriers but never count as evidence"
+ },
+ "kind_block": {
+  "_about": "segment kinds a profile cannot use at all. median = generated median/island side of a dual carriageway or roundabout, no footpath assumed (ASSUMPTION)",
+  "median": [
+   "manual_wheelchair",
+   "power_wheelchair",
+   "pram"
+  ]
+ },
+ "dedupe_m": 5.0,
+ "_dedupe_about": "same-type barrier labels within dedupe_m on one segment are one cluster (p = max); clusters of one type combine as 1-prod(1-p), so a type costs at most its cost_s once per segment"
+}

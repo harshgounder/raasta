@@ -1,0 +1,167 @@
+/* /what-if v2: tree on the left, the question on the right, a wide map panel under it. same look as page.css:
+   paper, ink, one red, rough boxes, Gloock heads, rounded ui face. */
+.what-if-page .page { max-width: 1480px; }
+.wi2 { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 32px; align-items: start; }
+
+/* tree */
+.wi-tree { position: sticky; top: 84px; max-height: calc(100vh - 100px); display: flex; flex-direction: column; border-right: var(--stroke) solid var(--ink); padding-right: 18px; }
+.wi-tree-body { display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+.wi-drawer { display: none; }
+.wi-search input { width: 100%; box-sizing: border-box; font: 700 15px/1.3 var(--font-ui); color: var(--ink); background: var(--paper); border: var(--stroke) solid var(--ink); padding: 11px 12px; border-radius: 0; }
+.wi-search input:focus { outline: 3px solid var(--red); outline-offset: 0; }
+.wi-bodyf select { width: 100%; min-width: 0; font-size: 13px; padding: 9px 10px; }
+.wi-topics { overflow-y: auto; overscroll-behavior: contain; min-height: 0; flex: 1; padding-bottom: 64px; scrollbar-width: thin; }
+.wi-trow, .wi-srow, .wi-irow { display: flex; width: 100%; align-items: center; gap: 10px; text-align: left; background: none; border: 0; color: var(--ink); cursor: pointer; font-family: var(--font-ui); }
+.wi-trow { padding: 12px 4px; border-bottom: 2px solid var(--ink); font-weight: 800; font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase; min-height: 44px; }
+.wi-t.open > .wi-trow { color: var(--red); }
+.wi-trow:hover, .wi-srow:hover, .wi-irow:hover { color: var(--red); }
+.wi-tid { flex: none; font: 800 11px/1 var(--font-ui); letter-spacing: 0.04em; color: var(--ink-soft); min-width: 34px; }
+.wi-t.open > .wi-trow .wi-tid { color: var(--red); }
+.wi-tname, .wi-sname, .wi-isub { flex: 1; min-width: 0; }
+.wi-n { flex: none; font: 800 11px/1 var(--font-ui); padding: 5px 7px; background: var(--ink); color: var(--paper); }
+.wi-t.open > .wi-trow .wi-n { background: var(--red); }
+.wi-subs { padding: 4px 0 10px 12px; border-left: 3px solid var(--red); margin-left: 4px; }
+.wi-srow { padding: 10px 4px; font-weight: 800; font-size: 13.5px; min-height: 44px; border-bottom: 1px solid #d6d6d6; }
+.wi-s.open > .wi-srow { color: var(--red); }
+.wi-srow .wi-n { background: var(--paper); color: var(--ink); border: 2px solid var(--ink); padding: 3px 5px; }
+.wi-items { list-style: none; margin: 4px 0 8px; padding: 0 0 0 8px; }
+.wi-irow { padding: 8px 6px; font-weight: 700; font-size: 13px; line-height: 1.3; min-height: 44px; }
+.wi-irow .wi-iid { flex: none; font: 800 10.5px/1 var(--font-ui); color: var(--ink-soft); min-width: 44px; }
+.wi-irow[aria-current="true"] { background: var(--ink); color: var(--paper); }
+.wi-irow[aria-current="true"] .wi-iid { color: var(--paper); }
+.wi-b { flex: none; font: 800 10px/1 var(--font-ui); font-style: normal; width: 20px; height: 20px; display: grid; place-items: center; border: 2px solid currentColor; }
+.wi-b.v-block, .wi-cb-v.v-block { background: var(--red); border-color: var(--red); color: var(--paper); }
+.wi-b.v-cost, .wi-cb-v.v-cost { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.wi-irow[aria-current="true"] .wi-b.v-cost { background: var(--paper); color: var(--ink); }
+.wi-none { font-weight: 700; color: var(--ink-soft); }
+
+/* the question */
+.wi-main { min-width: 0; }
+.wi-crumb { margin: 0 0 14px; font-weight: 800; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+.wi-crumb b { color: var(--red); padding: 0 4px; }
+.wi-qid { display: inline-block; padding: 5px 8px; margin-right: 8px; background: var(--red); color: var(--paper); letter-spacing: 0.04em; }
+.wi-qh { margin: 0; font: 400 clamp(30px, 3.8vw, 58px)/1.02 var(--font-display); letter-spacing: 0; text-transform: none; max-width: 24ch; }
+.wi-qhi { margin: 14px 0 0; font: 800 clamp(18px, 1.8vw, 24px)/1.4 var(--font-ui); color: var(--ink-soft); }
+.wi-cols { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; margin-top: 30px; align-items: start; }
+.wi-ans h3, .wi-rec h3, .wi-engine h3, .wi-side h4, .wi-engine h4 { font: 800 12px/1.2 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 12px; color: var(--red); }
+.wi-a { margin: 0; font-weight: 700; font-size: 17.5px; line-height: 1.62; max-width: 62ch; }
+.wi-parts { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.wi-parts li { font: 800 11px/1 var(--font-ui); letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 10px; border: 2px solid var(--ink); }
+.wi-rec { padding: 18px 18px 14px; }
+.wi-recipe { margin: 0; display: grid; gap: 10px; }
+.wi-recipe > div { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.wi-recipe dt { font: 800 10.5px/1.3 var(--font-ui); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+.wi-recipe dd { margin: 0; font-weight: 700; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; }
+.wi-recipe small { color: var(--ink-soft); }
+.wi-el { display: inline-flex; align-items: center; gap: 6px; margin: 0 10px 4px 0; }
+.wi-el svg { flex: none; }
+.wi-raw { margin: 12px 0 0; font-size: 11.5px; color: var(--ink-soft); overflow-wrap: anywhere; }
+.wi-raw code { font-family: ui-monospace, monospace; }
+
+/* engine block */
+.wi-engine { margin-top: 28px; padding: 20px 22px; }
+.wi-head { margin: 0 0 10px; font: 400 clamp(20px, 1.9vw, 28px)/1.2 var(--font-display); }
+.wi-delta { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 12px; align-items: center; }
+.wi-delta > span { font: 800 20px/1 var(--font-ui); padding: 8px 10px; border: var(--stroke) solid var(--ink); }
+.wi-delta > span.up { background: var(--red); border-color: var(--red); color: var(--paper); }
+.wi-delta .wi-vd { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.wi-delta .wi-vd.v-block { background: var(--ink); color: var(--paper); }
+.wi-stats { display: grid; gap: 6px; margin: 0 0 12px; }
+.wi-stat { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; font-size: 14px; }
+.wi-stat-k { font: 800 11px/1.2 var(--font-ui); letter-spacing: 0.06em; text-transform: uppercase; min-width: 150px; color: var(--ink-soft); }
+.wi-flag { font: 800 10.5px/1 var(--font-ui); letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 6px; border: 2px solid var(--ink); }
+.wi-flag.bad { background: var(--red); border-color: var(--red); color: var(--paper); }
+.wi-reason { margin: 0 0 12px; font-weight: 700; font-size: 14px; line-height: 1.55; overflow-wrap: anywhere; }
+.small { font-size: 12.5px; }
+.wi-contrast { display: flex; flex-wrap: wrap; gap: 8px; }
+.wi-cb { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 10px 6px 6px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); font: 700 12.5px/1.2 var(--font-ui); cursor: pointer; text-align: left; max-width: 100%; }
+.wi-cb:hover { border-color: var(--red); }
+.wi-cb.on { background: var(--ink); color: var(--paper); }
+.wi-cb-v { flex: none; width: 26px; height: 26px; display: grid; place-items: center; font: 800 12px/1 var(--font-ui); border: 2px solid currentColor; }
+.wi-cb.on .wi-cb-v.v-cost { background: var(--paper); color: var(--ink); }
+.wi-cb-n { min-width: 0; }
+.wi-cb-d { flex: none; font-weight: 800; color: var(--red); }
+.wi-cb.on .wi-cb-d { color: #ff8f8a; }
+
+.wi-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin: 24px 0 0; }
+.wi-run { font-size: 15px; padding: 18px 26px; min-height: 56px; }
+.wi-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.wi-nav .btn { border: 2px solid var(--ink); min-height: 44px; }
+.wi-nav small { color: var(--ink-soft); font-size: 10px; }
+
+/* map panel */
+.wi-mappanel { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 18px; margin-top: 22px; align-items: start; }
+.wi-mappanel[hidden] { display: none; }
+.wi-mapbox { position: relative; height: min(74vh, 760px); min-height: 460px; }
+.wi-map, .wi-map-inner { position: absolute; inset: 0; }
+.wi-mapbox::before { z-index: 3; }
+.wi-legend { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 14px; font: 800 11px/1.2 var(--font-ui); letter-spacing: 0.04em; text-transform: uppercase; }
+.wi-legend span { display: inline-flex; align-items: center; gap: 8px; }
+.wi-legend .k { display: inline-block; width: 30px; height: 0; }
+.wi-legend .k.base { border-top: 4px dashed var(--ink); }
+.wi-legend .k.wi { border-top: 5px solid var(--red); }
+.wi-side { padding: 18px; max-height: min(74vh, 760px); overflow-y: auto; scrollbar-width: thin; }
+.wi-side-k { margin: 0; font: 800 11px/1 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+.wi-side-b { margin: 6px 0 12px; font: 400 26px/1.1 var(--font-display); }
+.wi-side-b small { font: 800 12px/1 var(--font-ui); color: var(--ink-soft); }
+.wi-side .wi-stat-k { min-width: 0; width: 100%; }
+.wi-side h4 { margin-top: 16px; }
+.wi-hits, .wi-placed { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 12.5px; line-height: 1.45; font-weight: 700; }
+.wi-hits li, .wi-placed li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 8px; align-items: start; overflow-wrap: anywhere; }
+.wi-placed small { color: var(--ink-soft); }
+.wi-allb { margin-top: 16px; }
+.wi-allb select { width: 100%; min-width: 0; font-size: 13px; }
+.wi-mk { cursor: default; filter: drop-shadow(0 1px 0 #fff); }
+.wi-mk svg { display: block; }
+.map-pin.from { background: var(--ink); }
+
+@media (max-width: 1200px) {
+  .wi-cols { grid-template-columns: minmax(0, 1fr); }
+  .wi-mappanel { grid-template-columns: minmax(0, 1fr); }
+  .wi-side { max-height: none; }
+}
+@media (max-width: 980px) {
+  .wi2 { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .wi-tree { position: relative; top: 0; max-height: none; border-right: 0; padding-right: 0; }
+  .wi-drawer { display: flex; justify-content: space-between; align-items: center; width: 100%; min-height: 48px; padding: 12px 14px; }
+  .wi-drawer-n { font-weight: 800; }
+  .wi-tree-body { display: none; padding-top: 12px; }
+  .wi-tree.open .wi-tree-body { display: flex; }
+  .wi-topics { max-height: 62vh; }
+}
+@media (max-width: 640px) {
+  .wi-qh { font-size: clamp(28px, 8.4vw, 40px); }
+  .wi-a { font-size: 16px; }
+  .wi-recipe > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .wi-engine { padding: 16px; }
+  .wi-mapbox { height: 60vh; min-height: 360px; }
+  .wi-run { width: 100%; }
+  .wi-nav { width: 100%; justify-content: space-between; }
+  .wi-stat-k { min-width: 0; width: 100%; }
+  .wi-legend { font-size: 10px; gap: 6px 12px; }
+  .wi-delta > span { font-size: 17px; }
+}
+.wi-notes { margin: 8px 0 0; padding-left: 16px; font-size: 11.5px; line-height: 1.45; color: var(--ink-soft); font-weight: 700; }
+.wi-b.v-changed, .wi-cb-v.v-changed { background: var(--red); border-color: var(--red); color: var(--paper); }
+.wi-delta .wi-vd.v-changed { background: var(--red); border-color: var(--red); color: var(--paper); }
+/* maplibre's own css sets .maplibregl-map { position: relative }, which collapsed the panel to 0 px; pin it */
+.wi-map > .wi-map-inner.maplibregl-map { position: absolute; inset: 0; }
+.wi-found-h { margin-top: 22px !important; }
+.wi-found { font-size: 15.5px; }
+.wi-off { margin: 0 0 10px; padding: 10px 12px; border-left: 4px solid var(--red); font-weight: 800; font-size: 13.5px; line-height: 1.45; background: #f6f6f6; }
+.wi-legend .k.dot { width: 12px; height: 12px; border: 3px solid var(--ink); border-radius: 50%; box-sizing: border-box; }
+.wi-qh:lang(hi) { font-family: var(--font-ui); font-weight: 800; line-height: 1.2; }
+.wi-cb-off { flex: none; max-width: 15ch; font: 800 10px/1.2 var(--font-ui); letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink-soft); }
+.wi-cb.on .wi-cb-off { color: #cfcfcf; }
+
+/* the shell's fixed sound button lives bottom-left on DOM pages; here it sat on the tree and on the answer text.
+   on this page it moves up into the header strip between the logo and the nav, which already floats over content */
+body.what-if-page:not(.story-page) .sound-toggle { top: 16px !important; bottom: auto; left: 190px !important; }
+@media (max-width: 640px) { body.what-if-page:not(.story-page) .sound-toggle { top: 14px !important; left: 128px !important; padding: 10px 12px; font-size: 11px; } }
+/* sticky tree: keep it below the logo even at the end of the page (page bottom padding + tree height fit the viewport) */
+.what-if-page .page { padding-bottom: 40px; }
+@media (min-width: 981px) { .wi-tree { max-height: calc(100vh - 132px); } }
+/* the shell header floats over content; on this long page give it a paper strip so scrolled text never shows
+   through between the logo, the sound button and the nav (z below the shell's own controls at 40/41) */
+.wi-headbar { position: fixed; z-index: 39; left: 0; right: 0; top: 0; height: 74px; background: var(--paper); pointer-events: none; }
+@media (max-width: 900px) { .wi-headbar { height: 90px; } }

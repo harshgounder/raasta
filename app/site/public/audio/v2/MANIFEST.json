@@ -1,0 +1,1054 @@
+{
+ "version": 2,
+ "generated": "2026-10-25",
+ "note": "real field recordings only (Freesound via the Openverse API), no synthesis. LUFS = integrated loudness of the shipped file (short clips padded to 1.2 s before measuring). gain = suggested linear playback gain; beatGain overrides it per beat.",
+ "formats": [
+  "ogg",
+  "m4a"
+ ],
+ "cues": [
+  {
+   "cue": "indian_street_morning_bed",
+   "beats": [
+    0,
+    1,
+    3,
+    4,
+    5,
+    7,
+    8
+   ],
+   "bus": "ambience",
+   "loop": true,
+   "gain": 0.8,
+   "beatGain": {
+    "0": 0.35,
+    "1": 0.85,
+    "2": 0.25,
+    "3": 0.85,
+    "4": 0.8,
+    "5": 0.8,
+    "6": 0.25,
+    "7": 0.75,
+    "8": 0.6
+   },
+   "roundRobin": false,
+   "trigger": "loop for the whole story; ride gain by beat; duck to 0.25 during bird lifts",
+   "variants": [
+    {
+     "stem": "street_morning_bed",
+     "files": [
+      "street_morning_bed.ogg",
+      "street_morning_bed.m4a"
+     ],
+     "seconds": 44.971,
+     "lufs": -22.0,
+     "truePeak": -6.21,
+     "seamDb": -31.8,
+     "from": {
+      "freesoundId": "451488",
+      "start": 67.0
+     },
+     "loopEndSeconds": 44.970666666666666,
+     "loopNote": "set AudioBufferSourceNode.loopEnd = loopEndSeconds (loopStart 0) for BOTH formats: the .m4a carries 2048 extra wrap-around samples so AAC priming never opens a gap"
+    }
+   ],
+   "sources": [
+    {
+     "title": "street quiet morning alley corner nearby throaty traffic motorcycles rickshaws pass boomy crows and rooster close by India.flac",
+     "author": "kyles",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/kyles/sounds/451488",
+     "fileUrl": "https://cdn.freesound.org/previews/451/451488_612689-hq.mp3",
+     "freesoundId": "451488",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "market_bed",
+   "beats": [
+    4,
+    5,
+    7
+   ],
+   "bus": "ambience",
+   "loop": true,
+   "gain": 0.45,
+   "beatGain": {
+    "4": 0.5,
+    "5": 0.15,
+    "7": 0.3,
+    "8": 0.2
+   },
+   "roundRobin": false,
+   "trigger": "loop; fades in as the vendor cart enters (beat 4)",
+   "variants": [
+    {
+     "stem": "market_bed",
+     "files": [
+      "market_bed.ogg",
+      "market_bed.m4a"
+     ],
+     "seconds": 44.971,
+     "lufs": -22.0,
+     "truePeak": -2.08,
+     "seamDb": -14.4,
+     "from": {
+      "freesoundId": "451351",
+      "start": 97.0
+     },
+     "loopEndSeconds": 44.970666666666666,
+     "loopNote": "set AudioBufferSourceNode.loopEnd = loopEndSeconds (loopStart 0) for BOTH formats: the .m4a carries 2048 extra wrap-around samples so AAC priming never opens a gap"
+    }
+   ],
+   "sources": [
+    {
+     "title": "crowd ext medium busy street downtown market movement steps throaty traffic motorcycles rickshaws horn honks India.flac",
+     "author": "kyles",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/kyles/sounds/451351",
+     "fileUrl": "https://cdn.freesound.org/previews/451/451351_612689-hq.mp3",
+     "freesoundId": "451351",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "wind_high_bed",
+   "beats": [
+    0,
+    2,
+    6,
+    8
+   ],
+   "bus": "ambience",
+   "loop": true,
+   "gain": 0.85,
+   "beatGain": {
+    "0": 0.55,
+    "1": 0.12,
+    "2": 0.9,
+    "6": 0.9,
+    "8": 0.5
+   },
+   "roundRobin": false,
+   "trigger": "loop; rises with each bird lift (beats 2, 6) and the final crane up (8)",
+   "variants": [
+    {
+     "stem": "wind_high_bed",
+     "files": [
+      "wind_high_bed.ogg",
+      "wind_high_bed.m4a"
+     ],
+     "seconds": 36.971,
+     "lufs": -22.01,
+     "truePeak": -7.32,
+     "seamDb": -12.9,
+     "from": {
+      "freesoundId": "697217",
+      "start": 0.0
+     },
+     "loopEndSeconds": 36.970666666666666,
+     "loopNote": "set AudioBufferSourceNode.loopEnd = loopEndSeconds (loopStart 0) for BOTH formats: the .m4a carries 2048 extra wrap-around samples so AAC priming never opens a gap"
+    }
+   ],
+   "sources": [
+    {
+     "title": "Looping Gentle Wind Ambience on an Open Desert Plain.wav",
+     "author": "dhallcomposer",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/dhallcomposer/sounds/697217",
+     "fileUrl": "https://cdn.freesound.org/previews/697/697217_7678208-hq.mp3",
+     "freesoundId": "697217",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "temple_bell",
+   "beats": [
+    0,
+    8
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.45,
+   "beatGain": {
+    "0": 0.28,
+    "8": 0.55
+   },
+   "roundRobin": true,
+   "trigger": "beat 0: distant, once near the start; beat 8: on arrival",
+   "variants": [
+    {
+     "stem": "temple_bell_1",
+     "files": [
+      "temple_bell_1.ogg",
+      "temple_bell_1.m4a"
+     ],
+     "seconds": 7.5,
+     "lufs": -17.99,
+     "truePeak": -3.81,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "271626",
+      "start": 0.0
+     }
+    },
+    {
+     "stem": "temple_bell_2",
+     "files": [
+      "temple_bell_2.ogg",
+      "temple_bell_2.m4a"
+     ],
+     "seconds": 8.9,
+     "lufs": -17.93,
+     "truePeak": -4.4,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "271627",
+      "start": 0.0
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "2HinduTemplesBells1.wav",
+     "author": "LoopUdu",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/LoopUdu/sounds/271626",
+     "fileUrl": "https://cdn.freesound.org/previews/271/271626_4939125-hq.mp3",
+     "freesoundId": "271626",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    },
+    {
+     "title": "2HinduTemplesBells2.wav",
+     "author": "LoopUdu",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/LoopUdu/sounds/271627",
+     "fileUrl": "https://cdn.freesound.org/previews/271/271627_4939125-hq.mp3",
+     "freesoundId": "271627",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "cat_paws",
+   "beats": [
+    0,
+    1,
+    7
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.36,
+   "beatGain": {},
+   "roundRobin": true,
+   "trigger": "round robin, never the same file twice in a row; one paw per walk-cycle contact of Billu (about every 0.34 s of walk); stop when the cat sits (beat 3)",
+   "variants": [
+    {
+     "stem": "cat_paw_1",
+     "files": [
+      "cat_paw_1.ogg",
+      "cat_paw_1.m4a"
+     ],
+     "seconds": 0.13,
+     "lufs": -25.55,
+     "truePeak": -1.81,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "569255",
+      "start": 0.33799999999999997
+     }
+    },
+    {
+     "stem": "cat_paw_2",
+     "files": [
+      "cat_paw_2.ogg",
+      "cat_paw_2.m4a"
+     ],
+     "seconds": 0.13,
+     "lufs": -23.35,
+     "truePeak": -2.05,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "569255",
+      "start": 0.618
+     }
+    },
+    {
+     "stem": "cat_paw_3",
+     "files": [
+      "cat_paw_3.ogg",
+      "cat_paw_3.m4a"
+     ],
+     "seconds": 0.13,
+     "lufs": -25.55,
+     "truePeak": -1.8,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "569255",
+      "start": 1.148
+     }
+    },
+    {
+     "stem": "cat_paw_4",
+     "files": [
+      "cat_paw_4.ogg",
+      "cat_paw_4.m4a"
+     ],
+     "seconds": 0.13,
+     "lufs": -23.85,
+     "truePeak": -1.67,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "569255",
+      "start": 2.208
+     }
+    },
+    {
+     "stem": "cat_paw_5",
+     "files": [
+      "cat_paw_5.ogg",
+      "cat_paw_5.m4a"
+     ],
+     "seconds": 0.13,
+     "lufs": -24.15,
+     "truePeak": -2.1,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "569255",
+      "start": 7.798
+     }
+    },
+    {
+     "stem": "cat_paw_6",
+     "files": [
+      "cat_paw_6.ogg",
+      "cat_paw_6.m4a"
+     ],
+     "seconds": 0.13,
+     "lufs": -23.95,
+     "truePeak": -1.88,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "569255",
+      "start": 8.058
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "Claws animal (foley)",
+     "author": "Nakhas",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/Nakhas/sounds/569255",
+     "fileUrl": "https://cdn.freesound.org/previews/569/569255_717697-hq.mp3",
+     "freesoundId": "569255",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "cat_purr",
+   "beats": [
+    0,
+    3
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.22,
+   "beatGain": {},
+   "roundRobin": false,
+   "trigger": "beat 0 when Billu wakes on the scooter seat; optional in beat 3 when he sits to watch",
+   "variants": [
+    {
+     "stem": "cat_purr",
+     "files": [
+      "cat_purr.ogg",
+      "cat_purr.m4a"
+     ],
+     "seconds": 9.0,
+     "lufs": -17.99,
+     "truePeak": -1.97,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "579898",
+      "start": 4.0
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "Cat Purring (long/clear/loud)",
+     "author": "JamesBradford",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/JamesBradford/sounds/579898",
+     "fileUrl": "https://cdn.freesound.org/previews/579/579898_1131423-hq.mp3",
+     "freesoundId": "579898",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "myna_call",
+   "beats": [
+    1,
+    2,
+    7
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.3,
+   "beatGain": {},
+   "roundRobin": true,
+   "trigger": "Gunjan; once per beat, round robin",
+   "variants": [
+    {
+     "stem": "myna_call_1",
+     "files": [
+      "myna_call_1.ogg",
+      "myna_call_1.m4a"
+     ],
+     "seconds": 2.8,
+     "lufs": -18.0,
+     "truePeak": -8.11,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "338173",
+      "start": 0.0
+     }
+    },
+    {
+     "stem": "myna_call_2",
+     "files": [
+      "myna_call_2.ogg",
+      "myna_call_2.m4a"
+     ],
+     "seconds": 2.885,
+     "lufs": -18.01,
+     "truePeak": -8.5,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "338173",
+      "start": 2.6
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "Crowd of Myna birds.mp3",
+     "author": "edranil",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/edranil/sounds/338173",
+     "fileUrl": "https://cdn.freesound.org/previews/338/338173_1209753-hq.mp3",
+     "freesoundId": "338173",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "wingbeats",
+   "beats": [
+    2,
+    6,
+    8
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.5,
+   "beatGain": {},
+   "roundRobin": true,
+   "trigger": "on each bird lift start (beat 2 variant 1, beat 6 variant 2, beat 8 crane up either)",
+   "variants": [
+    {
+     "stem": "wingbeats_1",
+     "files": [
+      "wingbeats_1.ogg",
+      "wingbeats_1.m4a"
+     ],
+     "seconds": 2.4,
+     "lufs": -19.12,
+     "truePeak": -1.8,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "532180",
+      "start": 0.9
+     }
+    },
+    {
+     "stem": "wingbeats_2",
+     "files": [
+      "wingbeats_2.ogg",
+      "wingbeats_2.m4a"
+     ],
+     "seconds": 3.6,
+     "lufs": -19.04,
+     "truePeak": -1.8,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "499570",
+      "start": 0.5
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "Pigeons flying",
+     "author": "mcmikai",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/mcmikai/sounds/532180",
+     "fileUrl": "https://cdn.freesound.org/previews/532/532180_9735871-hq.mp3",
+     "freesoundId": "532180",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    },
+    {
+     "title": "birds taking off to fly.mp3",
+     "author": "Hope-Sounds",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/Hope-Sounds/sounds/499570",
+     "fileUrl": "https://cdn.freesound.org/previews/499/499570_10779689-hq.mp3",
+     "freesoundId": "499570",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "scooter_passby",
+   "beats": [
+    1
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.75,
+   "beatGain": {},
+   "roundRobin": true,
+   "trigger": "beat 1, the scooter speeding past close; variant 2 spare (beat 4 lead-in at 0.4 if wanted)",
+   "variants": [
+    {
+     "stem": "scooter_passby_1",
+     "files": [
+      "scooter_passby_1.ogg",
+      "scooter_passby_1.m4a"
+     ],
+     "seconds": 15.0,
+     "lufs": -18.04,
+     "truePeak": -2.99,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "450698",
+      "start": 2.0
+     }
+    },
+    {
+     "stem": "scooter_passby_2",
+     "files": [
+      "scooter_passby_2.ogg",
+      "scooter_passby_2.m4a"
+     ],
+     "seconds": 10.0,
+     "lufs": -18.02,
+     "truePeak": -1.69,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "523959",
+      "start": 1.5
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "scooter pass by medium speed echo off building.flac",
+     "author": "kyles",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/kyles/sounds/450698",
+     "fileUrl": "https://cdn.freesound.org/previews/450/450698_612689-hq.mp3",
+     "freesoundId": "450698",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    },
+    {
+     "title": "moped pass by.wav",
+     "author": "lartti",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/lartti/sounds/523959",
+     "fileUrl": "https://cdn.freesound.org/previews/523/523959_1654547-hq.mp3",
+     "freesoundId": "523959",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "horn_hit",
+   "beats": [
+    4
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 1.0,
+   "beatGain": {},
+   "roundRobin": false,
+   "trigger": "THE one loud hit of the whole page: beat 4 when the scooter honks at Kamla (the turn); never anywhere else",
+   "variants": [
+    {
+     "stem": "horn_hit",
+     "files": [
+      "horn_hit.ogg",
+      "horn_hit.m4a"
+     ],
+     "seconds": 2.6,
+     "lufs": -14.0,
+     "truePeak": -3.11,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "451318",
+      "start": 0.85
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "auto horn honk real annoyed close India.flac",
+     "author": "kyles",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/kyles/sounds/451318",
+     "fileUrl": "https://cdn.freesound.org/previews/451/451318_612689-hq.mp3",
+     "freesoundId": "451318",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "walker_taps",
+   "beats": [
+    4
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.5,
+   "beatGain": {},
+   "roundRobin": true,
+   "trigger": "Kamla's walker frame, one tap per walker placement (about every 1.6 s of her walk), round robin",
+   "variants": [
+    {
+     "stem": "walker_tap_1",
+     "files": [
+      "walker_tap_1.ogg",
+      "walker_tap_1.m4a"
+     ],
+     "seconds": 0.95,
+     "lufs": -18.04,
+     "truePeak": -1.82,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "540712",
+      "start": 1.01
+     }
+    },
+    {
+     "stem": "walker_tap_2",
+     "files": [
+      "walker_tap_2.ogg",
+      "walker_tap_2.m4a"
+     ],
+     "seconds": 0.95,
+     "lufs": -18.25,
+     "truePeak": -1.94,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "540712",
+      "start": 2.89
+     }
+    },
+    {
+     "stem": "walker_tap_3",
+     "files": [
+      "walker_tap_3.ogg",
+      "walker_tap_3.m4a"
+     ],
+     "seconds": 0.95,
+     "lufs": -18.92,
+     "truePeak": -1.8,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "540712",
+      "start": 5.180000000000001
+     }
+    },
+    {
+     "stem": "walker_tap_4",
+     "files": [
+      "walker_tap_4.ogg",
+      "walker_tap_4.m4a"
+     ],
+     "seconds": 0.95,
+     "lufs": -20.34,
+     "truePeak": -1.79,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "540712",
+      "start": 7.16
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "Zimmer Walker Frame on wooden floor",
+     "author": "tuesdayblack",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/tuesdayblack/sounds/540712",
+     "fileUrl": "https://cdn.freesound.org/previews/540/540712_9463295-hq.mp3",
+     "freesoundId": "540712",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "young_steps",
+   "beats": [
+    3
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.55,
+   "beatGain": {},
+   "roundRobin": false,
+   "trigger": "Kabir's quick easy steps (one 6 s pass)",
+   "variants": [
+    {
+     "stem": "young_steps_quick",
+     "files": [
+      "young_steps_quick.ogg",
+      "young_steps_quick.m4a"
+     ],
+     "seconds": 6.0,
+     "lufs": -18.13,
+     "truePeak": -1.82,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "368833",
+      "start": 0.0
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "Footsteps_Quick.wav",
+     "author": "georgisound",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/georgisound/sounds/368833",
+     "fileUrl": "https://cdn.freesound.org/previews/368/368833_6790631-hq.mp3",
+     "freesoundId": "368833",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "cane_and_steps",
+   "beats": [
+    5,
+    7
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.45,
+   "beatGain": {},
+   "roundRobin": true,
+   "trigger": "Dadaji + the kid: cane_steps_old at beat 5 start; cane_tap_1/2 alternate about every 1.15 s of their walk in beat 7; kid_steps under it at 0.35-0.45",
+   "variants": [
+    {
+     "stem": "cane_tap_1",
+     "files": [
+      "cane_tap_1.ogg",
+      "cane_tap_1.m4a"
+     ],
+     "seconds": 0.209,
+     "lufs": -22.65,
+     "truePeak": -2.07,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "138296",
+      "start": 0.0
+     }
+    },
+    {
+     "stem": "cane_tap_2",
+     "files": [
+      "cane_tap_2.ogg",
+      "cane_tap_2.m4a"
+     ],
+     "seconds": 0.209,
+     "lufs": -22.35,
+     "truePeak": -2.08,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "138295",
+      "start": 0.0
+     }
+    },
+    {
+     "stem": "cane_steps_old",
+     "files": [
+      "cane_steps_old.ogg",
+      "cane_steps_old.m4a"
+     ],
+     "seconds": 2.46,
+     "lufs": -23.38,
+     "truePeak": -2.03,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "138328",
+      "start": 0.0
+     }
+    },
+    {
+     "stem": "kid_steps",
+     "files": [
+      "kid_steps.ogg",
+      "kid_steps.m4a"
+     ],
+     "seconds": 6.3,
+     "lufs": -18.85,
+     "truePeak": -1.8,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "634986",
+      "start": 0.0
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "Cane_Hitting_Pavement_2.wav",
+     "author": "Tdude9000",
+     "licence": "CC BY 3.0",
+     "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+     "sourceUrl": "https://freesound.org/people/Tdude9000/sounds/138296",
+     "fileUrl": "https://cdn.freesound.org/previews/138/138296_2531092-hq.mp3",
+     "freesoundId": "138296",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    },
+    {
+     "title": "Cane_Hitting_Pavement_3.wav",
+     "author": "Tdude9000",
+     "licence": "CC BY 3.0",
+     "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+     "sourceUrl": "https://freesound.org/people/Tdude9000/sounds/138295",
+     "fileUrl": "https://cdn.freesound.org/previews/138/138295_2531092-hq.mp3",
+     "freesoundId": "138295",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    },
+    {
+     "title": "Footsteps_Cane_hitting_Pavement.wav",
+     "author": "Tdude9000",
+     "licence": "CC BY 3.0",
+     "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+     "sourceUrl": "https://freesound.org/people/Tdude9000/sounds/138328",
+     "fileUrl": "https://cdn.freesound.org/previews/138/138328_2531092-hq.mp3",
+     "freesoundId": "138328",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    },
+    {
+     "title": "Steps of a Child in Grass.wav",
+     "author": "JiggleSticks",
+     "licence": "CC BY 4.0",
+     "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+     "sourceUrl": "https://freesound.org/people/JiggleSticks/sounds/634986",
+     "fileUrl": "https://cdn.freesound.org/previews/634/634986_10592956-hq.mp3",
+     "freesoundId": "634986",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "wheelchair_roll",
+   "beats": [
+    7
+   ],
+   "bus": "sfx",
+   "loop": false,
+   "gain": 0.55,
+   "beatGain": {},
+   "roundRobin": false,
+   "trigger": "Zoya's cameo passing on the same route (beat 7)",
+   "variants": [
+    {
+     "stem": "wheelchair_roll",
+     "files": [
+      "wheelchair_roll.ogg",
+      "wheelchair_roll.m4a"
+     ],
+     "seconds": 8.5,
+     "lufs": -18.98,
+     "truePeak": -1.8,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "174603",
+      "start": 2.5
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "SonicSnaps-IDES-FR-wheelchair.wav",
+     "author": "thecityrings",
+     "licence": "CC BY 3.0",
+     "licenceUrl": "https://creativecommons.org/licenses/by/3.0/",
+     "sourceUrl": "https://freesound.org/people/thecityrings/sounds/174603",
+     "fileUrl": "https://cdn.freesound.org/previews/174/174603_2337088-hq.mp3",
+     "freesoundId": "174603",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "phone_tap",
+   "beats": [
+    5
+   ],
+   "bus": "ui",
+   "loop": false,
+   "gain": 0.55,
+   "beatGain": {},
+   "roundRobin": true,
+   "trigger": "the RAASTA moment: Dadaji opens the app (phone_tap_3 then phone_tap_1 about 0.45 s later)",
+   "variants": [
+    {
+     "stem": "phone_tap_1",
+     "files": [
+      "phone_tap_1.ogg",
+      "phone_tap_1.m4a"
+     ],
+     "seconds": 0.5,
+     "lufs": -18.93,
+     "truePeak": -1.63,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "444683",
+      "start": 1.22
+     }
+    },
+    {
+     "stem": "phone_tap_2",
+     "files": [
+      "phone_tap_2.ogg",
+      "phone_tap_2.m4a"
+     ],
+     "seconds": 0.5,
+     "lufs": -19.33,
+     "truePeak": -1.94,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "444683",
+      "start": 3.0
+     }
+    },
+    {
+     "stem": "phone_tap_3",
+     "files": [
+      "phone_tap_3.ogg",
+      "phone_tap_3.m4a"
+     ],
+     "seconds": 0.5,
+     "lufs": -18.95,
+     "truePeak": -2.1,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "536315",
+      "start": 0.38
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "Smart Phone Click",
+     "author": "AO-SoundPawz",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/AO-SoundPawz/sounds/444683",
+     "fileUrl": "https://cdn.freesound.org/previews/444/444683_5357386-hq.mp3",
+     "freesoundId": "444683",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    },
+    {
+     "title": "Screen tap",
+     "author": "EilasSFX",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/EilasSFX/sounds/536315",
+     "fileUrl": "https://cdn.freesound.org/previews/536/536315_10842514-hq.mp3",
+     "freesoundId": "536315",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  },
+  {
+   "cue": "ending_resolve",
+   "beats": [
+    6,
+    8
+   ],
+   "bus": "music",
+   "loop": false,
+   "gain": 0.75,
+   "beatGain": {
+    "6": 0.18,
+    "8": 0.75
+   },
+   "roundRobin": false,
+   "trigger": "real tanpura drone (no synth); beat 6 a faint hint, beat 8 the swell as colour arrives",
+   "variants": [
+    {
+     "stem": "ending_resolve",
+     "files": [
+      "ending_resolve.ogg",
+      "ending_resolve.m4a"
+     ],
+     "seconds": 24.0,
+     "lufs": -20.01,
+     "truePeak": -8.95,
+     "seamDb": null,
+     "from": {
+      "freesoundId": "153262",
+      "start": 10.0
+     }
+    }
+   ],
+   "sources": [
+    {
+     "title": "Tanpura 10",
+     "author": "sankalp",
+     "licence": "CC0 1.0",
+     "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+     "sourceUrl": "https://freesound.org/people/sankalp/sounds/153262",
+     "fileUrl": "https://cdn.freesound.org/previews/153/153262_1859932-hq.mp3",
+     "freesoundId": "153262",
+     "foundVia": "Openverse API (api.openverse.org) index of Freesound"
+    }
+   ]
+  }
+ ],
+ "preview": {
+  "files": [
+   "preview-mix.ogg",
+   "preview-mix.m4a"
+  ],
+  "seconds": 62.0,
+  "what": "beats 0-8 in order, compressed to 62 s, for judging; not used by the page"
+ }
+}

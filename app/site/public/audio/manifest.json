@@ -1,0 +1,280 @@
+{
+ "version": 1,
+ "sounds": {
+  "drone-low": {
+   "bus": "music",
+   "loop": true,
+   "seconds": 32.0,
+   "pad": 0.5,
+   "lufs": -19.0,
+   "files": [
+    "drone-low.ogg",
+    "drone-low.m4a"
+   ]
+  },
+  "fog-air": {
+   "bus": "music",
+   "loop": true,
+   "seconds": 32.0,
+   "pad": 0.5,
+   "lufs": -21.0,
+   "files": [
+    "fog-air.ogg",
+    "fog-air.m4a"
+   ]
+  },
+  "night": {
+   "bus": "music",
+   "loop": true,
+   "seconds": 32.0,
+   "pad": 0.5,
+   "lufs": -20.0,
+   "files": [
+    "night.ogg",
+    "night.m4a"
+   ]
+  },
+  "motif": {
+   "bus": "music",
+   "loop": true,
+   "seconds": 32.0,
+   "pad": 0.5,
+   "lufs": -21.0,
+   "files": [
+    "motif.ogg",
+    "motif.m4a"
+   ]
+  },
+  "wind": {
+   "bus": "music",
+   "loop": true,
+   "seconds": 32.0,
+   "pad": 0.5,
+   "lufs": -24.0,
+   "files": [
+    "wind.ogg",
+    "wind.m4a"
+   ]
+  },
+  "pen-scratch": {
+   "bus": "sfx",
+   "loop": true,
+   "seconds": 4.0,
+   "pad": 0.5,
+   "lufs": -30.0,
+   "files": [
+    "pen-scratch.ogg",
+    "pen-scratch.m4a"
+   ]
+  },
+  "whoosh": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -32.0,
+   "files": [
+    "whoosh.ogg",
+    "whoosh.m4a"
+   ]
+  },
+  "tear": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 2.4,
+   "pad": 0.0,
+   "lufs": -16.6,
+   "files": [
+    "tear.ogg",
+    "tear.m4a"
+   ]
+  },
+  "ui-click": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -34.0,
+   "files": [
+    "ui-click.ogg",
+    "ui-click.m4a"
+   ]
+  },
+  "tick-1": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -36.0,
+   "files": [
+    "tick-1.ogg",
+    "tick-1.m4a"
+   ]
+  },
+  "step-1": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -40.0,
+   "files": [
+    "step-1.ogg",
+    "step-1.m4a"
+   ]
+  },
+  "tick-2": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -35.0,
+   "files": [
+    "tick-2.ogg",
+    "tick-2.m4a"
+   ]
+  },
+  "step-2": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -39.0,
+   "files": [
+    "step-2.ogg",
+    "step-2.m4a"
+   ]
+  },
+  "tick-3": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -34.0,
+   "files": [
+    "tick-3.ogg",
+    "tick-3.m4a"
+   ]
+  },
+  "step-3": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -38.0,
+   "files": [
+    "step-3.ogg",
+    "step-3.m4a"
+   ]
+  },
+  "tick-4": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -36.0,
+   "files": [
+    "tick-4.ogg",
+    "tick-4.m4a"
+   ]
+  },
+  "step-4": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -40.0,
+   "files": [
+    "step-4.ogg",
+    "step-4.m4a"
+   ]
+  },
+  "tick-5": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -35.0,
+   "files": [
+    "tick-5.ogg",
+    "tick-5.m4a"
+   ]
+  },
+  "step-5": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -39.0,
+   "files": [
+    "step-5.ogg",
+    "step-5.m4a"
+   ]
+  },
+  "tick-6": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -34.0,
+   "files": [
+    "tick-6.ogg",
+    "tick-6.m4a"
+   ]
+  },
+  "step-6": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -38.0,
+   "files": [
+    "step-6.ogg",
+    "step-6.m4a"
+   ]
+  },
+  "stamp": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -28.0,
+   "files": [
+    "stamp.ogg",
+    "stamp.m4a"
+   ]
+  },
+  "rumble": {
+   "bus": "sfx",
+   "loop": true,
+   "seconds": 8.0,
+   "pad": 0.5,
+   "lufs": -30.0,
+   "files": [
+    "rumble.ogg",
+    "rumble.m4a"
+   ]
+  },
+  "crack": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.8,
+   "pad": 0.0,
+   "lufs": -29.1,
+   "files": [
+    "crack.ogg",
+    "crack.m4a"
+   ]
+  },
+  "clink": {
+   "bus": "sfx",
+   "loop": false,
+   "seconds": 1.2,
+   "pad": 0.0,
+   "lufs": -32.0,
+   "files": [
+    "clink.ogg",
+    "clink.m4a"
+   ]
+  }
+ }
+}

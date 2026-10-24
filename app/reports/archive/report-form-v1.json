@@ -1,0 +1,112 @@
+{
+  "schema": "raasta-report-form-v1",
+  "note": "The /report form tree. category > type. Each type maps to a routing type (app/route/BARRIERS-INPUT-SCHEMA.md, null = not a routing type yet) and to one element id in app/route/taxonomy/elements.json (checked by app/reports/tests/check_form.py). Bodies are leaves of app/route/taxonomy/bodies.json, grouped the way research/hermes/sc02/BODY-TAXONOMY.md groups them; profile = the routing profile the leaf maps to (legacy_profile). Hindi is plain spoken Hindi, written by the build lane, not yet checked by a native reviewer.",
+  "categories": [
+    { "id": "level", "icon": "kerb", "en": "a step, kerb or slope", "hi": "सीढ़ी, ऊँचा किनारा या ढलान", "types": [
+      { "id": "kerb_no_ramp", "en": "high kerb, no ramp", "hi": "ऊँचा किनारा, रैंप नहीं", "route_type": "missing_kerb_ramp", "element": "kerb_150_no_ramp" },
+      { "id": "steps", "en": "steps across the path", "hi": "रास्ते पर सीढ़ियाँ", "route_type": "steps", "element": "steps_short_flight" },
+      { "id": "steep_ramp", "en": "ramp too steep", "hi": "रैंप बहुत खड़ा", "route_type": "steep_slope", "element": "kerb_ramp_steep_1in8" },
+      { "id": "step_down_repeated", "en": "footpath goes up and down at every gate", "hi": "हर गेट पर फुटपाथ ऊपर नीचे", "route_type": "steps", "element": "footpath_step_down_repeated" },
+      { "id": "road_higher", "en": "road higher than the footpath", "hi": "सड़क फुटपाथ से ऊँची", "route_type": "steps", "element": "road_higher_than_footpath" },
+      { "id": "foot_bridge_stairs", "en": "foot bridge or subway with only stairs", "hi": "पुल या सबवे में सिर्फ़ सीढ़ियाँ", "route_type": "steps", "element": "fob_stairs_only" }
+    ]},
+    { "id": "surface", "icon": "crack", "en": "broken or unsafe ground", "hi": "टूटी या खतरनाक ज़मीन", "types": [
+      { "id": "broken_footpath", "en": "broken footpath", "hi": "टूटा फुटपाथ", "route_type": "broken_footpath", "element": "broken_pavers" },
+      { "id": "pothole", "en": "pothole", "hi": "गड्ढा", "route_type": "pothole", "element": "pothole" },
+      { "id": "open_drain", "en": "open drain or missing slab", "hi": "खुला नाला या स्लैब गायब", "route_type": "open_drain", "element": "missing_drain_slab" },
+      { "id": "open_manhole", "en": "open manhole", "hi": "खुला मैनहोल", "route_type": "open_drain", "element": "open_manhole" },
+      { "id": "dug_up", "en": "dug up and left open", "hi": "खोदा और खुला छोड़ा", "route_type": "broken_footpath", "element": "dug_footpath_unrestored" },
+      { "id": "slippery", "en": "slippery tiles or wet slime", "hi": "फिसलन वाली टाइल या काई", "route_type": null, "element": "polished_granite" },
+      { "id": "water", "en": "water standing on the path", "hi": "रास्ते पर पानी भरा", "route_type": "waterlogging", "element": "open_drain_parallel" }
+    ]},
+    { "id": "no_path", "icon": "gap", "en": "no footpath or too narrow", "hi": "फुटपाथ नहीं या बहुत पतला", "types": [
+      { "id": "missing_footpath", "en": "no footpath at all", "hi": "फुटपाथ ही नहीं", "route_type": "missing_footpath", "element": "no_footpath_road_walk" },
+      { "id": "too_narrow", "en": "too narrow to pass", "hi": "निकलने के लिए बहुत पतला", "route_type": "pole_obstruction", "element": "narrow_footpath_80" },
+      { "id": "dead_end", "en": "footpath ends suddenly", "hi": "फुटपाथ अचानक खत्म", "route_type": "missing_footpath", "element": "footpath_dead_end" },
+      { "id": "bollards", "en": "bollards or barrier too close", "hi": "खंभे या बैरियर बहुत पास", "route_type": "pole_obstruction", "element": "bollards_narrow_80" }
+    ]},
+    { "id": "blocked", "icon": "block", "en": "something in the way", "hi": "रास्ते में कुछ रखा है", "types": [
+      { "id": "pole", "en": "pole, transformer or box", "hi": "खंभा, ट्रांसफ़ॉर्मर या बक्सा", "route_type": "pole_obstruction", "element": "electric_pole_midpath" },
+      { "id": "tree", "en": "tree trunk in the path", "hi": "रास्ते में पेड़ का तना", "route_type": "pole_obstruction", "element": "tree_trunk_in_path" },
+      { "id": "parked_vehicle", "en": "parked car or scooter", "hi": "खड़ी कार या स्कूटर", "route_type": "parked_vehicle", "element": "two_wheeler_parked_footpath" },
+      { "id": "vendor", "en": "stall, cart or shop goods", "hi": "ठेला, दुकान या सामान", "route_type": "vendor", "element": "vendor_handcart" },
+      { "id": "construction", "en": "sand, bricks or building material", "hi": "रेत, ईंट या निर्माण सामग्री", "route_type": "broken_footpath", "element": "construction_debris" },
+      { "id": "garbage", "en": "garbage heap", "hi": "कूड़े का ढेर", "route_type": "vendor", "element": "garbage_heap" },
+      { "id": "low_overhead", "en": "low sign, branch or wire at head height", "hi": "सिर की ऊँचाई पर बोर्ड, डाल या तार", "route_type": null, "element": "low_signboard" },
+      { "id": "animals", "en": "cattle or dogs", "hi": "गाय या कुत्ते", "route_type": null, "element": "stray_cattle" }
+    ]},
+    { "id": "crossing", "icon": "zebra", "en": "crossing the road", "hi": "सड़क पार करना", "types": [
+      { "id": "no_crossing", "en": "no safe place to cross", "hi": "पार करने की सुरक्षित जगह नहीं", "route_type": null, "element": "no_marked_crossing" },
+      { "id": "signal_short", "en": "signal too short to cross", "hi": "सिग्नल बहुत जल्दी बदलता है", "route_type": null, "element": "signal_short_green" },
+      { "id": "signal_dead", "en": "signal not working", "hi": "सिग्नल बंद है", "route_type": null, "element": "signal_dead" },
+      { "id": "median_railing", "en": "railing in the middle, no gap", "hi": "बीच में रेलिंग, कोई रास्ता नहीं", "route_type": null, "element": "median_railing_no_gap" },
+      { "id": "bikes_on_footpath", "en": "bikes ride on the footpath", "hi": "फुटपाथ पर बाइक चलती हैं", "route_type": null, "element": "two_wheelers_on_footpath" }
+    ]},
+    { "id": "safety", "icon": "lamp", "en": "dark, unsafe or crowded", "hi": "अँधेरा, असुरक्षित या भीड़", "types": [
+      { "id": "dark", "en": "no street light", "hi": "स्ट्रीट लाइट नहीं", "route_type": null, "element": "isolated_dark_stretch" },
+      { "id": "harassment", "en": "harassment or unsafe spot", "hi": "छेड़छाड़ या असुरक्षित जगह", "route_type": null, "element": "harassment_hotspot" },
+      { "id": "crowd", "en": "crowd blocks the path", "hi": "भीड़ रास्ता रोकती है", "route_type": null, "element": "crowd_dense" }
+    ]},
+    { "id": "other", "icon": "dots", "en": "something else", "hi": "कुछ और", "types": [
+      { "id": "other", "en": "tell us in your words", "hi": "अपने शब्दों में बताएँ", "route_type": null, "element": null }
+    ]}
+  ],
+  "bodies": [
+    { "id": "wheels", "en": "wheels", "hi": "पहिये", "leaves": [
+      { "id": "mw_self", "en": "wheelchair (I push)", "hi": "व्हीलचेयर (खुद चलाते हैं)", "profile": "manual_wheelchair" },
+      { "id": "mw_attendant", "en": "wheelchair (someone pushes)", "hi": "व्हीलचेयर (कोई धकेलता है)", "profile": "manual_wheelchair" },
+      { "id": "pw_standard", "en": "power wheelchair", "hi": "बैटरी व्हीलचेयर", "profile": "power_wheelchair" },
+      { "id": "hand_cranked_tricycle", "en": "hand tricycle", "hi": "हाथ से चलने वाली ट्राइसाइकिल", "profile": "manual_wheelchair" },
+      { "id": "pram_stroller", "en": "pram or stroller", "hi": "बच्चा गाड़ी", "profile": "pram" },
+      { "id": "delivery_trolley", "en": "trolley, cart or luggage", "hi": "ट्रॉली, ठेला या सामान", "profile": "pram" }
+    ]},
+    { "id": "walking_aid", "en": "walking with an aid", "hi": "सहारे से चलना", "leaves": [
+      { "id": "walking_frame", "en": "walker", "hi": "वॉकर", "profile": "walker_elderly" },
+      { "id": "crutches_bilateral", "en": "crutches", "hi": "बैसाखी", "profile": "crutches" },
+      { "id": "support_cane", "en": "walking stick", "hi": "छड़ी", "profile": "walker_elderly" },
+      { "id": "prosthetic_lower", "en": "artificial leg", "hi": "कृत्रिम पैर", "profile": "crutches" }
+    ]},
+    { "id": "sight_hearing", "en": "sight or hearing", "hi": "देखना या सुनना", "leaves": [
+      { "id": "blind_cane", "en": "blind, white cane", "hi": "दृष्टिहीन, सफ़ेद छड़ी", "profile": "low_vision" },
+      { "id": "low_vision_moderate", "en": "low vision", "hi": "कम दिखता है", "profile": "low_vision" },
+      { "id": "deaf", "en": "deaf or hard of hearing", "hi": "सुनाई नहीं देता या कम", "profile": "default_walker" }
+    ]},
+    { "id": "age_body", "en": "age, health or load", "hi": "उम्र, सेहत या बोझ", "leaves": [
+      { "id": "older_70_79", "en": "older person, slow", "hi": "बुज़ुर्ग, धीरे चलते हैं", "profile": "walker_elderly" },
+      { "id": "pregnant_third_trimester", "en": "pregnant", "hi": "गर्भवती", "profile": "walker_elderly" },
+      { "id": "carrying_child", "en": "carrying a child", "hi": "बच्चे को गोद में लिए", "profile": "walker_elderly" },
+      { "id": "child_5_12", "en": "child", "hi": "बच्चा", "profile": "default_walker" },
+      { "id": "cardiac", "en": "heart or breathing problem", "hi": "दिल या साँस की तकलीफ़", "profile": "walker_elderly" },
+      { "id": "recent_injury_crutches", "en": "injured for now", "hi": "अभी चोट लगी है", "profile": "crutches" }
+    ]},
+    { "id": "mind", "en": "mind and senses", "hi": "मन और इंद्रियाँ", "leaves": [
+      { "id": "autism_sensory", "en": "autism, noise or crowd is hard", "hi": "ऑटिज़्म, शोर या भीड़ मुश्किल", "profile": "default_walker" },
+      { "id": "dementia_early", "en": "memory loss", "hi": "याददाश्त की कमी", "profile": "walker_elderly" },
+      { "id": "anxiety_mental_illness", "en": "anxiety", "hi": "घबराहट", "profile": "default_walker" }
+    ]},
+    { "id": "none", "en": "walking, no aid", "hi": "पैदल, बिना सहारे", "leaves": [
+      { "id": "no_impairment_adult", "en": "walking", "hi": "पैदल", "profile": "default_walker" }
+    ]}
+  ],
+  "since": [
+    { "id": "today", "en": "new today", "hi": "आज से" },
+    { "id": "week", "en": "a few days", "hi": "कुछ दिनों से" },
+    { "id": "month", "en": "weeks", "hi": "कई हफ़्तों से" },
+    { "id": "always", "en": "months or always", "hi": "महीनों से या हमेशा से" },
+    { "id": "unsure", "en": "not sure", "hi": "पता नहीं" }
+  ],
+  "hurt": [
+    { "id": "no", "en": "no", "hi": "नहीं" },
+    { "id": "turned_back", "en": "I had to turn back", "hi": "मुझे लौटना पड़ा" },
+    { "id": "road", "en": "I had to walk on the road", "hi": "सड़क पर चलना पड़ा" },
+    { "id": "fell", "en": "I fell or nearly fell", "hi": "मैं गिरा या गिरते बचा" },
+    { "id": "hurt", "en": "I got hurt", "hi": "मुझे चोट लगी" }
+  ],
+  "side": [
+    { "id": "left", "en": "left side (facing the way I walked)", "hi": "बाईं ओर (जिधर चल रहे थे)" },
+    { "id": "right", "en": "right side", "hi": "दाईं ओर" },
+    { "id": "both", "en": "both sides", "hi": "दोनों ओर" },
+    { "id": "crossing", "en": "at the crossing", "hi": "चौराहे / पार करने की जगह पर" },
+    { "id": "unsure", "en": "not sure", "hi": "पता नहीं" }
+  ]
+}

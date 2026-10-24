@@ -1,0 +1,2401 @@
+{
+ "generated_at": "2026-10-24T19:35:06+05:30",
+ "labels": "app/analyze/calib/c6-test.jsonl",
+ "labels_note": "team labels made with AI assistance; need one human pass",
+ "iou": 0.3,
+ "classes": [
+  "missing_kerb_ramp",
+  "steps",
+  "broken_or_missing_footpath",
+  "pole_obstruction",
+  "parked_vehicle"
+ ],
+ "family_to_class": {
+  "missing_kerb_ramp": "missing_kerb_ramp",
+  "steps": "steps",
+  "broken_footpath": "broken_or_missing_footpath",
+  "missing_footpath": "broken_or_missing_footpath",
+  "pole_obstruction": "pole_obstruction",
+  "parked_vehicle": "parked_vehicle"
+ },
+ "label_counts": {
+  "missing_kerb_ramp": {
+   "present": 1,
+   "absent": 30,
+   "unsure": 23,
+   "boxes": 1
+  },
+  "steps": {
+   "present": 3,
+   "absent": 47,
+   "unsure": 4,
+   "boxes": 4
+  },
+  "broken_or_missing_footpath": {
+   "present": 19,
+   "absent": 21,
+   "unsure": 14,
+   "boxes": 26
+  },
+  "pole_obstruction": {
+   "present": 5,
+   "absent": 33,
+   "unsure": 16,
+   "boxes": 12
+  },
+  "parked_vehicle": {
+   "present": 5,
+   "absent": 25,
+   "unsure": 24,
+   "boxes": 9
+  }
+ },
+ "condition_counts": {
+  "day_dry": 35,
+  "commercial": 25,
+  "market": 13,
+  "residential": 13,
+  "rain_wet_flood": 10,
+  "night": 8,
+  "view_from_vehicle": 6,
+  "hill": 6,
+  "old_city_lane": 6,
+  "dusk": 3,
+  "village": 2,
+  "informal_settlement": 1
+ },
+ "runs": [
+  {
+   "name": "app/analyze/out/online-v2-base",
+   "load_stats": {
+    "files": 313,
+    "receipts": 313,
+    "not_receipt": 0,
+    "bad_json": 0,
+    "duplicates": 0
+   },
+   "result": {
+    "labelled_images": 54,
+    "covered_images": 53,
+    "uncovered_images": [
+     "mlypair_Panaji_2910646599241549.jpg"
+    ],
+    "per_class": {
+     "missing_kerb_ramp": {
+      "scored_images": 30,
+      "excluded_unsure": 23,
+      "gt_present_images": 1,
+      "gt_absent_images": 29,
+      "image_level": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 1,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "tn": 29,
+       "f1_ci95_bootstrap": [
+        0.0,
+        0.0
+       ]
+      },
+      "image_level_answered_only": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "precision": null,
+       "recall": null,
+       "f1": null
+      },
+      "image_level_accept_or_abstain": {
+       "tp": 1,
+       "fp": 7,
+       "fn": 0,
+       "precision": 0.125,
+       "recall": 1.0,
+       "f1": 0.2222222222222222
+      },
+      "box_level_iou": 0.3,
+      "box_level": {
+       "gt_boxes": 1,
+       "pred_boxes": 0,
+       "tp": 0,
+       "precision": null,
+       "recall": 0.0
+      },
+      "abstain": 8,
+      "abstain_rate": 0.26666666666666666,
+      "abstain_on_gt_present": 1,
+      "abstain_on_gt_absent": 7
+     },
+     "steps": {
+      "scored_images": 49,
+      "excluded_unsure": 4,
+      "gt_present_images": 3,
+      "gt_absent_images": 46,
+      "image_level": {
+       "tp": 1,
+       "fp": 1,
+       "fn": 2,
+       "precision": 0.5,
+       "recall": 0.3333333333333333,
+       "f1": 0.4,
+       "tn": 45,
+       "f1_ci95_bootstrap": [
+        0.0,
+        1.0
+       ]
+      },
+      "image_level_answered_only": {
+       "tp": 1,
+       "fp": 1,
+       "fn": 0,
+       "precision": 0.5,
+       "recall": 1.0,
+       "f1": 0.6666666666666666
+      },
+      "image_level_accept_or_abstain": {
+       "tp": 3,
+       "fp": 10,
+       "fn": 0,
+       "precision": 0.23076923076923078,
+       "recall": 1.0,
+       "f1": 0.375
+      },
+      "box_level_iou": 0.3,
+      "box_level": {
+       "gt_boxes": 4,
+       "pred_boxes": 2,
+       "tp": 0,
+       "precision": 0.0,
+       "recall": 0.0
+      },
+      "abstain": 11,
+      "abstain_rate": 0.22448979591836735,
+      "abstain_on_gt_present": 2,
+      "abstain_on_gt_absent": 9
+     },
+     "broken_or_missing_footpath": {
+      "scored_images": 39,
+      "excluded_unsure": 14,
+      "gt_present_images": 18,
+      "gt_absent_images": 21,
+      "image_level": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 18,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "tn": 19,
+       "f1_ci95_bootstrap": [
+        0.0,
+        0.0
+       ]
+      },
+      "image_level_answered_only": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 1,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0
+      },
+      "image_level_accept_or_abstain": {
+       "tp": 17,
+       "fp": 20,
+       "fn": 1,
+       "precision": 0.4594594594594595,
+       "recall": 0.9444444444444444,
+       "f1": 0.6181818181818182
+      },
+      "box_level_iou": 0.3,
+      "box_level": {
+       "gt_boxes": 25,
+       "pred_boxes": 3,
+       "tp": 0,
+       "precision": 0.0,
+       "recall": 0.0
+      },
+      "abstain": 35,
+      "abstain_rate": 0.8974358974358975,
+      "abstain_on_gt_present": 17,
+      "abstain_on_gt_absent": 18
+     },
+     "pole_obstruction": {
+      "scored_images": 38,
+      "excluded_unsure": 15,
+      "gt_present_images": 5,
+      "gt_absent_images": 33,
+      "image_level": {
+       "tp": 2,
+       "fp": 8,
+       "fn": 3,
+       "precision": 0.2,
+       "recall": 0.4,
+       "f1": 0.26666666666666666,
+       "tn": 25,
+       "f1_ci95_bootstrap": [
+        0.0,
+        0.571
+       ]
+      },
+      "image_level_answered_only": {
+       "tp": 2,
+       "fp": 8,
+       "fn": 0,
+       "precision": 0.2,
+       "recall": 1.0,
+       "f1": 0.33333333333333337
+      },
+      "image_level_accept_or_abstain": {
+       "tp": 5,
+       "fp": 19,
+       "fn": 0,
+       "precision": 0.20833333333333334,
+       "recall": 1.0,
+       "f1": 0.3448275862068966
+      },
+      "box_level_iou": 0.3,
+      "box_level": {
+       "gt_boxes": 12,
+       "pred_boxes": 16,
+       "tp": 2,
+       "precision": 0.125,
+       "recall": 0.16666666666666666
+      },
+      "abstain": 14,
+      "abstain_rate": 0.3684210526315789,
+      "abstain_on_gt_present": 3,
+      "abstain_on_gt_absent": 11
+     },
+     "parked_vehicle": {
+      "scored_images": 29,
+      "excluded_unsure": 24,
+      "gt_present_images": 5,
+      "gt_absent_images": 24,
+      "image_level": {
+       "tp": 3,
+       "fp": 5,
+       "fn": 2,
+       "precision": 0.375,
+       "recall": 0.6,
+       "f1": 0.4615384615384615,
+       "tn": 19,
+       "f1_ci95_bootstrap": [
+        0.0,
+        0.75
+       ]
+      },
+      "image_level_answered_only": {
+       "tp": 3,
+       "fp": 5,
+       "fn": 1,
+       "precision": 0.375,
+       "recall": 0.75,
+       "f1": 0.5
+      },
+      "image_level_accept_or_abstain": {
+       "tp": 4,
+       "fp": 16,
+       "fn": 1,
+       "precision": 0.2,
+       "recall": 0.8,
+       "f1": 0.32000000000000006
+      },
+      "box_level_iou": 0.3,
+      "box_level": {
+       "gt_boxes": 9,
+       "pred_boxes": 15,
+       "tp": 2,
+       "precision": 0.13333333333333333,
+       "recall": 0.2222222222222222
+      },
+      "abstain": 12,
+      "abstain_rate": 0.41379310344827586,
+      "abstain_on_gt_present": 1,
+      "abstain_on_gt_absent": 11
+     }
+    },
+    "micro_image_level": {
+     "tp": 6,
+     "fp": 16,
+     "fn": 26,
+     "precision": 0.2727272727272727,
+     "recall": 0.1875,
+     "f1": 0.2222222222222222
+    },
+    "per_condition": {
+     "day_dry": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 23,
+       "abstain": 5,
+       "n": 23,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.21739130434782608
+      },
+      "steps": {
+       "tp": 1,
+       "fp": 1,
+       "fn": 1,
+       "tn": 28,
+       "abstain": 8,
+       "n": 31,
+       "precision": 0.5,
+       "recall": 0.5,
+       "f1": 0.5,
+       "abstain_rate": 0.25806451612903225
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 13,
+       "tn": 11,
+       "abstain": 24,
+       "n": 26,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.9230769230769231
+      },
+      "pole_obstruction": {
+       "tp": 2,
+       "fp": 6,
+       "fn": 2,
+       "tn": 15,
+       "abstain": 9,
+       "n": 25,
+       "precision": 0.25,
+       "recall": 0.5,
+       "f1": 0.3333333333333333,
+       "abstain_rate": 0.36
+      },
+      "parked_vehicle": {
+       "tp": 2,
+       "fp": 2,
+       "fn": 1,
+       "tn": 13,
+       "abstain": 8,
+       "n": 18,
+       "precision": 0.5,
+       "recall": 0.6666666666666666,
+       "f1": 0.5714285714285715,
+       "abstain_rate": 0.4444444444444444
+      }
+     },
+     "commercial": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 11,
+       "abstain": 3,
+       "n": 11,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.2727272727272727
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 24,
+       "abstain": 7,
+       "n": 24,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.2916666666666667
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 4,
+       "tn": 11,
+       "abstain": 14,
+       "n": 16,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.875
+      },
+      "pole_obstruction": {
+       "tp": 2,
+       "fp": 4,
+       "fn": 2,
+       "tn": 9,
+       "abstain": 6,
+       "n": 17,
+       "precision": 0.3333333333333333,
+       "recall": 0.5,
+       "f1": 0.4,
+       "abstain_rate": 0.35294117647058826
+      },
+      "parked_vehicle": {
+       "tp": 3,
+       "fp": 3,
+       "fn": 1,
+       "tn": 6,
+       "abstain": 4,
+       "n": 13,
+       "precision": 0.5,
+       "recall": 0.75,
+       "f1": 0.6,
+       "abstain_rate": 0.3076923076923077
+      }
+     },
+     "all": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 1,
+       "tn": 29,
+       "abstain": 8,
+       "n": 30,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.26666666666666666
+      },
+      "steps": {
+       "tp": 1,
+       "fp": 1,
+       "fn": 2,
+       "tn": 45,
+       "abstain": 11,
+       "n": 49,
+       "precision": 0.5,
+       "recall": 0.3333333333333333,
+       "f1": 0.4,
+       "abstain_rate": 0.22448979591836735
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 18,
+       "tn": 19,
+       "abstain": 35,
+       "n": 39,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.8974358974358975
+      },
+      "pole_obstruction": {
+       "tp": 2,
+       "fp": 8,
+       "fn": 3,
+       "tn": 25,
+       "abstain": 14,
+       "n": 38,
+       "precision": 0.2,
+       "recall": 0.4,
+       "f1": 0.26666666666666666,
+       "abstain_rate": 0.3684210526315789
+      },
+      "parked_vehicle": {
+       "tp": 3,
+       "fp": 5,
+       "fn": 2,
+       "tn": 19,
+       "abstain": 12,
+       "n": 29,
+       "precision": 0.375,
+       "recall": 0.6,
+       "f1": 0.4615384615384615,
+       "abstain_rate": 0.41379310344827586
+      }
+     },
+     "market": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 7,
+       "abstain": 0,
+       "n": 7,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.0
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 11,
+       "abstain": 3,
+       "n": 11,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.2727272727272727
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 6,
+       "tn": 3,
+       "abstain": 9,
+       "n": 10,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.9
+      },
+      "pole_obstruction": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 2,
+       "tn": 8,
+       "abstain": 5,
+       "n": 11,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.45454545454545453
+      },
+      "parked_vehicle": {
+       "tp": 1,
+       "fp": 1,
+       "fn": 1,
+       "tn": 2,
+       "abstain": 2,
+       "n": 5,
+       "precision": 0.5,
+       "recall": 0.5,
+       "f1": 0.5,
+       "abstain_rate": 0.4
+      }
+     },
+     "residential": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 1,
+       "tn": 5,
+       "abstain": 2,
+       "n": 6,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.3333333333333333
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "tn": 10,
+       "abstain": 3,
+       "n": 11,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "abstain_rate": 0.2727272727272727
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 5,
+       "tn": 1,
+       "abstain": 5,
+       "n": 7,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.7142857142857143
+      },
+      "pole_obstruction": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 8,
+       "abstain": 3,
+       "n": 8,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.375
+      },
+      "parked_vehicle": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 0,
+       "tn": 3,
+       "abstain": 1,
+       "n": 5,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "abstain_rate": 0.2
+      }
+     },
+     "village": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 2,
+       "abstain": 0,
+       "n": 2,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.0
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 2,
+       "abstain": 0,
+       "n": 2,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.0
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 2,
+       "tn": 0,
+       "abstain": 1,
+       "n": 2,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.5
+      },
+      "pole_obstruction": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "tn": 1,
+       "abstain": 0,
+       "n": 2,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "abstain_rate": 0.0
+      },
+      "parked_vehicle": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "abstain": 0,
+       "n": 1,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.0
+      }
+     },
+     "rain_wet_flood": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 5,
+       "abstain": 2,
+       "n": 5,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.4
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 1,
+       "tn": 8,
+       "abstain": 2,
+       "n": 9,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.2222222222222222
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 3,
+       "tn": 5,
+       "abstain": 6,
+       "n": 8,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.75
+      },
+      "pole_obstruction": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "tn": 7,
+       "abstain": 3,
+       "n": 8,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "abstain_rate": 0.375
+      },
+      "parked_vehicle": {
+       "tp": 1,
+       "fp": 1,
+       "fn": 0,
+       "tn": 3,
+       "abstain": 1,
+       "n": 5,
+       "precision": 0.5,
+       "recall": 1.0,
+       "f1": 0.6666666666666666,
+       "abstain_rate": 0.2
+      }
+     },
+     "night": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 1,
+       "tn": 1,
+       "abstain": 1,
+       "n": 2,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.5
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 8,
+       "abstain": 1,
+       "n": 8,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.125
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 1,
+       "tn": 4,
+       "abstain": 5,
+       "n": 5,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 1.0
+      },
+      "pole_obstruction": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "tn": 4,
+       "abstain": 2,
+       "n": 5,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "abstain_rate": 0.4
+      },
+      "parked_vehicle": {
+       "tp": 1,
+       "fp": 1,
+       "fn": 0,
+       "tn": 3,
+       "abstain": 2,
+       "n": 5,
+       "precision": 0.5,
+       "recall": 1.0,
+       "f1": 0.6666666666666666,
+       "abstain_rate": 0.4
+      }
+     },
+     "hill": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 5,
+       "abstain": 2,
+       "n": 5,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.4
+      },
+      "steps": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "abstain": 0,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "abstain_rate": 0.0
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 3,
+       "tn": 3,
+       "abstain": 6,
+       "n": 6,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 1.0
+      },
+      "pole_obstruction": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "tn": 5,
+       "abstain": 3,
+       "n": 6,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "abstain_rate": 0.5
+      },
+      "parked_vehicle": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "abstain": 2,
+       "n": 4,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.5
+      }
+     },
+     "old_city_lane": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 6,
+       "abstain": 0,
+       "n": 6,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.0
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 5,
+       "abstain": 1,
+       "n": 5,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.2
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 4,
+       "tn": 1,
+       "abstain": 5,
+       "n": 5,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 1.0
+      },
+      "pole_obstruction": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "abstain": 2,
+       "n": 3,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.6666666666666666
+      },
+      "parked_vehicle": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "abstain": 3,
+       "n": 4,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.75
+      }
+     },
+     "view_from_vehicle": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "abstain": 2,
+       "n": 3,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.6666666666666666
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 5,
+       "abstain": 1,
+       "n": 5,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.2
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 3,
+       "tn": 1,
+       "abstain": 4,
+       "n": 4,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 1.0
+      },
+      "pole_obstruction": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 0,
+       "tn": 1,
+       "abstain": 0,
+       "n": 3,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "abstain_rate": 0.0
+      },
+      "parked_vehicle": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "abstain": 3,
+       "n": 3,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 1.0
+      }
+     },
+     "informal_settlement": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "abstain": 0,
+       "n": 1,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.0
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "abstain": 0,
+       "n": 1,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.0
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 1,
+       "tn": 0,
+       "abstain": 1,
+       "n": 1,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 1.0
+      },
+      "parked_vehicle": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "abstain": 1,
+       "n": 1,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 1.0
+      }
+     },
+     "dusk": {
+      "missing_kerb_ramp": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "abstain": 0,
+       "n": 1,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.0
+      },
+      "steps": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "abstain": 0,
+       "n": 3,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "abstain_rate": 0.0
+      },
+      "broken_or_missing_footpath": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 2,
+       "tn": 0,
+       "abstain": 1,
+       "n": 2,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.5
+      },
+      "pole_obstruction": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 1,
+       "tn": 1,
+       "abstain": 1,
+       "n": 2,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.5
+      },
+      "parked_vehicle": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 1,
+       "tn": 1,
+       "abstain": 1,
+       "n": 3,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "abstain_rate": 0.3333333333333333
+      }
+     }
+    },
+    "per_image": [
+     {
+      "file": "cm_001_Sector_V_Salt_Lake_City_Kolkata_2011_08_29_4818_JPG.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "present"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 3
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 2,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 1,
+       "parked_vehicle": 2
+      }
+     },
+     {
+      "file": "cm_003_Sector_V_Salt_Lake_City_Kolkata_2011_08_29_4820_JPG.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "present"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 1
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 2,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "cm_004_Churchgate2_JPG.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 1,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 1
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 4,
+       "pole_obstruction": 0,
+       "parked_vehicle": 1
+      }
+     },
+     {
+      "file": "cm_014_Messy_sidewalk_6627577717_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 1,
+       "broken_or_missing_footpath": 5,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "cm_019_Akbarpur_kanpur_dehat_temple_and_places_4_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 2,
+       "parked_vehicle": 1
+      }
+     },
+     {
+      "file": "cm_031_Jayanagar_footpath_2026_02_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "present",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 2,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 2,
+       "parked_vehicle": 1
+      }
+     },
+     {
+      "file": "cm_033_Cart_on_footpath_in_India_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 1,
+       "parked_vehicle": 5
+      }
+     },
+     {
+      "file": "cm_035_Rubble_on_footpath_in_India_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 4,
+       "pole_obstruction": 0,
+       "parked_vehicle": 8
+      }
+     },
+     {
+      "file": "cm_065_Footpath_Bowbazar_Street_Kolkata_2013_03_03_5221_JPG.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "present"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 3,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "cm_091_Rain_falling_trees_in_bengaluru_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 2
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 3
+      }
+     },
+     {
+      "file": "cm_107_Delhi_India_Rain_at_night_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "present"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 1
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 1,
+       "parked_vehicle": 5
+      }
+     },
+     {
+      "file": "cm_111_Filtered_Rain_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 3,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 8,
+       "parked_vehicle": 2
+      }
+     },
+     {
+      "file": "cm_122_A_tree_at_night_at_jaipur_station_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 2,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 2,
+       "parked_vehicle": 6
+      }
+     },
+     {
+      "file": "cm_130_Ghaffar_Manzil_Colony_Jamia_Nagar_Okhla_New_Delhi_Delhi_1100.jpg",
+      "labels": {
+       "missing_kerb_ramp": "present",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 2,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "cm_156_Pune_Laxmi_Road_Shopping_Main_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 1
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 0,
+       "parked_vehicle": 10
+      }
+     },
+     {
+      "file": "cm_159_Swargate_to_Katraj_Road_under_construction_JPG.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 2,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 9,
+       "parked_vehicle": 2
+      }
+     },
+     {
+      "file": "cm_180_Rivoli_Road_Shimla_2014_05_07_1174_JPG.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "present",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 1,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 9,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 2,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "cm_193_Mall_Road_Shimla_2014_05_07_1253_1254_JPG.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "unsure",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 1,
+       "broken_or_missing_footpath": 8,
+       "pole_obstruction": 7,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "cm_199_Gultekdi_Road_3_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 1
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 1,
+       "broken_or_missing_footpath": 4,
+       "pole_obstruction": 0,
+       "parked_vehicle": 4
+      }
+     },
+     {
+      "file": "cm_200_Gultekdi_Road_2_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "present",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 3,
+       "parked_vehicle": 12
+      }
+     },
+     {
+      "file": "cm_201_Gultekdi_Road_6_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 2
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 1,
+       "parked_vehicle": 8
+      }
+     },
+     {
+      "file": "cm_224_India_Delhi_040_Narrow_streets_of_Old_Delhi_2146050765_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 2
+      }
+     },
+     {
+      "file": "cm_257_Youth_outside_a_shop_in_Puri_Odisha_India_for_accessing_free.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 2,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 4,
+       "parked_vehicle": 6
+      }
+     },
+     {
+      "file": "cm_264_Puducherry_street_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "unsure",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 2,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 3,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 8
+      }
+     },
+     {
+      "file": "cm_273_Jaipur_Tirpoliya_Bazar_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 3,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 1,
+       "parked_vehicle": 12
+      }
+     },
+     {
+      "file": "cm_283_McLeod_Ganj_main_street_jpg.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 1
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 3,
+       "pole_obstruction": 0,
+       "parked_vehicle": 3
+      }
+     },
+     {
+      "file": "mly_Chandigarh_309122604146802.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 4
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 4,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 2,
+       "parked_vehicle": 5
+      }
+     },
+     {
+      "file": "mly_Chandigarh_511414063225158.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "present",
+       "parked_vehicle": "present"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 1,
+       "parked_vehicle": 13
+      }
+     },
+     {
+      "file": "mly_Delhi_1050893423962556.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "unsure",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 3,
+       "pole_obstruction": 3,
+       "parked_vehicle": 3
+      }
+     },
+     {
+      "file": "mly_Jaipur_1071581791885846.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 0,
+       "broken_or_missing_footpath": 3,
+       "pole_obstruction": 3,
+       "parked_vehicle": 8
+      }
+     },
+     {
+      "file": "mly_Jaipur_2530467737465123.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "present",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 2,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 2,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "mly_Kolkata_906852491733079.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "mly_Kolkata_908554956379513.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 1,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 1,
+       "parked_vehicle": 9
+      }
+     },
+     {
+      "file": "mly_MUJ-Dehmi-Kalan_1231369965628851.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "present",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 2,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "mly_Panaji_1743889203606479.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 2,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 0,
+       "parked_vehicle": 10
+      }
+     },
+     {
+      "file": "mly_Panaji_969637019484564.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 2
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 5,
+       "parked_vehicle": 12
+      }
+     },
+     {
+      "file": "mly_Puri_792529403863840.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 1,
+       "broken_or_missing_footpath": 3,
+       "pole_obstruction": 0,
+       "parked_vehicle": 1
+      }
+     },
+     {
+      "file": "mly_Shimla_481137163091641.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 5
+      }
+     },
+     {
+      "file": "mly_Shimla_753924921967169.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 2
+      }
+     },
+     {
+      "file": "mlypair_Mumbai_1714602086341628.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 5,
+       "pole_obstruction": 0,
+       "parked_vehicle": 5
+      }
+     },
+     {
+      "file": "mlypair_Mumbai_856307225274630.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 2
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 2,
+       "parked_vehicle": 6
+      }
+     },
+     {
+      "file": "mlypair_Delhi_562968701760620.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 1,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 6
+      }
+     },
+     {
+      "file": "yt_jcc5OjGDLqw_maxres3.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 2
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 4
+      }
+     },
+     {
+      "file": "yt_rbNmnkPBoyw_maxres3.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 1
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 2,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "yt_x0Wi6yjEEPg_maxres1.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 1,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 2,
+       "parked_vehicle": 1
+      }
+     },
+     {
+      "file": "yt_Ry1qEdnRlbc_maxres1.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 0,
+       "parked_vehicle": 4
+      }
+     },
+     {
+      "file": "yt_QQ2oXrC1dQA_maxres2.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "unsure",
+       "pole_obstruction": "unsure",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 3
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 1,
+       "pole_obstruction": 1,
+       "parked_vehicle": 8
+      }
+     },
+     {
+      "file": "yt_pceOQwANIAU_maxres2.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "present",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      }
+     },
+     {
+      "file": "yt_fZLx7heZHtc_maxres3.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "present",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 2,
+       "parked_vehicle": 1
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 4,
+       "parked_vehicle": 11
+      }
+     },
+     {
+      "file": "yt_JpAxfAtxTz8_maxres3.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "unsure",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "present",
+       "parked_vehicle": "unsure"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 0,
+       "parked_vehicle": 1
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 1,
+       "parked_vehicle": 9
+      }
+     },
+     {
+      "file": "yt_g73mowyEHdU_maxres2.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 2
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 1,
+       "broken_or_missing_footpath": 2,
+       "pole_obstruction": 1,
+       "parked_vehicle": 4
+      }
+     },
+     {
+      "file": "yt_kn4IfvrC65o_maxres1.jpg",
+      "labels": {
+       "missing_kerb_ramp": "unsure",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 2
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 5
+      }
+     },
+     {
+      "file": "cm_192_The_Scandal_Point_Shimla_2014_05_08_1582_JPG.jpg",
+      "labels": {
+       "missing_kerb_ramp": "absent",
+       "steps": "absent",
+       "broken_or_missing_footpath": "absent",
+       "pole_obstruction": "absent",
+       "parked_vehicle": "absent"
+      },
+      "pred_accept": {
+       "missing_kerb_ramp": 0,
+       "steps": 0,
+       "broken_or_missing_footpath": 0,
+       "pole_obstruction": 0,
+       "parked_vehicle": 0
+      },
+      "pred_abstain": {
+       "missing_kerb_ramp": 1,
+       "steps": 0,
+       "broken_or_missing_footpath": 4,
+       "pole_obstruction": 1,
+       "parked_vehicle": 1
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

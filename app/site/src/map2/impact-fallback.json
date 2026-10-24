@@ -1,0 +1,412 @@
+{
+ "_about": "FALLBACK derived by app/site/tools/make_impact_fallback.py from app/route/hroute/assumptions.json (routing-lane ASSUMPTIONS, not measurements). block = hard block for that body; slow = adds 60 s or more, or blocks only under a measured condition; warn = adds under 60 s. Replaced at runtime by /content/impact-matrix.json when that file exists.",
+ "types": {
+  "missing_kerb_ramp": {
+   "manual_wheelchair": {
+    "level": "block",
+    "cost_s": 45,
+    "note": "blocks if height cm gt 2"
+   },
+   "power_wheelchair": {
+    "level": "block",
+    "cost_s": 30,
+    "note": "blocks if height cm gt 2"
+   },
+   "walker_elderly": {
+    "level": "warn",
+    "cost_s": 40,
+    "note": null
+   },
+   "pram": {
+    "level": "slow",
+    "cost_s": 40,
+    "note": "blocks if height cm gt 25"
+   },
+   "crutches": {
+    "level": "warn",
+    "cost_s": 30,
+    "note": null
+   },
+   "low_vision": {
+    "level": "warn",
+    "cost_s": 15,
+    "note": null
+   },
+   "default_walker": {
+    "level": "warn",
+    "cost_s": 3,
+    "note": null
+   }
+  },
+  "steps": {
+   "manual_wheelchair": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "power_wheelchair": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "walker_elderly": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": null
+   },
+   "pram": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": null
+   },
+   "crutches": {
+    "level": "slow",
+    "cost_s": 75,
+    "note": null
+   },
+   "low_vision": {
+    "level": "warn",
+    "cost_s": 25,
+    "note": null
+   },
+   "default_walker": {
+    "level": "warn",
+    "cost_s": 6,
+    "note": null
+   }
+  },
+  "broken_footpath": {
+   "manual_wheelchair": {
+    "level": "slow",
+    "cost_s": 150,
+    "note": null
+   },
+   "power_wheelchair": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": null
+   },
+   "walker_elderly": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": null
+   },
+   "pram": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   },
+   "crutches": {
+    "level": "slow",
+    "cost_s": 100,
+    "note": null
+   },
+   "low_vision": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": null
+   },
+   "default_walker": {
+    "level": "warn",
+    "cost_s": 10,
+    "note": null
+   }
+  },
+  "missing_footpath": {
+   "manual_wheelchair": {
+    "level": "slow",
+    "cost_s": 180,
+    "note": null
+   },
+   "power_wheelchair": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": null
+   },
+   "walker_elderly": {
+    "level": "slow",
+    "cost_s": 150,
+    "note": null
+   },
+   "pram": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": null
+   },
+   "crutches": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": null
+   },
+   "low_vision": {
+    "level": "slow",
+    "cost_s": 240,
+    "note": null
+   },
+   "default_walker": {
+    "level": "warn",
+    "cost_s": 20,
+    "note": null
+   }
+  },
+  "pole_obstruction": {
+   "manual_wheelchair": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": "blocks if clear width cm lt 90"
+   },
+   "power_wheelchair": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": "blocks if clear width cm lt 90"
+   },
+   "walker_elderly": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   },
+   "pram": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": "blocks if clear width cm lt 70"
+   },
+   "crutches": {
+    "level": "warn",
+    "cost_s": 40,
+    "note": null
+   },
+   "low_vision": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": null
+   },
+   "default_walker": {
+    "level": "warn",
+    "cost_s": 5,
+    "note": null
+   }
+  },
+  "parked_vehicle": {
+   "manual_wheelchair": {
+    "level": "slow",
+    "cost_s": 150,
+    "note": "blocks if clear width cm lt 90"
+   },
+   "power_wheelchair": {
+    "level": "slow",
+    "cost_s": 150,
+    "note": "blocks if clear width cm lt 90"
+   },
+   "walker_elderly": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": null
+   },
+   "pram": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": "blocks if clear width cm lt 70"
+   },
+   "crutches": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   },
+   "low_vision": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": null
+   },
+   "default_walker": {
+    "level": "warn",
+    "cost_s": 10,
+    "note": null
+   }
+  },
+  "pothole": {
+   "manual_wheelchair": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": null
+   },
+   "power_wheelchair": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   },
+   "walker_elderly": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   },
+   "pram": {
+    "level": "warn",
+    "cost_s": 30,
+    "note": null
+   },
+   "crutches": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   },
+   "low_vision": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": null
+   },
+   "default_walker": {
+    "level": "warn",
+    "cost_s": 5,
+    "note": null
+   }
+  },
+  "open_drain": {
+   "manual_wheelchair": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "power_wheelchair": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "walker_elderly": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "pram": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": null
+   },
+   "crutches": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "low_vision": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "default_walker": {
+    "level": "warn",
+    "cost_s": 15,
+    "note": null
+   }
+  },
+  "vendor": {
+   "manual_wheelchair": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": "blocks if clear width cm lt 90"
+   },
+   "power_wheelchair": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": "blocks if clear width cm lt 90"
+   },
+   "walker_elderly": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   },
+   "pram": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": "blocks if clear width cm lt 70"
+   },
+   "crutches": {
+    "level": "warn",
+    "cost_s": 45,
+    "note": null
+   },
+   "low_vision": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": null
+   },
+   "default_walker": {
+    "level": "warn",
+    "cost_s": 8,
+    "note": null
+   }
+  },
+  "waterlogging": {
+   "manual_wheelchair": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "power_wheelchair": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "walker_elderly": {
+    "level": "slow",
+    "cost_s": 300,
+    "note": null
+   },
+   "pram": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "crutches": {
+    "level": "slow",
+    "cost_s": 300,
+    "note": null
+   },
+   "low_vision": {
+    "level": "block",
+    "cost_s": null,
+    "note": null
+   },
+   "default_walker": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   }
+  },
+  "steep_slope": {
+   "manual_wheelchair": {
+    "level": "slow",
+    "cost_s": 120,
+    "note": null
+   },
+   "power_wheelchair": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   },
+   "walker_elderly": {
+    "level": "slow",
+    "cost_s": 90,
+    "note": null
+   },
+   "pram": {
+    "level": "warn",
+    "cost_s": 45,
+    "note": null
+   },
+   "crutches": {
+    "level": "slow",
+    "cost_s": 60,
+    "note": null
+   },
+   "low_vision": {
+    "level": "none",
+    "cost_s": 0,
+    "note": null
+   },
+   "default_walker": {
+    "level": "none",
+    "cost_s": 0,
+    "note": null
+   }
+  }
+ }
+}

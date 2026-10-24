@@ -1,0 +1,16 @@
+{
+  "placeholder": true,
+  "note": "Our own labelled Indian test set (C6). Numbers stay null until the eval script has run; the page prints 'not measured yet' instead of inventing a score.",
+  "n_images": null,
+  "labelled_by": null,
+  "sources": null,
+  "per_class": [
+    { "class": "missing_ramp", "label": { "en": "missing kerb ramp", "hi": "रैंप नहीं" }, "n": null, "precision": null, "recall": null },
+    { "class": "steps", "label": { "en": "steps and stairs", "hi": "सीढ़ियाँ" }, "n": null, "precision": null, "recall": null },
+    { "class": "broken_footpath", "label": { "en": "broken or missing footpath", "hi": "टूटा फुटपाथ" }, "n": null, "precision": null, "recall": null },
+    { "class": "pole", "label": { "en": "pole in the path", "hi": "खंभा" }, "n": null, "precision": null, "recall": null },
+    { "class": "parked_vehicle", "label": { "en": "vehicle on the footpath", "hi": "खड़ी गाड़ी" }, "n": null, "precision": null, "recall": null }
+  ],
+  "by_condition": [],
+  "abstain_rate": null
+}

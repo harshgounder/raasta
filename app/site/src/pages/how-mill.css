@@ -1,0 +1,36 @@
+/* the /how mill figure: anatomy kit tokens mapped onto the site palette.
+   paper #F3F3F3, ink #111 in four tones, one lit accent in red #C82924 (the grain: the photo's evidence). */
+.mill-plate {
+  --anatomy-page: #f3f3f3; --anatomy-card: #f3f3f3; --anatomy-text: #3a3a3a; --anatomy-strong: #111; --anatomy-muted: #6b6b6b;
+  --anatomy-paper: #f3f3f3; --anatomy-face: #fbfbfb; --anatomy-top: #fbfbfb;
+  --anatomy-shade-0: #d9d9d9; --anatomy-shade-1: #e1e1e1; --anatomy-shade-2: #e8e8e8; --anatomy-shade-3: #efefef;
+  --anatomy-lit-top: #fbe9e8; --anatomy-lit-shade: #f1d2d0;
+  --anatomy-hi: #111111; --anatomy-mid: #6e6e6e; --anatomy-lo: #a8a8a8; --anatomy-faint: #cdcdcd; --anatomy-lit: #c82924;
+  --anatomy-halo: #6e6e6e; --anatomy-halo-opacity: .28; --anatomy-dot: #111;
+  --anatomy-red: #c82924;
+  --anatomy-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --mill-mouth: #cfcfcf;
+}
+.mill-svg .mill-mouth { fill: var(--mill-mouth); stroke: none; }
+.mill-svg .mill-mesh { fill: #e4e4e4; stroke: none; }
+.mill-svg .mill-pile { fill: #6e6e6e; }
+.mill-svg .mill-grain { fill: url(#mill-grain-g); stroke: #7d1612; stroke-width: .6; vector-effect: non-scaling-stroke; }
+.mill-svg .mill-grain-shadow { display: none; }
+.mill-svg .mill-grain-hl { fill: #fff; opacity: .7; }
+.mill-svg .mill-grain-g { transition: opacity .2s; }
+.mill-svg .mill-bit { stroke: none; }
+.mill-svg .mill-bit[data-k="abstain"] { fill: #6e6e6e; }
+.mill-svg .mill-bit[data-k="reject"] { fill: #b9b9b9; }
+.mill-svg .mill-ink { stroke-dasharray: 60; stroke-dashoffset: 60; transition: stroke-dashoffset 0.9s cubic-bezier(.32,.72,0,1); }
+.mill-svg .mill-ink.on { stroke-dashoffset: 0; }
+/* hover / active stage: the part's outline darkens and thickens, nothing else changes colour (red stays the grain's) */
+.mill-svg .mill-part { cursor: pointer; }
+.mill-svg .mill-part .iso-edge { transition: stroke-width .2s; }
+.mill-svg .mill-part.hot .iso-edge { stroke: var(--anatomy-hi); stroke-width: 1.5; }
+.mill-svg .mill-part.hot .iso-crease { stroke: var(--anatomy-mid); }
+.mill-svg .mill-part.hot .iso-top { fill: #ffffff; }
+/* a pan's top takes an ink tone by its verdict for the run's element: block darkest, then cost, warn; none stays paper */
+.mill-svg [data-pan] .iso-top { transition: fill .4s; }
+.mill-svg [data-pan][data-v="B"] .iso-top { fill: #7a7a7a; }
+.mill-svg [data-pan][data-v="C"] .iso-top { fill: #a9a9a9; }
+.mill-svg [data-pan][data-v="W"] .iso-top { fill: #d2d2d2; }

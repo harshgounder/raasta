@@ -1,0 +1,1085 @@
+{
+ "generated_by": "app/route/taxonomy/build_taxonomy.py",
+ "sources": {
+  "IRC103_2012_6.2.1": "IRC:103-2012 cl 6.2.1: pavement max 150 mm above road (verified, research/claude/VERIFY-STANDARDS.md)",
+  "IRC103_2022_6.7": "IRC:103-2022 cl 6.7 Fig 48: kerb ramp not steeper than 1:15, flares 1:10 (verified, VERIFY-STANDARDS.md)",
+  "HG2021_3.7.2": "MoHUA Harmonised Guidelines 2021 cl 3.7.2: kerb ramp max 1:12 (verified, VERIFY-STANDARDS.md)",
+  "HG2021_3.7.3": "MoHUA HG 2021 cl 3.7.3: kerb ramp min width 900 mm (verified)",
+  "HG2021_3.5.1": "MoHUA HG 2021 cl 3.5.1: walkway min 1200 mm, 1800 mm two-way, 1500 mm around trees/poles (verified)",
+  "UK_IM_S98": "UK DfT Inclusive Mobility (FACTOR-UNIVERSE S98): thresholds over 10 mm a problem, cross-fall 2.5%, 95th pct power chair just over 700 mm wide (excerpt level)",
+  "S96_crossslope": "FACTOR-UNIVERSE S96 (PubMed 41945617): one-rim propulsion around 3% cross slope (excerpt level)",
+  "S95_stepclimb": "FACTOR-UNIVERSE S95 (PMC5672886): step-climbing power chairs median 20 cm step (excerpt level)",
+  "S99_slope": "FACTOR-UNIVERSE S99 (TRID 921388): perceived slope limits, >5% costly (excerpt level)",
+  "GTKP_2017": "GTKP IRF 2017 paper 814: Indian audit measured footpath heights 200 to 250 mm vs 150 mm standard (hermes MAX-INFO-PER-PIXEL.md)",
+  "CPCB_AQI": "CPCB National AQI health statements (https://cpcb.nic.in/upload/NAAQS_2019.pdf; https://cpcb.nic.in/aqi_report.php), read as search excerpts 2026-10-24: 101-200 breathing discomfort to people with lung disease such as asthma, heart disease, children, older adults; 201-300 discomfort on prolonged exposure; 301-400 respiratory illness on prolonged exposure; 401-500 affects healthy people, serious impact on lung/heart disease",
+  "IMD_HEAT": "IMD FAQ on heat wave (https://internal.imd.gov.in/section/nhac/dynamic/FAQ_heat_wave.pdf), search excerpt 2026-10-24: heat wave considered from 40 C plains / 30 C hills; actual max >= 45 C heat wave, >= 47 C severe",
+  "NCHRP562_speeds": "TCRP 112 / NCHRP 562 (https://deldot.gov/Business/drc/manuals/nchrp_rpt_562.pdf), search excerpt: mean walking speed cane or crutch 0.80 m/s, walker 0.63 m/s, wheelchair 1.08 m/s; 0.9 m/s for less capable older pedestrians",
+  "AGEING_2025": "Western et al., Age and Ageing 2025 (PubMed 41354090): mobility-limited older adults mean gait speed 0.77 m/s; 1.5% reach 1.2 m/s",
+  "AGEING_2012": "Asher et al., Age and Ageing 2012 (PubMed 22695790): UK 65+ mean walking speed 0.9 m/s men, 0.8 m/s women",
+  "RPWD_SCHEDULE": "RPwD Act 2016 Schedule (https://prsindia.org/files/bills_acts/acts_parliament/2016/Rights_of_Persons_with_Disabilities_Act_2016.pdf; Lok Sabha AU1109 list; hermes BODY-TAXONOMY.md read the Gazette text)",
+  "HERMES_BODY": "research/hermes/sc02/BODY-TAXONOMY.md (hermes, 2026-10-25 00:05): 61 leaves, qualitative needs; N-codes are sourced, A-cells are hermes assumptions",
+  "ASSUMPTIONS_JSON": "app/route/hroute/assumptions.json (existing 7-profile model): kerb block above 2 cm for wheelchairs, width 90 cm, slope 6.67%",
+  "FU": "research/claude/sc02-FACTOR-UNIVERSE.md (348 factors; S-numbers inside)"
+ },
+ "rules": [
+  {
+   "id": "rain_x_hole_hidden",
+   "when": {
+    "weather_any": [
+     "rain",
+     "heavy_rain",
+     "storm"
+    ],
+    "tags_any": [
+     "hole"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "visibility_needed": 1.3,
+     "fall": 1.4
+    },
+    "set": {
+     "cane_detectable": 0.3
+    },
+    "add": {
+     "water_cm": 5
+    }
+   },
+   "creates": "hidden_hole_under_water",
+   "reason": "Rain fills holes; the surface looks flat, the depth is unknown (W1, 6.03, S42, S44)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "waterlog_x_kerb_unknown",
+   "when": {
+    "tags_any": [
+     "kerb"
+    ],
+    "co_present_tags_any": [
+     "flood"
+    ]
+   },
+   "effect": {
+    "add": {
+     "water_cm": 10,
+     "fall": 0.3
+    },
+    "set": {
+     "cane_detectable": 0.3,
+     "visibility_needed": 1.0
+    }
+   },
+   "creates": "kerb_height_unknown_under_water",
+   "reason": "Standing water hides kerb edge and height (W27)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "waterlog_x_drain",
+   "when": {
+    "tags_any": [
+     "drain"
+    ],
+    "weather_any": [
+     "rain",
+     "heavy_rain",
+     "storm"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "fall": 1.5
+    },
+    "set": {
+     "visibility_needed": 1.0,
+     "cane_detectable": 0.2
+    },
+    "add": {
+     "water_cm": 10
+    }
+   },
+   "creates": "hidden_hole_under_water",
+   "reason": "Open drains under floodwater drown people (S42, S43, F14.14): never route through",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "night_x_dark_x_drain",
+   "when": {
+    "light_any": [
+     "night_dark"
+    ],
+    "tags_any": [
+     "drain",
+     "hole"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "fall": 1.5,
+     "visibility_needed": 1.2
+    }
+   },
+   "creates": "night_open_drain_fall",
+   "reason": "No streetlight plus an open drain or hole: fall hazard (user example)",
+   "source": "ASSUMPTION",
+   "sighted_only": true
+  },
+  {
+   "id": "night_x_hole",
+   "when": {
+    "light_any": [
+     "night_lit",
+     "night_dark"
+    ],
+    "tags_any": [
+     "hole"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "fall": 1.25
+    }
+   },
+   "creates": "dark_pothole",
+   "reason": "Pothole seen by day is hard to see at night (7.05, W73)",
+   "source": "FU",
+   "sighted_only": true
+  },
+  {
+   "id": "dust_x_low_contrast",
+   "when": {
+    "weather_any": [
+     "dust_storm",
+     "smog",
+     "fog",
+     "haze"
+    ],
+    "tags_any": [
+     "low_contrast",
+     "marking",
+     "kerb",
+     "step",
+     "faded"
+    ]
+   },
+   "effect": {
+    "add": {
+     "contrast_loss": 0.4
+    },
+    "mul": {
+     "visibility_needed": 1.2
+    }
+   },
+   "creates": null,
+   "reason": "Dust, smog or fog removes the little contrast a kerb edge or marking had (low vision)",
+   "source": "ASSUMPTION",
+   "sighted_only": true
+  },
+  {
+   "id": "smog_x_crossing",
+   "when": {
+    "weather_any": [
+     "smog",
+     "fog"
+    ],
+    "tags_any": [
+     "crossing"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "vehicle": 1.3
+    },
+    "add": {
+     "contrast_loss": 0.4
+    }
+   },
+   "creates": "smog_crossing_blind_spot",
+   "reason": "In fog/smog drivers see walkers late (S48, W63)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "heat_x_metal",
+   "when": {
+    "temp_min": 38,
+    "tags_any": [
+     "metal",
+     "railing",
+     "handrail"
+    ]
+   },
+   "effect": {
+    "add": {
+     "heat": 0.5
+    }
+   },
+   "creates": "burning_metal_rail",
+   "reason": "Sun-heated metal railings, covers and handrims burn hands (6.07, M532)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "heat_x_dark_surface",
+   "when": {
+    "temp_min": 38,
+    "tags_any": [
+     "dark_surface",
+     "unshaded"
+    ]
+   },
+   "effect": {
+    "add": {
+     "heat": 0.3
+    }
+   },
+   "creates": null,
+   "reason": "Dark paving in the sun reaches about 55 C (INDIA-CHAOS A10)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "crowd_x_traffic_noise",
+   "when": {
+    "tags_any": [
+     "crowd",
+     "loud"
+    ],
+    "co_present_tags_any": [
+     "vehicle",
+     "crossing"
+    ]
+   },
+   "effect": {
+    "add": {
+     "vehicle": 0.2,
+     "noise_db": 5
+    }
+   },
+   "creates": "traffic_masked_by_noise",
+   "reason": "Crowd and noise mask vehicle sounds blind and hard-of-hearing walkers rely on",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "festival_x_narrow",
+   "when": {
+    "festival": true,
+    "tags_any": [
+     "narrow",
+     "crowd"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "crowd": 1.3
+    },
+    "add": {
+     "fall": 0.3
+    }
+   },
+   "creates": "festival_lane_crush",
+   "reason": "Festival crowd plus a narrow approach caused the Kolkata Durga Puja crush (S60, S123)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "glare_x_faded_zebra",
+   "when": {
+    "light_any": [
+     "dawn",
+     "dusk"
+    ],
+    "tags_any": [
+     "faded",
+     "marking"
+    ]
+   },
+   "effect": {
+    "add": {
+     "contrast_loss": 0.4,
+     "vehicle": 0.15
+    }
+   },
+   "creates": "invisible_faded_zebra",
+   "reason": "Low-sun glare washes out a faded zebra for walkers and drivers (7.07, 2.20)",
+   "source": "ASSUMPTION",
+   "sighted_only": true
+  },
+  {
+   "id": "rain_x_smooth_stone",
+   "when": {
+    "weather_any": [
+     "drizzle",
+     "rain",
+     "heavy_rain",
+     "storm"
+    ],
+    "tags_any": [
+     "smooth_stone",
+     "wet_slippery",
+     "metal"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "slip": 2.5
+    }
+   },
+   "creates": "wet_polished_slope",
+   "reason": "Polished granite, tiles and metal plates turn slippery when wet (2.18, W96)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "rain_x_unpaved",
+   "when": {
+    "weather_any": [
+     "rain",
+     "heavy_rain",
+     "storm"
+    ],
+    "tags_any": [
+     "unpaved"
+    ]
+   },
+   "effect": {
+    "add": {
+     "slip": 0.4,
+     "roughness": 0.2,
+     "water_cm": 3
+    }
+   },
+   "creates": null,
+   "reason": "Kuccha paths turn to mud (W83)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "rain_x_slope",
+   "when": {
+    "weather_any": [
+     "drizzle",
+     "rain",
+     "heavy_rain",
+     "storm"
+    ],
+    "tags_any": [
+     "slope",
+     "ramp",
+     "step"
+    ]
+   },
+   "effect": {
+    "add": {
+     "slip": 0.3
+    }
+   },
+   "creates": null,
+   "reason": "Wet ramps and steps are where slips happen",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "waterlog_x_pole_electric",
+   "when": {
+    "tags_any": [
+     "electrical"
+    ],
+    "co_present_tags_any": [
+     "water",
+     "flood"
+    ]
+   },
+   "effect": {
+    "set": {
+     "electric": 1.0
+    }
+   },
+   "creates": "live_wire_in_water",
+   "reason": "Electrified water near poles killed walkers (S50, S51, S121)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "rain_x_electrical",
+   "when": {
+    "weather_any": [
+     "heavy_rain",
+     "storm"
+    ],
+    "tags_any": [
+     "electrical"
+    ]
+   },
+   "effect": {
+    "add": {
+     "electric": 0.5
+    }
+   },
+   "creates": "live_wire_in_water",
+   "reason": "Heavy rain plus exposed wiring (6.04)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "wind_x_tree",
+   "when": {
+    "weather_any": [
+     "storm",
+     "dust_storm",
+     "wind"
+    ],
+    "tags_any": [
+     "tree",
+     "overhead"
+    ]
+   },
+   "effect": {
+    "add": {
+     "overhead": 0.4
+    }
+   },
+   "creates": "dust_storm_tree_fall",
+   "reason": "Tree and branch falls in storms (6.05, S52, S124)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "night_x_dogs",
+   "when": {
+    "light_any": [
+     "night_lit",
+     "night_dark"
+    ],
+    "tags_any": [
+     "dog"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "animal": 1.4
+    }
+   },
+   "creates": "dog_pack_dark_lane",
+   "reason": "Dog packs are more aggressive at night (3.27, W75)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "night_x_isolated",
+   "when": {
+    "light_any": [
+     "night_lit",
+     "night_dark"
+    ],
+    "tags_any": [
+     "isolated",
+     "harassment",
+     "crime"
+    ]
+   },
+   "effect": {
+    "add": {
+     "cognitive": 0.3
+    }
+   },
+   "creates": null,
+   "reason": "Dark spots are linked to harassment (S56)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "ramp_x_pothole",
+   "when": {
+    "tags_any": [
+     "ramp"
+    ],
+    "co_present_tags_any": [
+     "hole"
+    ]
+   },
+   "effect": {
+    "add": {
+     "vertical_cm": 8,
+     "fall": 0.4
+    }
+   },
+   "creates": "ramp_into_pothole",
+   "reason": "A kerb ramp that opens into a pothole is not a ramp (W159)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "crowd_x_ramp",
+   "when": {
+    "tags_any": [
+     "ramp"
+    ],
+    "co_present_tags_any": [
+     "crowd",
+     "vendor"
+    ]
+   },
+   "effect": {
+    "set": {
+     "clear_width_cm": 30
+    }
+   },
+   "creates": "crowd_blocks_ramp",
+   "reason": "Crowd or vendor on the only ramp makes it effectively absent (INDIA-CHAOS 13)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "parked_x_ramp",
+   "when": {
+    "tags_any": [
+     "ramp"
+    ],
+    "co_present_tags_any": [
+     "vehicle"
+    ]
+   },
+   "effect": {
+    "set": {
+     "clear_width_cm": 0
+    }
+   },
+   "creates": null,
+   "reason": "A parked vehicle on a ramp blocks it now (W13)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "cold_x_shade_slope",
+   "when": {
+    "weather_any": [
+     "cold_wave",
+     "snow"
+    ],
+    "tags_any": [
+     "step",
+     "slope",
+     "ramp"
+    ]
+   },
+   "effect": {
+    "add": {
+     "slip": 0.6
+    }
+   },
+   "creates": "icy_shaded_steps",
+   "reason": "Morning ice on shaded steps and slopes (6.13)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "rain_x_trench",
+   "when": {
+    "weather_any": [
+     "rain",
+     "heavy_rain",
+     "storm"
+    ],
+    "tags_any": [
+     "construction"
+    ]
+   },
+   "effect": {
+    "add": {
+     "water_cm": 20,
+     "fall": 0.2
+    },
+    "set": {
+     "visibility_needed": 1.0
+    }
+   },
+   "creates": "flooded_trench",
+   "reason": "Open trenches fill with rainwater and vanish (2.11 x 6.03)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "heat_x_slope",
+   "when": {
+    "temp_min": 38,
+    "tags_any": [
+     "slope",
+     "ramp",
+     "step",
+     "hill"
+    ]
+   },
+   "effect": {
+    "add": {
+     "heat": 0.4,
+     "effort": 0.3
+    }
+   },
+   "creates": "heat_long_unshaded_climb",
+   "reason": "Climbing in heat (6.06, W57)",
+   "source": "IMD_HEAT",
+   "sighted_only": false
+  },
+  {
+   "id": "fog_x_dark_crossing",
+   "when": {
+    "weather_any": [
+     "fog"
+    ],
+    "light_any": [
+     "night_lit",
+     "night_dark",
+     "dawn"
+    ],
+    "tags_any": [
+     "crossing"
+    ]
+   },
+   "effect": {
+    "add": {
+     "vehicle": 0.3,
+     "contrast_loss": 0.4
+    }
+   },
+   "creates": "fog_unlit_crossing",
+   "reason": "Foggy dark crossings (6.09 x 7.01)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "glare_x_step",
+   "when": {
+    "light_any": [
+     "dawn",
+     "dusk"
+    ],
+    "tags_any": [
+     "step",
+     "kerb",
+     "lip"
+    ]
+   },
+   "effect": {
+    "add": {
+     "glare": 0.6,
+     "fall": 0.2
+    },
+    "mul": {
+     "visibility_needed": 1.2
+    }
+   },
+   "creates": "glare_hides_step",
+   "reason": "Low sun glare hides step edges (7.07 x 7.08)",
+   "source": "ASSUMPTION",
+   "sighted_only": true
+  },
+  {
+   "id": "procession_x_road_walk",
+   "when": {
+    "tags_any": [
+     "festival"
+    ],
+    "co_present_tags_any": [
+     "road_walk"
+    ]
+   },
+   "effect": {
+    "add": {
+     "vehicle": 0.3,
+     "crowd": 0.2
+    }
+   },
+   "creates": "procession_on_no_footpath_road",
+   "reason": "A procession on a road with no footpath pushes walkers into traffic",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "silent_ev_x_crowd",
+   "when": {
+    "tags_any": [
+     "silent_vehicle"
+    ],
+    "co_present_tags_any": [
+     "crowd",
+     "loud"
+    ]
+   },
+   "effect": {
+    "add": {
+     "vehicle": 0.25
+    }
+   },
+   "creates": "silent_ev_in_crowd",
+   "reason": "Quiet EVs in crowds are not heard by blind walkers",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "night_x_lowcontrast",
+   "when": {
+    "light_any": [
+     "night_lit",
+     "night_dark"
+    ],
+    "tags_any": [
+     "low_contrast",
+     "kerb",
+     "step",
+     "lip"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "visibility_needed": 1.3
+    },
+    "add": {
+     "contrast_loss": 0.3
+    }
+   },
+   "creates": null,
+   "reason": "Kerb edges and steps lose contrast after dark (7.08)",
+   "source": "FU",
+   "sighted_only": true
+  },
+  {
+   "id": "festival_x_noise",
+   "when": {
+    "festival": true,
+    "tags_any": [
+     "loud",
+     "festival"
+    ]
+   },
+   "effect": {
+    "add": {
+     "noise_db": 10,
+     "flicker": 0.2
+    }
+   },
+   "creates": null,
+   "reason": "Festival nights add DJ trucks and firecrackers (5.06, W69)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "aqi_x_airborne",
+   "when": {
+    "aqi_min": 201,
+    "tags_any": [
+     "air",
+     "dust",
+     "smoke",
+     "fumes"
+    ]
+   },
+   "effect": {
+    "add": {
+     "air": 0.2
+    }
+   },
+   "creates": null,
+   "reason": "Local dust or smoke on top of a poor-AQI day (CPCB poor band 201-300)",
+   "source": "CPCB_AQI",
+   "sighted_only": false
+  },
+  {
+   "id": "dry_x_dust",
+   "when": {
+    "season_any": [
+     "summer"
+    ],
+    "tags_any": [
+     "dust",
+     "unpaved"
+    ]
+   },
+   "effect": {
+    "add": {
+     "air": 0.15
+    }
+   },
+   "creates": null,
+   "reason": "Dry season lifts more dust",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "monsoon_x_flood_prone",
+   "when": {
+    "season_any": [
+     "monsoon"
+    ],
+    "tags_any": [
+     "flood_prone"
+    ]
+   },
+   "effect": {
+    "add": {
+     "water_cm": 8
+    },
+    "set": {
+     "visibility_needed": 1.0
+    }
+   },
+   "creates": "hidden_hole_under_water",
+   "reason": "Spots with past flood marks flood again in monsoon (MAX-INFO 3)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "night_x_vehicle",
+   "when": {
+    "light_any": [
+     "night_dark"
+    ],
+    "tags_any": [
+     "road_walk",
+     "crossing",
+     "fast_road"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "vehicle": 1.3
+    }
+   },
+   "creates": null,
+   "reason": "Drivers do not see walkers in the dark (7.16)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "rain_x_crowd",
+   "when": {
+    "weather_any": [
+     "rain",
+     "heavy_rain",
+     "storm"
+    ],
+    "tags_any": [
+     "crowd"
+    ]
+   },
+   "effect": {
+    "add": {
+     "slip": 0.3,
+     "crowd": 0.1
+    }
+   },
+   "creates": null,
+   "reason": "Crowd rush in rain in a narrow lane (S123)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "heat_x_crowd",
+   "when": {
+    "temp_min": 38,
+    "tags_any": [
+     "crowd",
+     "queue"
+    ]
+   },
+   "effect": {
+    "add": {
+     "heat": 0.3
+    }
+   },
+   "creates": null,
+   "reason": "Standing in a crowd in heat",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "holi_x_slip",
+   "when": {
+    "festival": true,
+    "tags_any": [
+     "wet_slippery",
+     "smooth_stone"
+    ]
+   },
+   "effect": {
+    "add": {
+     "slip": 0.3
+    }
+   },
+   "creates": null,
+   "reason": "Holi colour water on smooth surfaces (W70)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "night_x_construction",
+   "when": {
+    "light_any": [
+     "night_lit",
+     "night_dark"
+    ],
+    "tags_any": [
+     "construction"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "fall": 1.4,
+     "visibility_needed": 1.3
+    }
+   },
+   "creates": null,
+   "reason": "Unlit work sites at night (2.11, 7.05)",
+   "source": "ASSUMPTION",
+   "sighted_only": true
+  },
+  {
+   "id": "rain_x_overhead_drip",
+   "when": {
+    "weather_any": [
+     "drizzle",
+     "rain",
+     "heavy_rain",
+     "storm"
+    ],
+    "tags_any": [
+     "overhead"
+    ]
+   },
+   "effect": {
+    "add": {
+     "slip": 0.1
+    }
+   },
+   "creates": null,
+   "reason": "Awnings and AC units drip onto the walking line",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "wind_x_dust_unpaved",
+   "when": {
+    "weather_any": [
+     "dust_storm",
+     "wind"
+    ],
+    "tags_any": [
+     "unpaved",
+     "dust",
+     "construction"
+    ]
+   },
+   "effect": {
+    "add": {
+     "air": 0.4,
+     "contrast_loss": 0.3
+    }
+   },
+   "creates": null,
+   "reason": "Wind lifts dust from unpaved and construction spots (3.34, S47)",
+   "source": "FU",
+   "sighted_only": false
+  },
+  {
+   "id": "dusk_x_vendor_crowd",
+   "when": {
+    "hour_range": [
+     17,
+     21
+    ],
+    "tags_any": [
+     "vendor"
+    ]
+   },
+   "effect": {
+    "add": {
+     "crowd": 0.2
+    },
+    "mul": {
+     "clear_width_cm": 0.8
+    }
+   },
+   "creates": null,
+   "reason": "Evening vendor peak narrows the path further (5.01)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "school_x_crossing",
+   "when": {
+    "hour_range": [
+     13,
+     15
+    ],
+    "tags_any": [
+     "crossing"
+    ],
+    "co_present_tags_any": [
+     "crowd"
+    ]
+   },
+   "effect": {
+    "add": {
+     "crowd": 0.3,
+     "vehicle": 0.1
+    }
+   },
+   "creates": null,
+   "reason": "School dispersal at a crossing (5.03, M521)",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  },
+  {
+   "id": "night_x_flicker",
+   "when": {
+    "light_any": [
+     "night_lit",
+     "night_dark"
+    ],
+    "tags_any": [
+     "flicker"
+    ]
+   },
+   "effect": {
+    "mul": {
+     "flicker": 1.3
+    }
+   },
+   "creates": null,
+   "reason": "Flicker is stronger against a dark background",
+   "source": "ASSUMPTION",
+   "sighted_only": true
+  },
+  {
+   "id": "rain_x_metal_cover",
+   "when": {
+    "weather_any": [
+     "drizzle",
+     "rain",
+     "heavy_rain",
+     "storm"
+    ],
+    "tags_any": [
+     "metal"
+    ],
+    "co_present_tags_any": [
+     "slope",
+     "ramp"
+    ]
+   },
+   "effect": {
+    "add": {
+     "slip": 0.4
+    }
+   },
+   "creates": "wet_polished_slope",
+   "reason": "Wet metal plate on a slope",
+   "source": "ASSUMPTION",
+   "sighted_only": false
+  }
+ ]
+}

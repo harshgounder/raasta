@@ -1,0 +1,662 @@
+{
+ "placeholder": true,
+ "note": "PLACEHOLDER questions. 'run' sets the map: profile (routing lane ids), hour, layer, or barrier = a query {type?, status?} answered by the first matching record of the chosen city (a REJECT query falls back to ABSTAIN). The answer fills {len} {extra} {short} {n} {unknown} {profile} {time} {minutes} {status} {height} {date} from the data.",
+ "items": [
+  {
+   "id": "w1",
+   "q": {
+    "en": "What if I use a wheelchair at 8 am?",
+    "hi": "अगर मैं सुबह 8 बजे व्हीलचेयर से जाऊँ?"
+   },
+   "run": {
+    "profile": "manual_wheelchair",
+    "hour": 8
+   },
+   "a": {
+    "en": "Your route is {len} m, {extra} m longer than the shortest. The shortest one crosses {n} barriers.",
+    "hi": "आपका रास्ता {len} मीटर है, सबसे छोटे से {extra} मीटर ज़्यादा. सबसे छोटे रास्ते में {n} रुकावटें हैं."
+   }
+  },
+  {
+   "id": "w2",
+   "q": {
+    "en": "What if I leave at 7 pm?",
+    "hi": "अगर मैं शाम 7 बजे निकलूँ?"
+   },
+   "run": {
+    "profile": "manual_wheelchair",
+    "hour": 19
+   },
+   "a": {
+    "en": "Leaving at 7 pm: {len} m. {summary}",
+    "hi": "शाम 7 बजे निकलने पर: {len} मीटर. {summary}"
+   }
+  },
+  {
+   "id": "w3",
+   "q": {
+    "en": "What if I push a pram?",
+    "hi": "अगर मैं बच्चा गाड़ी लेकर चलूँ?"
+   },
+   "run": {
+    "profile": "pram",
+    "hour": 10
+   },
+   "a": {
+    "en": "Pram route: {len} m, about {minutes} minutes.",
+    "hi": "बच्चा गाड़ी का रास्ता: {len} मीटर, लगभग {minutes} मिनट."
+   }
+  },
+  {
+   "id": "w4",
+   "q": {
+    "en": "What if I use a walker?",
+    "hi": "अगर मैं वॉकर से चलूँ?"
+   },
+   "run": {
+    "profile": "walker_elderly",
+    "hour": 10
+   },
+   "a": {
+    "en": "Walker route: {len} m, about {minutes} minutes at a slower pace.",
+    "hi": "वॉकर का रास्ता: {len} मीटर, धीमी चाल से लगभग {minutes} मिनट."
+   }
+  },
+  {
+   "id": "w5",
+   "q": {
+    "en": "What if the kerb is too high?",
+    "hi": "अगर किनारा बहुत ऊँचा हो?"
+   },
+   "run": {
+    "barrier": {
+     "type": "missing_ramp"
+    }
+   },
+   "a": {
+    "en": "Measured {height}. Status {status}, photo of {date}.",
+    "hi": "मापा गया {height}. स्थिति {status}, फ़ोटो {date} की."
+   }
+  },
+  {
+   "id": "w6",
+   "q": {
+    "en": "What if the photo is unclear?",
+    "hi": "अगर फ़ोटो साफ़ न हो?"
+   },
+   "run": {
+    "barrier": {
+     "status": "ABSTAIN"
+    }
+   },
+   "a": {
+    "en": "Then we say ABSTAIN, not safe. This one is {status}.",
+    "hi": "तब हम ABSTAIN कहते हैं, सुरक्षित नहीं. यह {status} है."
+   }
+  },
+  {
+   "id": "w7",
+   "q": {
+    "en": "What if a detector is wrong?",
+    "hi": "अगर डिटेक्टर गलत हो?"
+   },
+   "run": {
+    "barrier": {
+     "status": "REJECT"
+    }
+   },
+   "a": {
+    "en": "Two detectors must agree. Here they did not, so the record is {status} and does not block a route.",
+    "hi": "दो डिटेक्टर सहमत होने चाहिए. यहाँ नहीं हुए, इसलिए रिकॉर्ड {status} है और रास्ता नहीं रोकता."
+   }
+  },
+  {
+   "id": "w8",
+   "q": {
+    "en": "What if nobody photographed this lane?",
+    "hi": "अगर इस गली की फ़ोटो किसी ने न ली हो?"
+   },
+   "run": {
+    "layer": "unknown"
+   },
+   "a": {
+    "en": "It stays UNKNOWN on the map, never safe. Dashed lines are the parts with no photo yet.",
+    "hi": "नक्शे पर यह UNKNOWN रहती है, कभी सुरक्षित नहीं. टूटी रेखाएँ वे हिस्से हैं जिनकी अभी फ़ोटो नहीं."
+   }
+  },
+  {
+   "id": "w9",
+   "q": {
+    "en": "What if I have low vision?",
+    "hi": "अगर मेरी नज़र कमज़ोर हो?"
+   },
+   "run": {
+    "profile": "low_vision",
+    "hour": 11
+   },
+   "a": {
+    "en": "Low vision route: {len} m. {summary}",
+    "hi": "कम दृष्टि का रास्ता: {len} मीटर. {summary}"
+   }
+  },
+  {
+   "id": "w10",
+   "q": {
+    "en": "What if I walk on crutches at night?",
+    "hi": "अगर मैं रात में बैसाखी से चलूँ?"
+   },
+   "run": {
+    "profile": "crutches",
+    "hour": 22
+   },
+   "a": {
+    "en": "Night route: {len} m, {extra} m longer than the shortest. {summary}",
+    "hi": "रात का रास्ता: {len} मीटर, सबसे छोटे से {extra} मीटर ज़्यादा. {summary}"
+   }
+  }
+ ],
+ "wall_note": "15 questions from research/hermes/sc02/WHATIF-WALL.md (hermes, 20:05 IST); images checked by eye and 5 swapped (app/site/WHATIF-CHECK.md). ends_unknown marks the answers that end in 'we do not know yet'; the page counts them from this file. Hindi is a draft for native review.",
+ "wall": [
+  {
+   "id": "w01",
+   "q": {
+    "en": "What if it is raining?",
+    "hi": "अगर बारिश हो रही हो?"
+   },
+   "a": {
+    "en": "Water hides the surface, so we stop claiming and start warning: wet segments get a slip cost, and a measured kerb keeps its number but loses confidence.",
+    "hi": "पानी सतह को ढक देता है, तो हम दावा छोड़कर चेतावनी देते हैं: गीले हिस्से पर फिसलन की कीमत जुड़ती है, और नापा हुआ कर्ब अपना नाप रखता है पर भरोसा घट जाता है।"
+   },
+   "parts": [
+    {
+     "en": "abstain",
+     "hi": "कुछ नहीं कहते"
+    },
+    {
+     "en": "route cost",
+     "hi": "रास्ते की कीमत"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w01_cm_058.jpg",
+   "alt": {
+    "en": "A paved footpath beside a lake railing with a wide rain puddle across the tiles."
+   },
+   "credit": {
+    "author": "Julyro",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Water_puddles_in_road_by_raindrops.jpg",
+    "place": "Kolkata"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w02",
+   "q": {
+    "en": "What if the photo was taken at night?",
+    "hi": "अगर फ़ोटो रात में ली गई हो?"
+   },
+   "a": {
+    "en": "At night we can still see the shape of the path but not the surface, so the segment is marked low-confidence and never called safe.",
+    "hi": "रात में रास्ते का आकार दिखता है पर सतह नहीं, तो उस हिस्से पर कम भरोसा लिखा जाता है, और उसे कभी सुरक्षित नहीं कहा जाता।"
+   },
+   "parts": [
+    {
+     "en": "abstain",
+     "hi": "कुछ नहीं कहते"
+    }
+   ],
+   "ends_unknown": true,
+   "img": "/whatif/w02_cm_107.jpg",
+   "alt": {
+    "en": "A wet street at night in Delhi, scooters and a bicycle parked under shop lights."
+   },
+   "credit": {
+    "author": "Vyacheslav Argenberg",
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Delhi,_India,_Rain_at_night.jpg",
+    "place": "Delhi"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w03",
+   "q": {
+    "en": "What if a cow is standing on the footpath?",
+    "hi": "अगर फुटपाथ पर गाय खड़ी हो?"
+   },
+   "a": {
+    "en": "A cow is a block for today, not a broken street: we price it for now, we do not change the map for it, and the route offers a way around.",
+    "hi": "गाय आज की रुकावट है, टूटी सड़क नहीं: हम उसकी कीमत अभी के लिए जोड़ते हैं, नक्शा नहीं बदलते, और रास्ता बगल से निकाल देते हैं।"
+   },
+   "parts": [
+    {
+     "en": "route cost",
+     "hi": "रास्ते की कीमत"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w03_cm_006.jpg",
+   "alt": {
+    "en": "A cow standing on a city footpath in Mumbai, two women walking past, a yellow railing beside it."
+   },
+   "credit": {
+    "author": "Jorge Láscar from Australia",
+    "licence": "CC BY 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by/2.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Lascar_Hindu_Woman_touching_a_cow,_believed_to_be_sacred_in_Hinduism_(4558210703).jpg",
+    "place": "Mumbai"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w04",
+   "q": {
+    "en": "What if a shop puts its stall out at five in the evening?",
+    "hi": "अगर शाम पाँच बजे दुकान अपना ठेला फुटपाथ पर लगा दे?"
+   },
+   "a": {
+    "en": "The same footpath can be fine at eleven in the morning and blocked at six, so the cost changes with the clock, and the site shows the hour it is talking about.",
+    "hi": "वही फुटपाथ सुबह ग्यारह बजे ठीक और शाम छह बजे बंद हो सकता है, तो कीमत घड़ी के साथ बदलती है, और साइट बताती है कि बात किस घंटे की है।"
+   },
+   "parts": [
+    {
+     "en": "route cost",
+     "hi": "रास्ते की कीमत"
+    },
+    {
+     "en": "time-aware",
+     "hi": "समय के साथ"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w04_cm_003.jpg",
+   "alt": {
+    "en": "Food stall tables and plastic stools set out across a paved footpath in Kolkata, under a red awning."
+   },
+   "credit": {
+    "author": "Biswarup Ganguly",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sector-V_Salt_Lake_City_-_Kolkata_2011-08-29_4820.JPG",
+    "place": "Kolkata"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w05",
+   "q": {
+    "en": "What if there is no footpath at all?",
+    "hi": "अगर फुटपाथ हो ही नहीं?"
+   },
+   "a": {
+    "en": "Then the map says so, and the route prices the walk on the road with the risk it carries, instead of pretending a path exists.",
+    "hi": "तो नक्शा यही बताता है, और रास्ता सड़क पर चलने की कीमत उसके खतरे के साथ जोड़ता है, यह दिखावा नहीं करता कि फुटपाथ है।"
+   },
+   "parts": [
+    {
+     "en": "map",
+     "hi": "नक्शा"
+    },
+    {
+     "en": "route cost",
+     "hi": "रास्ते की कीमत"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w05_cm_181.jpg",
+   "alt": {
+    "en": "A road junction in Shimla where people walk on the road between cars; there is no footpath."
+   },
+   "credit": {
+    "author": "Biswarup Ganguly",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Local_Road_Junction_-_Sanjauli_-_Shimla_2014-05-08_2035.JPG",
+    "place": "Shimla"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w06",
+   "q": {
+    "en": "What if the footpath is broken and nobody fixed it?",
+    "hi": "अगर फुटपाथ टूटा हो और किसी ने ठीक न किया हो?"
+   },
+   "a": {
+    "en": "We record the break with the date we saw it, and the receipt keeps showing that date, so a year-old break looks a year old.",
+    "hi": "हम टूटे हिस्से को उस तारीख के साथ दर्ज करते हैं जब देखा था, और रसीद वही तारीख दिखाती रहती है, तो साल भर पुराना टूटा हिस्सा साल भर पुराना ही दिखता है।"
+   },
+   "parts": [
+    {
+     "en": "scan",
+     "hi": "स्कैन"
+    },
+    {
+     "en": "receipt",
+     "hi": "रसीद"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w06_cm_014.jpg",
+   "alt": {
+    "en": "A Bengaluru footpath with slabs pulled up and broken stone lying along the edge."
+   },
+   "credit": {
+    "author": "Ryan from Toronto, Canada",
+    "licence": "CC BY 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by/2.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Messy_sidewalk_(6627577717).jpg",
+    "place": "Bengaluru"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w07",
+   "q": {
+    "en": "What if people park their bikes on it?",
+    "hi": "अगर लोग उस पर बाइक खड़ी कर दें?"
+   },
+   "a": {
+    "en": "Parked bikes turn a footpath into a parking lot for hours, so they are priced as a block, and the complaint names parking enforcement, not construction.",
+    "hi": "खड़ी बाइकें फुटपाथ को घंटों के लिए पार्किंग बना देती हैं, तो उन्हें रुकावट माना जाता है, और शिकायत में निर्माण नहीं, पार्किंग पर कार्रवाई लिखी जाती है।"
+   },
+   "parts": [
+    {
+     "en": "scan",
+     "hi": "स्कैन"
+    },
+    {
+     "en": "complaint",
+     "hi": "शिकायत"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w07_cm_201.jpg",
+   "alt": {
+    "en": "Motorbikes and bicycles parked in a row along shop fronts in Pune, filling the walking space."
+   },
+   "credit": {
+    "author": "Miteshbhodia",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gultekdi_Road_(6).jpg",
+    "place": "Pune"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w08",
+   "q": {
+    "en": "What if the whole street is flooded?",
+    "hi": "अगर पूरी गली में पानी भरा हो?"
+   },
+   "a": {
+    "en": "Under flood water nothing can be measured, so the segment is blocked for now, and it clears only on a later dry photo or a user report.",
+    "hi": "बाढ़ के पानी में कुछ नापा नहीं जा सकता, तो वह हिस्सा अभी के लिए बंद माना जाता है, और बाद की सूखी फ़ोटो या किसी की रिपोर्ट से ही खुलता है।"
+   },
+   "parts": [
+    {
+     "en": "abstain",
+     "hi": "कुछ नहीं कहते"
+    },
+    {
+     "en": "complaint",
+     "hi": "शिकायत"
+    }
+   ],
+   "ends_unknown": true,
+   "img": "/whatif/w08_cm_098.jpg",
+   "alt": {
+    "en": "A Chennai street under brown flood water, three men wading across."
+   },
+   "credit": {
+    "author": "Vijayingarsal",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Chennai_flood_water_logging_near_ofice_nandanam6.jpg",
+    "place": "Chennai"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w09",
+   "q": {
+    "en": "What if the road is steep or there are steps?",
+    "hi": "अगर रास्ता चढ़ाई वाला हो या सीढ़ियाँ हों?"
+   },
+   "a": {
+    "en": "Steps are a hard block for a wheelchair, not a slowdown, and a steep lane changes the cost for a walker or an older person even when it has no steps.",
+    "hi": "व्हीलचेयर के लिए सीढ़ियाँ पूरी रुकावट हैं, धीमापन नहीं, और चढ़ाई वाली गली वॉकर या बुज़ुर्ग के लिए कीमत बदल देती है, चाहे उसमें सीढ़ी न हो।"
+   },
+   "parts": [
+    {
+     "en": "route cost",
+     "hi": "रास्ते की कीमत"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w09_cm_180.jpg",
+   "alt": {
+    "en": "Concrete steps and a steep path on a hill road in Shimla, people walking up."
+   },
+   "credit": {
+    "author": "Biswarup Ganguly",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rivoli_Road_-_Shimla_2014-05-07_1174.JPG",
+    "place": "Shimla"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w10",
+   "q": {
+    "en": "What if there is rubble or building material lying there?",
+    "hi": "अगर वहाँ मलबा या निर्माण का सामान पड़ा हो?"
+   },
+   "a": {
+    "en": "Rubble is read as a block on the path, photographed with its date, and the complaint asks for debris removal, not a new footpath.",
+    "hi": "मलबे को रास्ते की रुकावट माना जाता है, तारीख के साथ उसकी फ़ोटो रहती है, और शिकायत मलबा हटाने की माँग करती है, नए फुटपाथ की नहीं।"
+   },
+   "parts": [
+    {
+     "en": "scan",
+     "hi": "स्कैन"
+    },
+    {
+     "en": "complaint",
+     "hi": "शिकायत"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w10_cm_035.jpg",
+   "alt": {
+    "en": "A heap of construction rubble on a tiled footpath, a man walking towards it."
+   },
+   "credit": {
+    "author": "Vendor on Robolow Universe",
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Rubble_on_footpath_in_India.jpg",
+    "place": "India (city not stated)"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w11",
+   "q": {
+    "en": "What if carts are parked where the footpath should be?",
+    "hi": "अगर फुटपाथ की जगह ठेले खड़े हों?"
+   },
+   "a": {
+    "en": "Same as a stall: it is a block for those hours, priced where it stands, and the route keeps moving around it.",
+    "hi": "ठेले की तरह ही: यह उन घंटों की रुकावट है, जहाँ खड़ी है वहीं उसकी कीमत लगती है, और रास्ता उसके बगल से चलता रहता है।"
+   },
+   "parts": [
+    {
+     "en": "route cost",
+     "hi": "रास्ते की कीमत"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w11_cm_199.jpg",
+   "alt": {
+    "en": "Hand carts with fruit and goods standing at the shop fronts of a Pune road, a man walking past on the road."
+   },
+   "credit": {
+    "author": "Miteshbhodia",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gultekdi_Road_(3).jpg",
+    "place": "Pune"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w12",
+   "q": {
+    "en": "What if the path is too narrow to pass?",
+    "hi": "अगर रास्ता इतना पतला हो कि निकल न सकें?"
+   },
+   "a": {
+    "en": "Width is measured as a range: below the chair's width it blocks, in between it costs, so the answer is never a plain yes. Unclear edges mean we abstain.",
+    "hi": "चौड़ाई एक दायरे में नापी जाती है: कुर्सी से कम हो तो रुकावट, बीच में हो तो कीमत, तो जवाब कभी सीधा हाँ नहीं होता। किनारे साफ़ न दिखें तो हम कुछ नहीं कहते।"
+   },
+   "parts": [
+    {
+     "en": "scan",
+     "hi": "स्कैन"
+    },
+    {
+     "en": "abstain",
+     "hi": "कुछ नहीं कहते"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w12_cm_250.jpg",
+   "alt": {
+    "en": "A narrow lane in the Latin Quarter of Panaji with a very thin footpath strip and parked scooters."
+   },
+   "credit": {
+    "author": "Fredericknoronha",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Panjim%27s_Latin_Quarter,_in_Goa,_India.JPG",
+    "place": "Panaji"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w13",
+   "q": {
+    "en": "What if the photo is years old?",
+    "hi": "अगर फ़ोटो कई साल पुरानी हो?"
+   },
+   "a": {
+    "en": "Every segment carries the date it was seen, old segments are drawn as old, and nothing is called safe on the strength of a photo from another decade.",
+    "hi": "हर हिस्से के साथ वह तारीख रहती है जब उसे देखा गया, पुराने हिस्से पुराने ही दिखाए जाते हैं, और किसी पुरानी फ़ोटो के भरोसे कुछ भी सुरक्षित नहीं कहा जाता।"
+   },
+   "parts": [
+    {
+     "en": "receipt",
+     "hi": "रसीद"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w13_cm_001.jpg",
+   "alt": {
+    "en": "A Kolkata footpath in 2011 with a vendor under an umbrella and a blue railing, people walking."
+   },
+   "credit": {
+    "author": "Biswarup Ganguly",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sector-V_Salt_Lake_City_-_Kolkata_2011-08-29_4818.JPG",
+    "place": "Kolkata"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w14",
+   "q": {
+    "en": "What if the whole market spills onto the road at night?",
+    "hi": "अगर रात में पूरा बाज़ार सड़क पर फैल जाए?"
+   },
+   "a": {
+    "en": "Then the evening route is different from the morning one, and the site says which hour the route was worked out for.",
+    "hi": "तो शाम का रास्ता सुबह के रास्ते से अलग होता है, और साइट बताती है कि रास्ता किस घंटे के लिए निकाला गया।"
+   },
+   "parts": [
+    {
+     "en": "route cost",
+     "hi": "रास्ते की कीमत"
+    },
+    {
+     "en": "time-aware",
+     "hi": "समय के साथ"
+    }
+   ],
+   "ends_unknown": false,
+   "img": "/whatif/w14_cm_156.jpg",
+   "alt": {
+    "en": "Pune Laxmi Road at night, crowded with people and parked motorbikes under neon signs."
+   },
+   "credit": {
+    "author": "Amityadav8",
+    "licence": "Public domain",
+    "licence_url": null,
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pune_Laxmi_Road_Shopping_Main.jpg",
+    "place": "Pune"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  },
+  {
+   "id": "w15",
+   "q": {
+    "en": "What if the kerb is high but there is a ramp just outside the photo?",
+    "hi": "अगर कर्ब ऊँचा हो पर रैंप फ़ोटो के ठीक बाहर हो?"
+   },
+   "a": {
+    "en": "This is the honest one: a kerb is visible, a ramp is not, and not seen is not the same as not there. So the answer is unknown, go and check, not no ramp.",
+    "hi": "यह ईमानदार जवाब है: कर्ब दिख रहा है, रैंप नहीं, और न दिखना न होने जैसा नहीं है। तो जवाब है: पता नहीं, जाकर देखो, यह नहीं कि रैंप नहीं है।"
+   },
+   "parts": [
+    {
+     "en": "abstain",
+     "hi": "कुछ नहीं कहते"
+    }
+   ],
+   "ends_unknown": true,
+   "img": "/whatif/w15_cm_013.jpg",
+   "alt": {
+    "en": "A long footpath in Noida with a high painted kerb beside it and no ramp in view."
+   },
+   "credit": {
+    "author": "Rashid Jorvee",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Footpath,_Noida_sector_126.jpg",
+    "place": "India (city not stated)"
+   },
+   "hi_status": "draft, needs a native Hindi read (WHATIF-CHECK.md)"
+  }
+ ]
+}

@@ -1,0 +1,114 @@
+{
+ "elements": 379,
+ "element_categories": 12,
+ "element_subcategories": 31,
+ "elements_per_category": {
+  "geometry": 52,
+  "surface": 42,
+  "fixed_obstacles": 33,
+  "temporary_obstacles": 60,
+  "traffic_crossings": 27,
+  "light_time": 37,
+  "weather": 36,
+  "air_noise": 28,
+  "crowd_safety": 14,
+  "terrain_transit": 19,
+  "amenities": 9,
+  "compound": 22
+ },
+ "elements_with_named_source": 52,
+ "elements_assumption_only": 327,
+ "detect_from_photo": {
+  "partial": 161,
+  "yes": 132,
+  "no": 86
+ },
+ "elements_mapped_to_detector_class": 131,
+ "bodies": 74,
+ "body_top_categories": {
+  "Sensory": 11,
+  "Mobility": 26,
+  "Cognitive and neurological": 7,
+  "Chronic and systemic": 8,
+  "Age and life stage": 7,
+  "Temporary and situational": 11,
+  "Environmental sensitivity": 4
+ },
+ "body_subgroups": 25,
+ "bodies_per_scorer": {
+  "visual": 9,
+  "hearing": 3,
+  "wheeled": 9,
+  "ambulant": 16,
+  "cognitive": 9,
+  "systemic": 10,
+  "situational": 14,
+  "elderly": 4
+ },
+ "bodies_that_are_hermes_leaves": 63,
+ "bodies_claude_additions": 11,
+ "body_need_flags": {
+  "A": 296,
+  "N7": 14,
+  "-": 54,
+  "SOURCED": 29
+ },
+ "interaction_rules": 46,
+ "rules_creating_compounds": 26,
+ "distinct_compounds_created": 22,
+ "rules_with_named_source": 21,
+ "matrix": {
+  "day_clear": {
+   "cells": 28046,
+   "verdicts": {
+    "cost": 7964,
+    "none": 12931,
+    "block": 3915,
+    "warn": 3236
+   },
+   "elements_with_3plus_distinct_verdicts_across_bodies": 239
+  },
+  "night_dark": {
+   "cells": 28046,
+   "verdicts": {
+    "cost": 8042,
+    "none": 13016,
+    "block": 4103,
+    "warn": 2885
+   },
+   "elements_with_3plus_distinct_verdicts_across_bodies": 230
+  },
+  "monsoon_rain_evening": {
+   "cells": 28046,
+   "verdicts": {
+    "block": 5902,
+    "cost": 9623,
+    "warn": 3494,
+    "none": 9027
+   },
+   "elements_with_3plus_distinct_verdicts_across_bodies": 241
+  },
+  "heatwave_noon": {
+   "cells": 28046,
+   "verdicts": {
+    "cost": 9649,
+    "none": 10403,
+    "block": 4739,
+    "warn": 3255
+   },
+   "elements_with_3plus_distinct_verdicts_across_bodies": 220
+  },
+  "winter_smog_morning": {
+   "cells": 28046,
+   "verdicts": {
+    "cost": 8534,
+    "none": 12436,
+    "block": 3794,
+    "warn": 3282
+   },
+   "elements_with_3plus_distinct_verdicts_across_bodies": 248
+  }
+ },
+ "matrix_file_bytes": 1285898,
+ "seconds_to_compute": 6.8
+}

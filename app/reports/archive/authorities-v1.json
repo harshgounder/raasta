@@ -1,0 +1,29 @@
+{
+  "note": "ARCHIVED v1 (00:30 IST 2026-10-25), replaced by authorities.json v2 after hermes verified contacts (AUTHORITY-CONTACTS-VERIFIED.md). Reconstructed from the build session after an overwrite; content identical to what v1 held. Jaipur Samadhan, Rajasthan Sampark and CPGRAMS are sourced in research/hermes/sc02/GRIEVANCE-JAIPUR.md (portals checked 2026-10-24). JVVNL and Jaipur Traffic Police are named from general knowledge by the build lane and are NOT yet checked by the research lane: marked checked=false. No phone numbers are given here on purpose until a lane checks them.",
+  "cities": {
+    "jaipur": {
+      "offices": {
+        "jmc": { "name": "Jaipur Municipal Corporation (Jaipur Samadhan grievance portal)", "name_hi": "जयपुर नगर निगम (जयपुर समाधान पोर्टल)", "url": "https://samadhan.jaipurmc.org", "checked": true, "source": "research/hermes/sc02/GRIEVANCE-JAIPUR.md row 'Jaipur Samadhan'" },
+        "sampark": { "name": "Rajasthan Sampark (state grievance portal)", "name_hi": "राजस्थान संपर्क (राज्य शिकायत पोर्टल)", "url": "https://sampark.rajasthan.gov.in", "checked": true, "source": "research/hermes/sc02/GRIEVANCE-JAIPUR.md row 'Rajasthan Sampark' (portal was unreachable on 2026-10-24)" },
+        "jvvnl": { "name": "Jaipur Vidyut Vitran Nigam (electricity poles, transformers, boxes)", "name_hi": "जयपुर विद्युत वितरण निगम (बिजली के खंभे, ट्रांसफ़ॉर्मर)", "url": null, "checked": false, "source": "build lane, not checked" },
+        "traffic": { "name": "Jaipur Traffic Police (signals, crossings, parking on footpaths)", "name_hi": "जयपुर ट्रैफ़िक पुलिस (सिग्नल, क्रॉसिंग, फुटपाथ पर पार्किंग)", "url": null, "checked": false, "source": "build lane, not checked" },
+        "cpgrams": { "name": "CPGRAMS (central grievance portal), if the city does not answer", "name_hi": "सीपीग्राम्स (केंद्रीय शिकायत पोर्टल), अगर शहर जवाब न दे", "url": "https://pgportal.gov.in", "checked": true, "source": "research/hermes/sc02/GRIEVANCE-JAIPUR.md row 'CPGRAMS'" }
+      },
+      "rules": [
+        { "types": ["pole"], "office": "jvvnl" },
+        { "types": ["parked_vehicle", "bikes_on_footpath"], "office": "traffic" },
+        { "categories": ["crossing"], "office": "traffic" },
+        { "categories": ["level", "surface", "no_path", "blocked", "safety", "other"], "office": "jmc" }
+      ],
+      "fallback": "jmc"
+    }
+  },
+  "default": {
+    "offices": {
+      "municipal": { "name": "the city's municipal corporation (ward office)", "name_hi": "शहर का नगर निगम (वार्ड कार्यालय)", "url": null, "checked": false, "source": "generic" },
+      "cpgrams": { "name": "CPGRAMS (central grievance portal), if the city does not answer", "name_hi": "सीपीग्राम्स (केंद्रीय शिकायत पोर्टल), अगर शहर जवाब न दे", "url": "https://pgportal.gov.in", "checked": true, "source": "research/hermes/sc02/GRIEVANCE-JAIPUR.md row 'CPGRAMS'" }
+    },
+    "rules": [],
+    "fallback": "municipal"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "note": "Who a report goes to. ONLY what research/hermes/sc02/AUTHORITY-CONTACTS-VERIFIED.md (hermes, 2026-10-25 01:40 IST) confirms: official domains that answered, the two JMC homepage landlines with their caveat, no other phone numbers, no street addresses. The toll-free number seen only in a search snippet is deliberately absent. v1 of this file (Samadhan, Sampark, CPGRAMS, JVVNL) is archived at app/reports/archive/authorities-v1.json.",
+  "honest_line": { "en": "The complaint goes to the office named on this card. Every contact on this site was checked against an official website on 25 October 2026; where we could not confirm a phone number, we did not print one.", "hi": "शिकायत इस कार्ड पर लिखे दफ़्तर को जाती है. इस साइट का हर संपर्क 25 अक्टूबर 2026 को सरकारी वेबसाइट से जाँचा गया; जहाँ फ़ोन नंबर पक्का नहीं हो पाया, वहाँ हमने नंबर नहीं छापा." },
+  "escalation": { "en": "If nobody acts: the State Commissioner for Persons with Disabilities, Rajasthan, under the RPwD Act 2016 (named as an institution; we have not confirmed a contact).", "hi": "अगर कोई कदम न उठे: दिव्यांगजन अधिकार अधिनियम 2016 के तहत राजस्थान के राज्य दिव्यांगजन आयुक्त (संस्था का नाम; संपर्क हमने पक्का नहीं किया)." },
+  "cities": {
+    "jaipur": {
+      "offices": {
+        "jmc": { "name": "Jaipur Municipal Corporation (citizen helpline page)", "name_hi": "जयपुर नगर निगम (नागरिक हेल्पलाइन पेज)", "url": "https://jaipurmc.org/", "phones": ["0141-2740140", "0141-2747400"], "phones_caveat": { "en": "homepage numbers: published on the corporation homepage, not labelled for a department", "hi": "होमपेज के नंबर: निगम के होमपेज पर छपे, किसी विभाग के नाम के बिना" }, "checked": true, "source": "AUTHORITY-CONTACTS-VERIFIED.md, jaipurmc.org 200 on 2026-10-25" },
+        "police": { "name": "Jaipur Police portal (parking on footpaths, signals)", "name_hi": "जयपुर पुलिस पोर्टल (फुटपाथ पर पार्किंग, सिग्नल)", "url": "https://jaipurpolice.rajasthan.gov.in/", "phones": [], "checked": true, "source": "AUTHORITY-CONTACTS-VERIFIED.md, portal 200; the separate traffic police domain did not answer, so it is not printed" },
+        "pwd": { "name": "Rajasthan Public Works Department (state roads)", "name_hi": "राजस्थान लोक निर्माण विभाग (राज्य की सड़कें)", "url": "https://pwd.rajasthan.gov.in/", "phones": [], "checked": true, "source": "AUTHORITY-CONTACTS-VERIFIED.md, portal 200" },
+        "jda": { "name": "Jaipur Development Authority (JDA roads)", "name_hi": "जयपुर विकास प्राधिकरण (JDA की सड़कें)", "url": "https://jda.rajasthan.gov.in/", "phones": [], "checked": true, "source": "AUTHORITY-CONTACTS-VERIFIED.md, portal 200" },
+        "jmrc": { "name": "Jaipur Metro Rail Corporation (metro corridor)", "name_hi": "जयपुर मेट्रो रेल कॉर्पोरेशन (मेट्रो कॉरिडोर)", "url": "http://jaipurmetrorail.in/", "phones": [], "checked": true, "source": "AUTHORITY-CONTACTS-VERIFIED.md, 200 over http only" }
+      },
+      "rules": [
+        { "types": ["parked_vehicle", "bikes_on_footpath", "signal_short", "signal_dead"], "office": "police" },
+        { "categories": ["level", "surface", "no_path", "blocked", "crossing", "safety", "other"], "office": "jmc" }
+      ],
+      "fallback": "jmc"
+    }
+  },
+  "default": {
+    "offices": {
+      "municipal": { "name": "the city's municipal corporation", "name_hi": "शहर का नगर निगम", "url": null, "phones": [], "checked": false, "source": "generic: no contact checked for this city yet, so none is printed" }
+    },
+    "rules": [],
+    "fallback": "municipal"
+  }
+}

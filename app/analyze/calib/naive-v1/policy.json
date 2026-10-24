@@ -1,0 +1,341 @@
+{
+ "policy": {
+  "_other": {
+   "context_downgrade": true
+  },
+  "missing_kerb_ramp": {
+   "single_A": 0.1,
+   "single_B": 0.4,
+   "context_downgrade": true
+  },
+  "steps": {
+   "single_A": null,
+   "single_B": null,
+   "context_downgrade": true
+  },
+  "broken_or_missing_footpath": {
+   "single_A": null,
+   "single_B": 0.2,
+   "context_downgrade": true
+  },
+  "pole_obstruction": {
+   "single_A": null,
+   "single_B": 0.3,
+   "context_downgrade": true
+  },
+  "parked_vehicle": {
+   "single_A": 0.1,
+   "single_B": 0.3,
+   "context_downgrade": true
+  }
+ },
+ "chosen_on": "C6 dev split (sha1(basename) even)",
+ "source_run": "out/online-v2",
+ "log": {
+  "missing_kerb_ramp": {
+   "dev_positives": 3,
+   "default_dev": {
+    "f1": 0.0,
+    "p": 0.0,
+    "r": 0.0
+   },
+   "chosen_dev": {
+    "f1": 0.6667,
+    "p": 0.6667,
+    "r": 0.6666666666666666
+   },
+   "why": "dev F1 0.00 -> 0.67",
+   "top5": [
+    {
+     "f1": 0.6667,
+     "p": 0.6667,
+     "simple": 1,
+     "single_A": 0.1,
+     "single_B": 0.4,
+     "ctx": true,
+     "r": 0.6666666666666666
+    },
+    {
+     "f1": 0.5714,
+     "p": 0.5,
+     "simple": 1,
+     "single_A": 0.1,
+     "single_B": 0.35,
+     "ctx": true,
+     "r": 0.6666666666666666
+    },
+    {
+     "f1": 0.5,
+     "p": 0.4,
+     "simple": 1,
+     "single_A": 0.1,
+     "single_B": 0.3,
+     "ctx": true,
+     "r": 0.6666666666666666
+    },
+    {
+     "f1": 0.4,
+     "p": 0.5,
+     "simple": 2,
+     "single_A": null,
+     "single_B": 0.4,
+     "ctx": true,
+     "r": 0.3333333333333333
+    },
+    {
+     "f1": 0.4,
+     "p": 0.5,
+     "simple": 2,
+     "single_A": 0.1,
+     "single_B": null,
+     "ctx": true,
+     "r": 0.3333333333333333
+    }
+   ]
+  },
+  "steps": {
+   "dev_positives": 0,
+   "default_dev": {
+    "f1": 0.0,
+    "p": 0.0,
+    "r": 0.0
+   },
+   "chosen_dev": {
+    "f1": 0.0,
+    "p": 0.0,
+    "r": 0.0
+   },
+   "why": "only 0 dev positives: kept the default rule",
+   "top5": [
+    {
+     "f1": 0.0,
+     "p": 0.0,
+     "simple": 3,
+     "single_A": null,
+     "single_B": null,
+     "ctx": true,
+     "r": 0.0
+    },
+    {
+     "f1": 0.0,
+     "p": 0.0,
+     "simple": 2,
+     "single_A": null,
+     "single_B": 0.2,
+     "ctx": true,
+     "r": 0.0
+    },
+    {
+     "f1": 0.0,
+     "p": 0.0,
+     "simple": 2,
+     "single_A": null,
+     "single_B": 0.25,
+     "ctx": true,
+     "r": 0.0
+    },
+    {
+     "f1": 0.0,
+     "p": 0.0,
+     "simple": 2,
+     "single_A": null,
+     "single_B": 0.3,
+     "ctx": true,
+     "r": 0.0
+    },
+    {
+     "f1": 0.0,
+     "p": 0.0,
+     "simple": 2,
+     "single_A": null,
+     "single_B": 0.35,
+     "ctx": true,
+     "r": 0.0
+    }
+   ]
+  },
+  "broken_or_missing_footpath": {
+   "dev_positives": 15,
+   "default_dev": {
+    "f1": 0.0,
+    "p": 0.0,
+    "r": 0.0
+   },
+   "chosen_dev": {
+    "f1": 0.6667,
+    "p": 0.5,
+    "r": 1.0
+   },
+   "why": "dev F1 0.00 -> 0.67",
+   "top5": [
+    {
+     "f1": 0.6667,
+     "p": 0.5,
+     "simple": 2,
+     "single_A": null,
+     "single_B": 0.2,
+     "ctx": true,
+     "r": 1.0
+    },
+    {
+     "f1": 0.6667,
+     "p": 0.5,
+     "simple": 1,
+     "single_A": 0.1,
+     "single_B": 0.2,
+     "ctx": true,
+     "r": 1.0
+    },
+    {
+     "f1": 0.6667,
+     "p": 0.5,
+     "simple": 1,
+     "single_A": 0.15,
+     "single_B": 0.2,
+     "ctx": true,
+     "r": 1.0
+    },
+    {
+     "f1": 0.6667,
+     "p": 0.5,
+     "simple": 1,
+     "single_A": 0.2,
+     "single_B": 0.2,
+     "ctx": true,
+     "r": 1.0
+    },
+    {
+     "f1": 0.6667,
+     "p": 0.5,
+     "simple": 1,
+     "single_A": 0.25,
+     "single_B": 0.2,
+     "ctx": true,
+     "r": 1.0
+    }
+   ]
+  },
+  "pole_obstruction": {
+   "dev_positives": 8,
+   "default_dev": {
+    "f1": 0.7143,
+    "p": 0.8333,
+    "r": 0.625
+   },
+   "chosen_dev": {
+    "f1": 0.8421,
+    "p": 0.7273,
+    "r": 1.0
+   },
+   "why": "dev F1 0.71 -> 0.84",
+   "top5": [
+    {
+     "f1": 0.8421,
+     "p": 0.7273,
+     "simple": 2,
+     "single_A": null,
+     "single_B": 0.3,
+     "ctx": true,
+     "r": 1.0
+    },
+    {
+     "f1": 0.8421,
+     "p": 0.7273,
+     "simple": 1,
+     "single_A": 0.15,
+     "single_B": 0.3,
+     "ctx": true,
+     "r": 1.0
+    },
+    {
+     "f1": 0.8421,
+     "p": 0.7273,
+     "simple": 1,
+     "single_A": 0.2,
+     "single_B": 0.3,
+     "ctx": true,
+     "r": 1.0
+    },
+    {
+     "f1": 0.8421,
+     "p": 0.7273,
+     "simple": 1,
+     "single_A": 0.25,
+     "single_B": 0.3,
+     "ctx": true,
+     "r": 1.0
+    },
+    {
+     "f1": 0.8421,
+     "p": 0.7273,
+     "simple": 1,
+     "single_A": 0.3,
+     "single_B": 0.3,
+     "ctx": true,
+     "r": 1.0
+    }
+   ]
+  },
+  "parked_vehicle": {
+   "dev_positives": 3,
+   "default_dev": {
+    "f1": 0.0,
+    "p": 0.0,
+    "r": 0.0
+   },
+   "chosen_dev": {
+    "f1": 0.3,
+    "p": 0.1765,
+    "r": 1.0
+   },
+   "why": "dev F1 0.00 -> 0.30",
+   "top5": [
+    {
+     "f1": 0.3,
+     "p": 0.1765,
+     "simple": 1,
+     "single_A": 0.1,
+     "single_B": 0.3,
+     "ctx": true,
+     "r": 1.0
+    },
+    {
+     "f1": 0.2857,
+     "p": 0.1818,
+     "simple": 2,
+     "single_A": 0.1,
+     "single_B": null,
+     "ctx": true,
+     "r": 0.6666666666666666
+    },
+    {
+     "f1": 0.2857,
+     "p": 0.1818,
+     "simple": 1,
+     "single_A": 0.1,
+     "single_B": 0.5,
+     "ctx": true,
+     "r": 0.6666666666666666
+    },
+    {
+     "f1": 0.2667,
+     "p": 0.1667,
+     "simple": 1,
+     "single_A": 0.1,
+     "single_B": 0.4,
+     "ctx": true,
+     "r": 0.6666666666666666
+    },
+    {
+     "f1": 0.2609,
+     "p": 0.15,
+     "simple": 1,
+     "single_A": null,
+     "single_B": 0.3,
+     "ctx": false,
+     "r": 1.0
+    }
+   ]
+  }
+ }
+}

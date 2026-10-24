@@ -1,0 +1,90 @@
+/* shared look for every page: santioni tokens (measured from santionispirits.com via `re style css`):
+   paper #fff, ink #121212, signature red #c82924. their faces (Charles Rosie, PP Nikkei Maru Ultrabold) are not ours to
+   ship; the kit's free lookalikes stand in: Gloock (display, OFL) and M PLUS Rounded 1c ExtraBold (ui, OFL), plus
+   Baloo 2 (OFL) for Devanagari. */
+@font-face { font-family: 'Rounded'; src: url('/fonts/MPLUSRounded1c-ExtraBold.latin.woff2') format('woff2'); font-weight: 800; font-display: block; }
+@font-face { font-family: 'Rounded'; src: url('/fonts/MPLUSRounded1c-Bold.latin.woff2') format('woff2'); font-weight: 700; font-display: block; }
+@font-face { font-family: 'Deva'; src: url('/fonts/Baloo2-Devanagari-800.woff2') format('woff2'); font-weight: 800; font-display: swap; unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF; }
+@font-face { font-family: 'Deva'; src: url('/fonts/Baloo2-Devanagari-700.woff2') format('woff2'); font-weight: 700; font-display: swap; unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF; }
+@font-face { font-family: 'Display'; src: url('/fonts/Gloock-Regular.latin.woff2') format('woff2'); font-weight: 400; font-display: block; }
+
+:root {
+  --paper: #ffffff;
+  --ink: #121212;
+  --red: #c82924;
+  --ink-soft: #3a3a3a;
+  --font-ui: 'Rounded', 'Deva', system-ui, sans-serif;
+  --font-display: 'Display', 'Deva', Georgia, serif;
+  --stroke: 3px;
+  --gutter: 48px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  color-scheme: light;
+}
+@media (max-width: 640px) { :root { --gutter: 16px; } }
+
+html { background: var(--paper); color: var(--ink); }
+body { margin: 0; font-family: var(--font-ui); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.comic, .sound-toggle, .hold-btn, .agegate, .carousel button, .carousel .car-title { font-family: var(--font-ui) !important; }
+.comic { color: var(--ink); }
+.comic .caption .w { color: color-mix(in srgb, var(--red) calc(var(--k, 0) * 100%), currentColor); }
+.sound-toggle:focus-visible, .hold-btn:focus-visible { outline-color: var(--red); }
+:lang(hi) .caption, :lang(hi) .lede { letter-spacing: 0; text-transform: none; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* the rough hand-cut box for DOM pages (the story's boxes are drawn in GL by look/panel.js; these are the same idea
+   in CSS: an ink border pushed through a turbulence filter that is re-seeded at 8 fps by shell.js) */
+.box { position: relative; }
+.box::before { content: ''; position: absolute; inset: 0; border: var(--stroke) solid var(--ink); pointer-events: none; filter: url(#rough); }
+.box.red::before { border-color: var(--red); }
+
+/* persistent nav: the pill */
+.site-nav { position: fixed; top: 16px; right: var(--gutter); z-index: 40; display: flex; align-items: center; gap: 4px; padding: 6px 8px; background: var(--paper); }
+.site-nav a, .site-nav button { font: 800 12px/1 var(--font-ui); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 9px 10px; background: none; border: 0; cursor: pointer; }
+.site-nav a[aria-current="page"] { color: var(--red); }
+.site-nav a:hover { color: var(--red); }
+.site-nav .menu-btn { display: none; }
+.home-mark { position: fixed; top: 16px; left: var(--gutter); z-index: 40; font: 400 22px/1 var(--font-display); text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 10px 12px; background: var(--paper); }
+body.story-page .home-mark { display: none; }
+.sound-toggle, .sound-toggle.box { position: fixed; z-index: 41; top: 16px !important; left: auto !important; right: auto; }
+body:not(.story-page) .sound-toggle { padding: 12px 18px; border: 0; color: var(--ink); font: 800 12px/1 var(--font-ui); letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
+body:not(.story-page) .sound-toggle { position: fixed; top: auto !important; bottom: 16px; left: var(--gutter) !important; background: var(--paper); }
+body.story-page .sound-toggle { left: var(--gutter) !important; }
+@media (max-width: 900px) {
+  .site-nav { flex-direction: column; align-items: stretch; top: 12px; right: 12px; padding: 4px; }
+  .site-nav .menu-btn { display: block; }
+  .site-nav a { display: none; padding: 12px 14px; }
+  .site-nav.open a { display: block; }
+}
+
+/* page transition (santioni grammar: a panel of ink slides up over the page, the next page slides it away) */
+.wipe { position: fixed; inset: 0; z-index: 90; background: var(--ink); pointer-events: none; transform: translateY(100%); visibility: hidden; }
+.wipe.cover, .wipe.start, .wipe.reveal { visibility: visible; }
+.wipe.done { visibility: hidden; }
+.wipe.cover { transform: translateY(0); transition: transform 0.45s var(--ease-in-out); pointer-events: auto; }
+.wipe.reveal { transform: translateY(-100%); transition: transform 0.6s var(--ease-out); }
+.wipe.start { transform: translateY(0); transition: none; }
+@media (prefers-reduced-motion: reduce) { .wipe, .wipe.cover, .wipe.reveal { transition: none !important; } }
+
+/* cursor badge on DOM pages (the story draws its own in GL) */
+.cursor { position: fixed; left: 0; top: 0; z-index: 95; width: 46px; height: 46px; margin: -23px 0 0 -23px; pointer-events: none; border-radius: 50%; background: #fff; mix-blend-mode: difference; transition: width 0.25s var(--ease-out), height 0.25s var(--ease-out), margin 0.25s var(--ease-out); }
+.cursor.hot { width: 18px; height: 18px; margin: -9px 0 0 -9px; }
+@media (hover: none), (prefers-reduced-motion: reduce) { .cursor { display: none; } }
+
+/* sound gate (click to enter) */
+.gate { position: fixed; inset: 0; z-index: 80; display: grid; place-content: center; justify-items: center; gap: 36px; padding: 24px; text-align: center; color: var(--paper); background: var(--ink); }
+.gate[hidden] { display: none; }
+.gate h2 { margin: 0; font: 400 clamp(40px, 9vw, 120px)/0.92 var(--font-display); text-transform: uppercase; max-width: 12ch; }
+.gate p { margin: 0; max-width: 40ch; font-weight: 700; font-size: 14px; letter-spacing: 0.04em; line-height: 1.5; }
+.gate .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.gate button { font: 800 14px/1 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 26px; cursor: pointer; border: 0; background: var(--paper); color: var(--ink); }
+.gate button.quiet { background: transparent; color: var(--paper); }
+.gate button.quiet::before { border-color: var(--paper); }
+.gate .lang { font-size: 12px; }
+
+/* paper grain on DOM pages (the same blue-noise texel grid the GL grain uses) */
+body:not(.story-page)::after { content: ''; position: fixed; inset: 0; z-index: 85; pointer-events: none; background: url('/tex/bluenoise128.png'); mix-blend-mode: multiply; opacity: 0.09; image-rendering: pixelated; }
+
+.placeholder-tag { display: inline-block; font: 800 10px/1 var(--font-ui); letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper); background: var(--red); padding: 4px 6px; vertical-align: middle; }

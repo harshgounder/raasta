@@ -1,0 +1,401 @@
+{
+ "version": 1,
+ "placeholder": true,
+ "note": "PLACEHOLDER story frame. Content lane replaces text, heights and art; the engine reads every field at runtime (no rebuild needed). Schema: src/story/schema.js",
+ "title": {
+  "en": "The same street",
+  "hi": "वही गली"
+ },
+ "subtitle": {
+  "en": "five bodies, one footpath",
+  "hi": "पाँच शरीर, एक फुटपाथ"
+ },
+ "bodies": [
+  {
+   "id": "bird",
+   "label": {
+    "en": "bird",
+    "hi": "चिड़िया"
+   },
+   "eye_height_cm": 10,
+   "fov": 62,
+   "pitch_deg": 6,
+   "z": -0.6,
+   "speed_mps": 0.6,
+   "filter": {
+    "highpass": 700
+   },
+   "ambience": "amb-bird",
+   "ambience_fallback": "wind",
+   "placeholder": true
+  },
+  {
+   "id": "cat",
+   "label": {
+    "en": "cat",
+    "hi": "बिल्ली"
+   },
+   "eye_height_cm": 25,
+   "fov": 58,
+   "pitch_deg": 2,
+   "z": 0.35,
+   "speed_mps": 0.9,
+   "filter": {
+    "lowpass": 12000,
+    "highpass": 250
+   },
+   "ambience": "amb-cat",
+   "ambience_fallback": "night",
+   "placeholder": true,
+   "ground": "road"
+  },
+  {
+   "id": "wheelchair",
+   "label": {
+    "en": "wheelchair",
+    "hi": "व्हीलचेयर"
+   },
+   "eye_height_cm": 118,
+   "fov": 46,
+   "pitch_deg": -2,
+   "z": -1.2,
+   "speed_mps": 0.9,
+   "filter": {
+    "lowpass": 9000
+   },
+   "ambience": "amb-wheelchair",
+   "ambience_fallback": "rumble",
+   "placeholder": true
+  },
+  {
+   "id": "oldlady",
+   "label": {
+    "en": "old lady",
+    "hi": "दादी"
+   },
+   "eye_height_cm": 140,
+   "fov": 44,
+   "pitch_deg": -8,
+   "z": -1.6,
+   "speed_mps": 0.6,
+   "filter": {
+    "lowpass": 3200
+   },
+   "ambience": "amb-oldlady",
+   "ambience_fallback": "drone-low",
+   "placeholder": true
+  },
+  {
+   "id": "guy",
+   "label": {
+    "en": "young guy",
+    "hi": "लड़का"
+   },
+   "eye_height_cm": 162,
+   "fov": 42,
+   "pitch_deg": -3,
+   "z": -1.1,
+   "speed_mps": 1.3,
+   "filter": {},
+   "ambience": "amb-guy",
+   "ambience_fallback": "fog-air",
+   "placeholder": true
+  }
+ ],
+ "beats": [
+  {
+   "id": "title",
+   "character": "guy",
+   "eye_height_cm": 162,
+   "screens": 1.25,
+   "title": true,
+   "text": {
+    "en": [],
+    "hi": []
+   },
+   "scene_image": null,
+   "scene": {
+    "street": [],
+    "time": "night",
+    "walk_m": 1
+   },
+   "sound_cue": "whoosh",
+   "bed": {
+    "drone-low": 0.3,
+    "wind": 0.4
+   },
+   "interactable": {
+    "type": "none"
+   },
+   "placeholder": true
+  },
+  {
+   "id": "guy-1",
+   "character": "guy",
+   "eye_height_cm": 162,
+   "screens": 2.5,
+   "text": {
+    "en": [
+     "8:40 am. I walk this footpath every day.",
+     "I have never once looked down at it."
+    ],
+    "hi": [
+     "सुबह 8:40. मैं रोज़ इसी फुटपाथ पर चलता हूँ.",
+     "मैंने कभी नीचे देखा ही नहीं."
+    ]
+   },
+   "scene_image": null,
+   "scene": {
+    "street": [
+     {
+      "type": "pole",
+      "x": 7
+     },
+     {
+      "type": "parked",
+      "x": 13
+     }
+    ],
+    "focus": "pole",
+    "time": "day",
+    "walk_m": 5,
+    "figure": false
+   },
+   "sound_cue": "whoosh",
+   "bed": {
+    "drone-low": 0.3
+   },
+   "interactable": {
+    "type": "switch",
+    "label": {
+     "en": "switch body",
+     "hi": "शरीर बदलो"
+    }
+   },
+   "placeholder": true
+  },
+  {
+   "id": "cat-1",
+   "character": "cat",
+   "eye_height_cm": 25,
+   "screens": 2,
+   "text": {
+    "en": [
+     "For me the kerb is a wall.",
+     "I jump it. Not everyone can."
+    ],
+    "hi": [
+     "मेरे लिए यह किनारा एक दीवार है.",
+     "मैं कूद जाती हूँ. सब नहीं कूद सकते."
+    ]
+   },
+   "scene_image": null,
+   "scene": {
+    "street": [
+     {
+      "type": "no-ramp",
+      "x": 5
+     }
+    ],
+    "focus": "no-ramp",
+    "time": "dusk",
+    "walk_m": 2.5
+   },
+   "sound_cue": "tear",
+   "bed": {
+    "drone-low": 0.25
+   },
+   "interactable": {
+    "type": "tap-barrier",
+    "label": {
+     "en": "tap the barrier",
+     "hi": "रुकावट पर टैप करो"
+    }
+   },
+   "placeholder": true
+  },
+  {
+   "id": "bird-1",
+   "character": "bird",
+   "eye_height_cm": 10,
+   "screens": 2,
+   "text": {
+    "en": [
+     "Down here it is all feet, wheels and holes.",
+     "The holes do not move. The people go around."
+    ],
+    "hi": [
+     "यहाँ नीचे बस पैर, पहिए और गड्ढे हैं.",
+     "गड्ढे नहीं हिलते. लोग घूमकर जाते हैं."
+    ]
+   },
+   "scene_image": null,
+   "scene": {
+    "street": [
+     {
+      "type": "broken",
+      "x": 4
+     }
+    ],
+    "focus": "broken",
+    "time": "day",
+    "walk_m": 2
+   },
+   "sound_cue": "whoosh",
+   "bed": {
+    "drone-low": 0.2
+   },
+   "interactable": {
+    "type": "tap-barrier",
+    "label": {
+     "en": "tap the barrier",
+     "hi": "रुकावट पर टैप करो"
+    }
+   },
+   "placeholder": true
+  },
+  {
+   "id": "oldlady-1",
+   "character": "oldlady",
+   "eye_height_cm": 140,
+   "screens": 4,
+   "text": {
+    "en": [
+     "Three steps to the chemist. No rail.",
+     "My knee says no. I go home without the medicine."
+    ],
+    "hi": [
+     "दवा की दुकान तक तीन सीढ़ियाँ. कोई रेलिंग नहीं.",
+     "घुटना मना करता है. मैं बिना दवा के घर लौट जाती हूँ."
+    ]
+   },
+   "scene_image": null,
+   "scene": {
+    "street": [
+     {
+      "type": "steps",
+      "x": 6
+     }
+    ],
+    "focus": "steps",
+    "time": "day",
+    "walk_m": 3,
+    "figure": true
+   },
+   "sound_cue": "whoosh",
+   "bed": {
+    "drone-low": 0.3,
+    "motif": 0.3
+   },
+   "interactable": {
+    "type": "hold",
+    "label": {
+     "en": "hold to try the step",
+     "hi": "सीढ़ी चढ़ने के लिए दबाए रखो"
+    },
+    "done": {
+     "en": "she turned back",
+     "hi": "वह लौट गईं"
+    }
+   },
+   "after": [
+    2
+   ],
+   "placeholder": true
+  },
+  {
+   "id": "wheelchair-1",
+   "character": "wheelchair",
+   "eye_height_cm": 118,
+   "screens": 2.5,
+   "text": {
+    "en": [
+     "A car on the footpath. A pole after it.",
+     "The only way left is the road, with the traffic."
+    ],
+    "hi": [
+     "फुटपाथ पर गाड़ी. उसके बाद खंभा.",
+     "बस सड़क बचती है, ट्रैफ़िक के साथ."
+    ]
+   },
+   "scene_image": null,
+   "scene": {
+    "street": [
+     {
+      "type": "parked",
+      "x": 6
+     },
+     {
+      "type": "pole",
+      "x": 11
+     }
+    ],
+    "focus": "parked",
+    "time": "night",
+    "walk_m": 4
+   },
+   "sound_cue": "crack",
+   "bed": {
+    "drone-low": 0.4,
+    "night": 0.3
+   },
+   "interactable": {
+    "type": "tap-barrier",
+    "label": {
+     "en": "tap the barrier",
+     "hi": "रुकावट पर टैप करो"
+    }
+   },
+   "placeholder": true
+  },
+  {
+   "id": "guy-2",
+   "character": "guy",
+   "eye_height_cm": 162,
+   "screens": 2,
+   "text": {
+    "en": [
+     "Same street. I never saw any of it.",
+     "So we mapped it. Every kerb, with a photo and a date."
+    ],
+    "hi": [
+     "वही गली. मैंने कुछ नहीं देखा था.",
+     "तो हमने इसका नक्शा बनाया. हर किनारा, फ़ोटो और तारीख के साथ."
+    ]
+   },
+   "scene_image": null,
+   "scene": {
+    "street": [
+     {
+      "type": "pole",
+      "x": 7
+     },
+     {
+      "type": "steps",
+      "x": 12
+     },
+     {
+      "type": "parked",
+      "x": 17
+     }
+    ],
+    "time": "day",
+    "walk_m": 4
+   },
+   "sound_cue": "stamp",
+   "bed": {
+    "drone-low": 0.3,
+    "motif": 0.35
+   },
+   "interactable": {
+    "type": "link",
+    "href": "/map/",
+    "label": {
+     "en": "open the map",
+     "hi": "नक्शा खोलो"
+    }
+   },
+   "placeholder": true
+  }
+ ]
+}

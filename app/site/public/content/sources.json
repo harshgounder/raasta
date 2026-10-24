@@ -1,0 +1,29 @@
+{
+  "placeholder": true,
+  "note": "Data and code we use, with licences. Rows marked verify: true still need a check at the source by the content lane.",
+  "groups": [
+    { "title": { "en": "street data", "hi": "सड़क डेटा" }, "rows": [
+      { "name": "OpenStreetMap", "use": "footways, roads, the walking graph", "license": "ODbL 1.0", "url": "https://www.openstreetmap.org/copyright", "verify": false },
+      { "name": "Generated sidewalks", "use": "sidewalk segments offset from roads where OSM has no footway (ours)", "license": "derived from OSM, ODbL", "url": "https://www.openstreetmap.org/copyright", "verify": false },
+      { "name": "OpenFreeMap tiles", "use": "optional base map", "license": "tiles from OSM data, see site", "url": "https://openfreemap.org", "verify": true }
+    ] },
+    { "title": { "en": "images and labels", "hi": "तस्वीरें और लेबल" }, "rows": [
+      { "name": "Project Sidewalk", "use": "labelled examples from other countries", "license": "to confirm (CC0 per our notes)", "url": "https://projectsidewalk.org", "verify": true },
+      { "name": "Mapillary", "use": "street photos where available", "license": "CC BY-SA 4.0", "url": "https://www.mapillary.com", "verify": true },
+      { "name": "Our labelled Indian set", "use": "test set with per-class scores", "license": "ours, attribution per image", "url": "/how/", "verify": true }
+    ] },
+    { "title": { "en": "code and type", "hi": "कोड और फ़ॉन्ट" }, "rows": [
+      { "name": "three.js r186", "use": "the story renderer", "license": "MIT", "url": "https://github.com/mrdoob/three.js", "verify": false },
+      { "name": "MapLibre GL JS 6.15", "use": "the map", "license": "BSD-3-Clause", "url": "https://github.com/maplibre/maplibre-gl-js", "verify": false },
+      { "name": "deck.gl 9.4", "use": "routes, barriers, route animation", "license": "MIT", "url": "https://github.com/visgl/deck.gl", "verify": false },
+      { "name": "three-pinata 2.0.1", "use": "fracture (kit)", "license": "MIT", "url": "https://github.com/dgreenheck/three-pinata", "verify": false },
+      { "name": "Gloock, M PLUS Rounded 1c, Baloo 2", "use": "type", "license": "SIL OFL 1.1", "url": "https://openfontlicense.org", "verify": false },
+      { "name": "MPFB body, MakeHuman robe, Quaternius walk", "use": "the walking figure", "license": "CC0", "url": "https://quaternius.com/packs/universalanimationlibrary.html", "verify": false },
+      { "name": "Hash without Sine (Dave Hoskins)", "use": "shader noise", "license": "MIT", "url": "https://www.shadertoy.com/view/4djSRW", "verify": false }
+    ] },
+    { "title": { "en": "numbers we quote", "hi": "हमारे आँकड़े" }, "rows": [
+      { "name": "Census of India 2011", "use": "persons with disabilities", "license": "public record", "url": "https://censusindia.gov.in", "verify": true },
+      { "name": "MoRTH road accidents report", "use": "pedestrian deaths", "license": "public record", "url": "https://morth.nic.in", "verify": true }
+    ] }
+  ]
+}

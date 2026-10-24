@@ -1,0 +1,81 @@
+/* /how v2 page layout. the figure's own tokens are in how-mill.css */
+.how-page { --how-paper: #f3f3f3; --how-ink: #111; }
+.mill-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 20px; align-items: start; }
+.mill-plate { position: relative; margin: 0; padding: 44px 16px 40px; background: var(--how-paper); box-shadow: 0 0 0 1px #6e6e6e; }
+.mill-corners span { position: absolute; font: 700 10.5px/1 var(--anatomy-mono); letter-spacing: .06em; color: #6b6b6b; white-space: nowrap; }
+.mill-corners [data-corner="fig"] { top: 16px; left: 18px; color: #111; }
+.mill-corners [data-corner="title"] { top: 16px; right: 18px; text-transform: uppercase; letter-spacing: .1em; }
+.mill-corners [data-corner="hint"] { bottom: 16px; left: 18px; text-transform: uppercase; letter-spacing: .1em; }
+.mill-corners [data-corner="readout"] { bottom: 16px; right: 18px; color: #111; font-variant-numeric: tabular-nums; max-width: 62%; overflow: hidden; text-overflow: ellipsis; }
+.mill-stage { outline: none; }
+.mill-stage:focus-visible { outline: 3px solid var(--red); outline-offset: 4px; }
+.mill-svg { width: 100%; height: auto; display: block; }
+
+.mill-side { display: grid; gap: 14px; position: sticky; top: 84px; }
+.mill-controls { display: grid; gap: 10px; }
+.mill-controls .field select { min-width: 0; width: 100%; box-sizing: border-box; font-size: 13px; }
+.mill-controls .row { display: flex; gap: 8px; flex-wrap: wrap; }
+.mill-controls .btn { box-shadow: inset 0 0 0 2px var(--ink); }
+.mill-controls .btn.red { box-shadow: none; flex: 1; }
+.mill-rec { margin: 0; font-size: 12px; line-height: 1.45; color: var(--ink-soft); font-weight: 700; }
+.mill-live { padding: 12px 14px; background: var(--how-ink); color: #f3f3f3; }
+.ml-clock { font: 800 30px/1 var(--anatomy-mono, ui-monospace); font-variant-numeric: tabular-nums; }
+.ml-clock small { font: 700 11px/1 var(--font-ui); letter-spacing: .06em; text-transform: uppercase; color: #bdbdbd; }
+.ml-say { margin: 8px 0 10px; min-height: 3em; font-size: 14px; line-height: 1.4; font-weight: 700; }
+.ml-counts { display: flex; gap: 14px; list-style: none; margin: 0; padding: 0; font-size: 11px; font-weight: 800; letter-spacing: .06em; }
+.ml-counts li { display: flex; align-items: center; gap: 6px; }
+.ml-counts b { font-size: 15px; font-variant-numeric: tabular-nums; }
+.ml-counts .dot { border-color: #f3f3f3; }
+.ml-counts .dot-abstain, .ml-counts .dot-reject { background: var(--how-ink); }
+
+.stage-card { background: var(--paper); box-shadow: 0 0 0 2px var(--ink); padding: 14px 16px; }
+.stage-card header { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; align-items: baseline; margin-bottom: 8px; }
+.stage-card .sc-n { grid-row: span 2; font: 400 34px/1 var(--font-display); color: var(--red); }
+.stage-card h3 { margin: 0; font: 800 17px/1.15 var(--font-ui); text-transform: uppercase; letter-spacing: .02em; }
+.stage-card .sc-part { font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+.stage-card dl { margin: 0; display: grid; gap: 6px; }
+.stage-card dl > div { display: grid; grid-template-columns: 84px 1fr; gap: 8px; }
+.stage-card dt { font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); padding-top: 2px; }
+.stage-card dd { margin: 0; font-size: 13.5px; line-height: 1.4; font-weight: 700; }
+.stage-card .sc-num dd { color: var(--red); }
+.stage-card .sc-time dd { font-family: var(--anatomy-mono, ui-monospace); font-size: 12px; font-weight: 600; color: var(--ink-soft); }
+.fn { display: inline-block; margin-left: 3px; min-width: 15px; padding: 1px 3px; font: 800 9.5px/1.2 var(--font-ui); text-align: center; text-decoration: none; color: var(--ink); background: #e2e2e2; vertical-align: 2px; }
+.fn:hover { background: var(--ink); color: var(--paper); }
+
+.mill-keys { display: flex; flex-wrap: wrap; gap: 8px 22px; list-style: none; margin: 14px 0 0; padding: 0; font-size: 13px; font-weight: 700; color: var(--ink-soft); }
+.mill-keys li { display: flex; align-items: center; gap: 8px; }
+.mill-keys i { width: 12px; height: 12px; flex: none; }
+.k-grain { border-radius: 50%; background: #c82924; }
+.k-hatch { background: #fbfbfb; box-shadow: inset 0 0 0 1.5px #111; }
+.k-chaff { background: #cfcfcf; }
+.k-pan { border-radius: 50%; background: #fbfbfb; box-shadow: inset 0 0 0 1.5px #6e6e6e; }
+.mill-caption { max-width: 80ch; font-size: 13px; color: var(--ink-soft); font-weight: 700; }
+
+.list-note { max-width: 70ch; font-weight: 700; font-size: 14px; }
+.stage-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); gap: 16px; }
+.section-title.small { font-size: clamp(22px, 3vw, 34px); }
+.bad-ledger { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; max-width: 980px; background: #111; color: #f3f3f3; }
+.bad-ledger li { display: grid; grid-template-columns: 170px 1fr; gap: 16px; align-items: baseline; padding: 14px 18px; border-top: 1px solid #333; }
+.bad-ledger li:first-child { border-top: 0; }
+.bl-num { font: 400 30px/1 var(--font-display); color: #ff6a63; font-variant-numeric: tabular-nums; }
+.bl-what { font-size: 15px; font-weight: 700; line-height: 1.45; }
+.bad-ledger .fn { background: #333; color: #f3f3f3; }
+.sources { font-size: 13px; font-weight: 700; line-height: 1.6; padding-left: 22px; }
+.sources code { font-size: 12px; background: #ececec; padding: 1px 4px; }
+.sources li:target { background: #fbe9e8; }
+
+@media (max-width: 1100px) {
+  .mill-wrap { grid-template-columns: 1fr; }
+  .mill-side { position: static; grid-template-columns: 1fr 1fr; }
+  .mill-card { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .mill-plate { padding: 30px 0 30px; margin: 0 calc(var(--gutter) * -1 + 4px); overflow: hidden; }
+  .mill-stage { margin: -6% -9% -2%; }
+  .mill-corners [data-corner="fig"], .mill-corners [data-corner="hint"] { display: none; }
+  .mill-corners [data-corner="title"] { left: 10px; right: auto; top: 12px; }
+  .mill-corners [data-corner="readout"] { right: 10px; left: 10px; bottom: 12px; max-width: none; text-align: right; }
+  .mill-side { grid-template-columns: 1fr; }
+  .bad-ledger li { grid-template-columns: 1fr; gap: 6px; }
+  .stage-card dl > div { grid-template-columns: 74px 1fr; }
+}
