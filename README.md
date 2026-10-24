@@ -39,7 +39,8 @@ Built for **HYPNEXIS '26**, problem statement **SC-02: Accessible Walking Routes
 | report | barrier report, status trail, complaint letter | [/report/](https://basename-executives-innocent-clusters.trycloudflare.com/report/) |
 | data | every source, licence and count | [/data/](https://basename-executives-innocent-clusters.trycloudflare.com/data/) |
 
-![Story](docs/img/story.jpg)
+![Story ending](docs/img/story.jpg)
+![Dungeon map with both routes](docs/img/route.jpg)
 ![Live scan](docs/img/scan.jpg)
 
 ## The problem statement
