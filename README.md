@@ -6,11 +6,11 @@ RAASTA turns any Indian street photo into a per-body accessibility verdict, and 
 
 Built for **HYPNEXIS '26**, problem statement **SC-02: Accessible Walking Routes from Street Imagery**, by **Team RISC**, Manipal University Jaipur.
 
-[![Live demo](https://img.shields.io/badge/open-the_live_site-c82924?style=for-the-badge)](https://basename-executives-innocent-clusters.trycloudflare.com/)
+[![Live demo](https://img.shields.io/badge/open-the_live_site-c82924?style=for-the-badge)](https://sons-treasurer-lenders-rabbit.trycloudflare.com/)
 [![PS](https://img.shields.io/badge/problem-SC--02-111111?style=for-the-badge)](#the-problem-statement)
 [![Licence](https://img.shields.io/badge/code-MIT-4da3ff?style=for-the-badge)](LICENSE)
 
-**Live site:** https://basename-executives-innocent-clusters.trycloudflare.com/  
+**Live site:** https://sons-treasurer-lenders-rabbit.trycloudflare.com/  
 **QR:** scan `docs/img/demo-qr.png`
 
 > The live site runs on the demo laptop. The site and static pages come from a tunnel, the scan and report backends run locally. If the tunnel is down, the site runs offline with one command, see [Run it locally](#run-it-locally).
@@ -30,14 +30,14 @@ Built for **HYPNEXIS '26**, problem statement **SC-02: Accessible Walking Routes
 
 | page | what it shows | link |
 |---|---|---|
-| story | one street, one camera, a cat, three people, the same kerbs | [/](https://basename-executives-innocent-clusters.trycloudflare.com/) |
-| map | 2.5D footpath network, per-body routes, barrier cards with photo evidence | [/map/](https://basename-executives-innocent-clusters.trycloudflare.com/map/) |
-| scan | live photo scan, every model and every stage visible | [/scan/](https://basename-executives-innocent-clusters.trycloudflare.com/scan/) |
-| city | what is measured, what is not, per city | [/city/](https://basename-executives-innocent-clusters.trycloudflare.com/city/) |
-| how | the anatomy of the pipeline, 17 stages | [/how/](https://basename-executives-innocent-clusters.trycloudflare.com/how/) |
-| what if | 300 questions, 12 topics, runnable on the map | [/what-if/](https://basename-executives-innocent-clusters.trycloudflare.com/what-if/) |
-| report | barrier report, status trail, complaint letter | [/report/](https://basename-executives-innocent-clusters.trycloudflare.com/report/) |
-| data | every source, licence and count | [/data/](https://basename-executives-innocent-clusters.trycloudflare.com/data/) |
+| story | one street, one camera, a cat, three people, the same kerbs | [/](https://sons-treasurer-lenders-rabbit.trycloudflare.com/) |
+| map | 2.5D footpath network, per-body routes, barrier cards with photo evidence | [/map/](https://sons-treasurer-lenders-rabbit.trycloudflare.com/map/) |
+| scan | live photo scan, every model and every stage visible | [/scan/](https://sons-treasurer-lenders-rabbit.trycloudflare.com/scan/) |
+| city | what is measured, what is not, per city | [/city/](https://sons-treasurer-lenders-rabbit.trycloudflare.com/city/) |
+| how | the anatomy of the pipeline, 17 stages | [/how/](https://sons-treasurer-lenders-rabbit.trycloudflare.com/how/) |
+| what if | 300 questions, 12 topics, runnable on the map | [/what-if/](https://sons-treasurer-lenders-rabbit.trycloudflare.com/what-if/) |
+| report | barrier report, status trail, complaint letter | [/report/](https://sons-treasurer-lenders-rabbit.trycloudflare.com/report/) |
+| data | every source, licence and count | [/data/](https://sons-treasurer-lenders-rabbit.trycloudflare.com/data/) |
 
 ![Story ending](docs/img/story.jpg)
 ![Dungeon map with both routes](docs/img/route.jpg)
@@ -155,7 +155,7 @@ story           story specification and motion notes
 - Fonts under the SIL Open Font Licence. Full texts ship with the site.
 - The code in this repository is MIT, see [LICENSE](LICENSE). Data keeps its own licence.
 
-Every row and every count is on the live [/data](https://basename-executives-innocent-clusters.trycloudflare.com/data/) page.
+Every row and every count is on the live [/data](https://sons-treasurer-lenders-rabbit.trycloudflare.com/data/) page.
 
 ## Team
 
